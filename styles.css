@@ -370,3 +370,88 @@ button:disabled{opacity:.65;cursor:wait}
   .all-games-section #gameGrid .game-card.explore-card{min-height:238px}
   .all-games-section #gameGrid .game-card.explore-card .game-thumb{aspect-ratio:4/3}
 }
+
+
+/* Explore All: varied, tightly-packed arcade mosaic */
+.all-games-section #gameGrid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-auto-rows:88px;
+  grid-auto-flow:dense;
+  gap:13px;
+  align-items:stretch;
+}
+.all-games-section #gameGrid .explore-card{
+  grid-column:span 3;
+  grid-row:span 2;
+  min-height:0;
+  height:100%;
+  padding:0;
+  border:0;
+  border-radius:18px;
+  background:#14201c;
+  box-shadow:0 8px 22px #12251c12;
+  overflow:hidden;
+}
+.all-games-section #gameGrid .explore-card:nth-child(7n + 2){grid-column:span 2;grid-row:span 2}
+.all-games-section #gameGrid .explore-card:nth-child(9n + 5){grid-column:span 3;grid-row:span 3}
+.all-games-section #gameGrid .explore-card.explore-hot-large{
+  grid-column:span 6;
+  grid-row:span 3;
+  border-radius:22px;
+}
+.all-games-section #gameGrid .explore-card.explore-played-large{
+  grid-column:span 4;
+  grid-row:span 3;
+  border-radius:22px;
+}
+.all-games-section #gameGrid .explore-card.explore-hot-large.explore-played-large{
+  grid-column:span 6;
+  grid-row:span 4;
+}
+.all-games-section #gameGrid .explore-card .game-thumb{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+  border-radius:0;
+  object-fit:cover;
+  background:#d9eee8;
+}
+.all-games-section #gameGrid .explore-card .game-name{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  min-height:0;
+  max-height:none;
+  opacity:1;
+  transform:none;
+  padding:35px 13px 13px;
+  color:#fff;
+  background:linear-gradient(transparent,#07110ff2);
+  font:700 15px/1.25 'Space Grotesk',sans-serif;
+  text-align:left;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+.all-games-section #gameGrid .explore-card:hover .game-name{color:#d9ff6b}
+.all-games-section #gameGrid .explore-card:hover .game-thumb{transform:scale(1.055);filter:brightness(.84) saturate(1.08)}
+@media(max-width:900px){
+  .all-games-section #gameGrid{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:78px;gap:11px}
+  .all-games-section #gameGrid .explore-card{grid-column:span 2;grid-row:span 2}
+  .all-games-section #gameGrid .explore-card:nth-child(7n + 2){grid-column:span 2;grid-row:span 2}
+  .all-games-section #gameGrid .explore-card:nth-child(9n + 5){grid-column:span 2;grid-row:span 3}
+  .all-games-section #gameGrid .explore-card.explore-hot-large{grid-column:span 4;grid-row:span 3}
+  .all-games-section #gameGrid .explore-card.explore-played-large{grid-column:span 3;grid-row:span 3}
+  .all-games-section #gameGrid .explore-card.explore-hot-large.explore-played-large{grid-column:span 4;grid-row:span 4}
+}
+@media(max-width:560px){
+  .all-games-section #gameGrid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:66px;gap:9px}
+  .all-games-section #gameGrid .explore-card{grid-column:span 2;grid-row:span 2;border-radius:14px}
+  .all-games-section #gameGrid .explore-card:nth-child(7n + 2){grid-column:span 1;grid-row:span 2}
+  .all-games-section #gameGrid .explore-card:nth-child(9n + 5){grid-column:span 2;grid-row:span 3}
+  .all-games-section #gameGrid .explore-card.explore-hot-large{grid-column:span 4;grid-row:span 3;border-radius:18px}
+  .all-games-section #gameGrid .explore-card.explore-played-large{grid-column:span 3;grid-row:span 3;border-radius:17px}
+  .all-games-section #gameGrid .explore-card.explore-hot-large.explore-played-large{grid-column:span 4;grid-row:span 4}
+  .all-games-section #gameGrid .explore-card .game-name{font-size:13px;padding:29px 9px 10px}
+}
