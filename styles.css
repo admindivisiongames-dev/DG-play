@@ -554,3 +554,100 @@ body{min-width:320px;overflow-x:hidden}
 @media(orientation:landscape) and (max-height:520px) and (max-width:950px){
   .game-frame{height:78vh;min-height:240px;max-height:none}
 }
+
+
+/* Responsive pass: phones and tablets (profile + game player priority) */
+html,body{max-width:100%;overflow-x:hidden}
+img,video,iframe{max-width:100%}
+.shell{width:100%;min-width:0}
+.page,.profile-content,.profile-content>main,.profile-tab-panel,.game-shell,.game-player-card,.game-lower-layout,.game-about,.developer-card{min-width:0;max-width:100%}
+.profile-head{min-width:0;flex-wrap:wrap;align-items:center;gap:18px}
+.profile-head>div[style*="flex:1"]{flex:1 1 220px!important;min-width:0;overflow-wrap:anywhere}
+.profile-head .profile-bio{overflow-wrap:anywhere}
+.profile-big{flex:0 0 84px;overflow:hidden}
+.profile-head .avatar-upload-btn{flex:0 0 auto}
+.profile-stats{flex:1 1 100%;width:100%;min-width:0;margin:4px 0}
+.profile-stats .stat{min-width:0}
+.profile-head>#profileLogout{flex:0 0 auto}
+.profile-content{grid-template-columns:minmax(0,1fr) minmax(240px,.72fr);gap:18px}
+.profile-content>main{min-width:0}
+.profile-tabs{min-width:0;max-width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.profile-tabs .chip{flex:0 0 auto;white-space:nowrap}
+.profile-tab-panel{min-width:0;padding:clamp(14px,2vw,26px)}
+.profile-tab-panel .game-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.profile-tab-panel .game-card{min-width:0}
+.profile-tab-panel .game-thumb{max-width:100%}
+.profile-settings-card{min-width:0}
+.profile-setting-summary span{min-width:0;overflow-wrap:anywhere;word-break:break-word}
+.game-shell{padding:clamp(8px,2vw,20px) 0}
+.game-player-card{border-radius:clamp(14px,2vw,30px)}
+.game-frame{width:100%;height:clamp(320px,65vh,700px);min-height:0;overflow:hidden}
+.game-iframe{width:100%;height:100%;min-width:0;display:block}
+.game-detail-bar{min-width:0;flex-wrap:wrap;gap:14px;padding:clamp(14px,2vw,22px)}
+.game-title-block{min-width:0;flex:1 1 180px}
+.game-title-block h1{font-size:clamp(20px,2.4vw,27px);overflow-wrap:anywhere}
+.game-title-block span{display:block;overflow-wrap:anywhere}
+.game-action-buttons{display:flex;flex:1 1 100%;width:100%;min-width:0;flex-wrap:wrap;gap:8px}
+.game-action-buttons .btn{flex:0 1 auto;min-width:0;white-space:normal}
+.game-lower-layout{grid-template-columns:minmax(0,1.7fr) minmax(220px,.8fr);gap:16px}
+.game-about,.developer-card,.comments-panel{overflow-wrap:anywhere}
+.comment-form .field{width:100%;min-width:0}
+@media(min-width:761px) and (max-width:1100px){
+  .shell{padding-left:22px;padding-right:22px}
+  .profile-content{grid-template-columns:minmax(0,1fr)}
+  .profile-content>main{width:100%}
+  .profile-settings-card{width:100%}
+  .profile-tab-panel .game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .game-frame{height:clamp(380px,62vh,620px)}
+  .game-lower-layout{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:760px){
+  .shell{padding-left:14px;padding-right:14px}
+  .page{padding:20px 0 42px}
+  .profile-head{padding:17px;border-radius:20px;gap:12px}
+  .profile-big{width:68px;height:68px;flex-basis:68px;border-radius:20px;font-size:25px}
+  .profile-head>div[style*="flex:1"]{flex-basis:calc(100% - 90px)!important}
+  .profile-head .page-title{font-size:clamp(24px,6vw,32px);overflow-wrap:anywhere}
+  .profile-head .muted{font-size:12px;overflow-wrap:anywhere}
+  .profile-head .avatar-upload-btn{font-size:11px;padding:9px 12px}
+  .profile-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .profile-stats .stat{padding:11px 8px;border-radius:12px;text-align:center}
+  .profile-stats .stat strong{font-size:clamp(18px,5vw,23px)}
+  .profile-stats .stat span{font-size:10px;line-height:1.25}
+  .profile-head>#profileLogout{width:100%}
+  .profile-content{grid-template-columns:minmax(0,1fr);gap:14px;margin-top:16px}
+  .profile-tabs{padding:6px;border-radius:15px;margin-bottom:14px;gap:5px}
+  .profile-tabs .chip{padding:10px 12px;font-size:12px}
+  .profile-tab-panel{padding:14px;border-radius:18px;margin-bottom:14px}
+  .profile-tab-panel .section-head{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:8px}
+  .profile-tab-panel .section-head h2{font-size:20px}
+  .profile-tab-panel .game-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .profile-settings-card{padding:17px;border-radius:18px}
+  .game-shell{padding:4px 0 18px}
+  .game-player-card{border-radius:16px}
+  .game-frame{height:clamp(250px,56svh,440px);min-height:250px}
+  .game-detail-bar{padding:13px;gap:10px}
+  .game-cover-mini{width:54px;height:54px;border-radius:13px}
+  .game-title-block h1{font-size:20px;margin-bottom:3px}
+  .game-title-block span{font-size:11px;line-height:1.4}
+  .game-action-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .game-action-buttons .btn{width:100%;padding:11px 9px;font-size:12px}
+  .game-action-buttons #fullscreen{grid-column:1/-1}
+  .game-lower-layout{grid-template-columns:minmax(0,1fr);gap:12px;margin-top:14px}
+  .game-about,.developer-card,.comments-panel{padding:17px;border-radius:18px}
+  .game-about h2,.developer-card h2,.comments-panel h2{font-size:21px}
+  .comments-panel{margin-top:14px}
+  .comment-form .btn{width:100%}
+}
+@media(max-width:380px){
+  .shell{padding-left:10px;padding-right:10px}
+  .profile-head{padding:13px}
+  .profile-stats .stat{padding:9px 5px}
+  .profile-tabs .chip{padding:9px 10px;font-size:11px}
+  .profile-tab-panel{padding:11px}
+  .game-frame{height:54svh;min-height:230px}
+  .game-action-buttons .btn{font-size:11px}
+}
+@media(orientation:landscape) and (max-height:520px) and (max-width:950px){
+  .game-frame{height:78vh;min-height:220px}
+}
