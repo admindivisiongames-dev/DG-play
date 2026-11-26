@@ -26,7 +26,7 @@ try{
 const request=sb.from('games').select('*').eq('published',true).order('created_at',{ascending:false});
 const result=await Promise.race([request,new Promise(resolve=>setTimeout(()=>resolve({error:{message:'Public games request timed out'}}),12000))]);
 if(result.error)throw result.error;
-games.splice(0,games.length,...(result.data||[]).map(g=>({...g,name:g.title,color:g.cover_color||'c1',play_count:0})));try{const playRows=await sb.from('game_plays').select('game_id');if(!playRows.error){const counts={};(playRows.data||[]).forEach(row=>{counts[row.game_id]=(counts[row.game_id]||0)+1});games.forEach(g=>g.play_count=counts[g.id]||0)}}catch{}
+games.splice(0,games.length,...(result.data||[]).map(g=>({...g,name:g.title,color:g.cover_color||'c1',play_count:0})));try{const playRows=await sb.rpc('get_public_game_play_counts');if(!playRows.error){const counts={};(playRows.data||[]).forEach(row=>{counts[row.game_id]=(counts[row.game_id]||0)+1});games.forEach(g=>g.play_count=counts[g.id]||0)}}catch{}
 gamesLoadState='ready';render();return true;
 }catch(error){gamesLoadState='error';console.error('Division public games query failed:',error?.message||error);render();return false}
 }
