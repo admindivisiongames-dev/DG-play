@@ -184,3 +184,20 @@ button:disabled{opacity:.65;cursor:wait}
 
 .home-discovery .searchbar{display:flex}
 @media(max-width:700px){.home-discovery .searchbar{display:flex}}
+
+
+/* Admin Studio responsive finishing */
+.admin-nav-link{border-color:#b8f36a!important;color:#b8f36a!important}
+.admin-layout{align-items:start}
+.admin-sidebar{position:sticky;top:18px}
+.admin-sidebar a{transition:background .18s ease,color .18s ease}
+.admin-sidebar a:hover,.admin-sidebar a.active{background:#242b25;color:#b8f36a}
+.admin-content>.panel{box-shadow:0 10px 30px #0002}
+.admin-content>.panel h2{font:700 20px 'Space Grotesk';margin:0 0 7px}
+.admin-content .metric{background:linear-gradient(145deg,#191e1a,#121513);border-radius:16px}
+.admin-content .metric strong{color:#b8f36a}
+.admin-content .data-table tr:hover td{background:#ffffff06}
+.admin-content .data-table td .btn{padding:7px 10px;font-size:12px}
+.admin-content .pill{white-space:nowrap}
+@media(max-width:850px){.admin-layout{grid-template-columns:1fr;gap:14px}.admin-sidebar{position:static;display:flex;flex-direction:row;overflow:auto;white-space:nowrap}.admin-sidebar a{flex:0 0 auto}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.admin-content .metric{padding:13px}.admin-content .metric strong{font-size:23px}.admin-sidebar{padding:9px}.admin-sidebar a{padding:10px;font-size:12px}}
