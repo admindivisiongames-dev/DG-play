@@ -23,9 +23,28 @@ async function loadUserLists(){favoriteIds=[];likedIds=[];historyIds=[];if(!curr
 async function loadDivisionState(sessionOverride){
 if(!sb)return;const run=++stateLoadId;let session;
 if(arguments.length){session=sessionOverride}else{const sessionResult=await sb.auth.getSession();if(run!==stateLoadId)return;session=sessionResult.data.session}
-currentUser=session?.user||null;currentProfile=null;
-if(currentUser){const uid=currentUser.id;const p=await sb.from('profiles').select('id,username,role,settings,avatar_url,bio,suspended,created_at').eq('id',uid).maybeSingle();if(run!==stateLoadId)return;currentProfile=p.data||null;if(currentProfile?.suspended){await sb.auth.signOut();if(run!==stateLoadId)return;currentUser=null;currentProfile=null;toast('This account is currently suspended.')}else{const [f,l,h]=await Promise.all([sb.from('favorites').select('game_id').eq('user_id',uid),sb.from('likes').select('game_id').eq('user_id',uid),sb.from('play_history').select('game_id,played_at').eq('user_id',uid).order('played_at',{ascending:false})]);if(run!==stateLoadId)return;favoriteIds=(f.data||[]).map(x=>x.game_id);likedIds=(l.data||[]).map(x=>x.game_id);historyIds=(h.data||[]).map(x=>x.game_id)}}else{favoriteIds=[];likedIds=[];historyIds=[]}
-let gameQuery=sb.from('games').select('*').order('created_at',{ascending:false});const isAdmin=currentUser&&currentProfile?.role==='admin'&&currentUser.email?.toLowerCase()==='admin.division.games@gmail.com';if(!isAdmin)gameQuery=gameQuery.eq('published',true);const result=await gameQuery;if(run!==stateLoadId)return;if(!result.error){games.splice(0,games.length,...(result.data||[]).map(g=>({...g,name:g.title,color:g.cover_color||'c1',plays:''})))}else{console.error('Division games query:',result.error.message);games.splice(0,games.length)}authReady=true}
+currentUser=session?.user||null;currentProfile=null;favoriteIds=[];likedIds=[];historyIds=[];
+// Load the public game catalogue first. It must never depend on profile/list data.
+const publicResult=await sb.from('games').select('*').eq('published',true).order('created_at',{ascending:false});
+if(run!==stateLoadId)return;
+if(!publicResult.error){games.splice(0,games.length,...(publicResult.data||[]).map(g=>({...g,name:g.title,color:g.cover_color||'c1',plays:''})))}
+else{console.error('Division public games query:',publicResult.error.message);toast('Games could not load. Check your connection and retry.')}
+authReady=true;render();
+if(!currentUser)return;
+const uid=currentUser.id;
+try{
+const p=await sb.from('profiles').select('id,username,role,settings,avatar_url,bio,suspended,created_at').eq('id',uid).maybeSingle();
+if(run!==stateLoadId)return;
+currentProfile=p.data||null;
+if(currentProfile?.suspended){await sb.auth.signOut();if(run!==stateLoadId)return;currentUser=null;currentProfile=null;toast('This account is currently suspended.');return}
+const [f,l,h]=await Promise.all([sb.from('favorites').select('game_id').eq('user_id',uid),sb.from('likes').select('game_id').eq('user_id',uid),sb.from('play_history').select('game_id,played_at').eq('user_id',uid).order('played_at',{ascending:false})]);
+if(run!==stateLoadId)return;
+favoriteIds=(f.data||[]).map(x=>x.game_id);likedIds=(l.data||[]).map(x=>x.game_id);historyIds=(h.data||[]).map(x=>x.game_id);
+}catch(error){console.error('Division account data:',error);toast('Some account data did not load. Your games are still available.')}
+const isAdmin=currentUser&&currentProfile?.role==='admin'&&currentUser.email?.toLowerCase()==='admin.division.games@gmail.com';
+if(isAdmin){const adminResult=await sb.from('games').select('*').order('created_at',{ascending:false});if(run!==stateLoadId)return;if(!adminResult.error)games.splice(0,games.length,...(adminResult.data||[]).map(g=>({...g,name:g.title,color:g.cover_color||'c1',plays:''})))}
+if(run!==stateLoadId)return;render()
+}
 async function recordGamePlay(){if(!sb||!currentUser||page!=='game')return;const id=new URLSearchParams(location.search).get('game');if(!id||!games.some(g=>g.id===id))return;await sb.from('play_history').upsert({user_id:currentUser.id,game_id:id,played_at:new Date().toISOString()},{onConflict:'user_id,game_id'});await sb.from('game_plays').insert({user_id:currentUser.id,game_id:id});await loadUserLists()}
 function bind(){
 const top=$('#topSearch');if(top&&page!=='home')top.addEventListener('keydown',e=>{if(e.key==='Enter')location.href='index.html?search='+encodeURIComponent(top.value)});
