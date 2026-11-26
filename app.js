@@ -36,4 +36,7 @@ async function loadComments(gameId){const box=$('#commentList');if(!box||!sb)ret
 async function initSupabase(){render();if(!sb){toast('Supabase client did not load. The page is shown in offline mode.');return}try{await loadDivisionState();await recordGamePlay();render()}catch(error){console.error('Division startup error:',error);toast('Some data could not load. Refresh and try again.')}sb.auth.onAuthStateChange((event,session)=>{if(event==='SIGNED_OUT'){currentUser=null;currentProfile=null;favoriteIds=[];likedIds=[];historyIds=[];render();return}if(event==='SIGNED_IN'||event==='TOKEN_REFRESHED'||event==='USER_UPDATED'){setTimeout(async()=>{try{await loadDivisionState();render()}catch(error){console.error('Division auth refresh:',error)}},0)}})}
 
 initSupabase();
+// Browsers may restore a previously rendered page from the back-forward cache.
+// Rehydrate the Supabase session and game list when that happens.
+window.addEventListener('pageshow',event=>{if(event.persisted){setTimeout(async()=>{try{await loadDivisionState();await recordGamePlay();render()}catch(error){console.error('Division pageshow refresh:',error)}},0)}});
 })();
