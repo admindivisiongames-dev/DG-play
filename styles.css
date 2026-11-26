@@ -289,3 +289,72 @@ button:disabled{opacity:.65;cursor:wait}
 .category-overlay[hidden]{display:none!important}.category-overlay{position:fixed;inset:0;z-index:1200;display:grid;place-items:center;padding:20px;background:rgba(8,16,24,.72);backdrop-filter:blur(8px)}.category-overlay-panel{width:min(1120px,100%);max-height:min(90vh,900px);overflow:auto;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:0 30px 100px #0005}.category-overlay-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px}.category-overlay-head h2{font-size:28px;margin:5px 0}.category-overlay-head p{margin:0;color:var(--muted);font-size:13px}.category-overlay-close{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:var(--panel);color:var(--text);font-size:28px;line-height:1;cursor:pointer}.category-overlay-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.category-overlay-grid .category-modal-card{position:relative;display:block;height:190px;min-width:0;border-radius:16px;overflow:hidden;background:#17211d}.category-overlay-grid .category-modal-card .game-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.category-overlay-grid .category-modal-card .game-name{position:absolute;left:0;right:0;bottom:0;padding:35px 12px 12px;background:linear-gradient(transparent,#08100ff0);color:#fff;opacity:1;transform:none;max-height:none}body.category-overlay-open{overflow:hidden}
 @media(max-width:760px){.game-rail .game-card{flex-basis:76%;width:76%;height:205px;min-height:205px}.category-game-rail .category-card{flex-basis:76%;width:76%;height:205px}.category-overlay-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.category-overlay-panel{padding:16px;border-radius:20px}.category-overlay-grid .category-modal-card{height:155px}}
 @media(min-width:761px){.game-rail .game-card{height:235px;min-height:235px}.category-game-rail .category-card{height:225px}}
+
+
+/* Explore All — distinct framed library cards */
+.all-games-section #gameGrid .game-card.explore-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  height:auto;
+  min-height:0;
+  padding:8px;
+  border:1px solid #d4e3df;
+  border-radius:24px;
+  overflow:hidden;
+  background:linear-gradient(155deg,#ffffff 0%,#f0f8f5 100%);
+  box-shadow:0 5px 0 #152b2510,0 12px 26px #152b2508;
+  transform:translateY(0);
+  transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease;
+}
+.all-games-section #gameGrid .game-card.explore-card:hover,
+.all-games-section #gameGrid .game-card.explore-card:focus-visible{
+  transform:translateY(-7px);
+  border-color:#f59a42;
+  box-shadow:0 7px 0 #f59a4224,0 18px 32px #152b2520;
+  outline:none;
+}
+.all-games-section #gameGrid .game-card.explore-card .game-thumb{
+  position:relative;
+  inset:auto;
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/10;
+  object-fit:cover;
+  border-radius:17px;
+  background:#dcece7;
+  transform:none;
+  filter:none;
+  transition:transform .32s ease,filter .24s ease;
+}
+.all-games-section #gameGrid .game-card.explore-card:hover .game-thumb,
+.all-games-section #gameGrid .game-card.explore-card:focus-visible .game-thumb{
+  transform:scale(1.025);
+  filter:saturate(1.08);
+}
+.all-games-section #gameGrid .game-card.explore-card .game-name{
+  position:relative;
+  inset:auto;
+  display:block;
+  max-height:none;
+  min-height:52px;
+  opacity:1;
+  transform:none;
+  padding:13px 9px 8px;
+  color:#14251f;
+  background:transparent;
+  text-align:left;
+  font:700 16px/1.25 'Space Grotesk',sans-serif;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  transition:color .2s ease;
+}
+.all-games-section #gameGrid .game-card.explore-card:hover .game-name{
+  color:#b65b14;
+}
+@media(max-width:650px){
+  .all-games-section #gameGrid .game-card.explore-card{padding:6px;border-radius:19px}
+  .all-games-section #gameGrid .game-card.explore-card .game-thumb{border-radius:14px;aspect-ratio:4/3}
+  .all-games-section #gameGrid .game-card.explore-card .game-name{font-size:14px;min-height:47px;padding:11px 7px 7px}
+}
