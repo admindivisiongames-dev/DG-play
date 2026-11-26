@@ -261,3 +261,21 @@ button:disabled{opacity:.65;cursor:wait}
 .game-editor-footer>div{display:flex;gap:9px;flex-shrink:0}
 .game-editor-footer .btn{border-radius:24px}
 @media(max-width:600px){.game-editor-overlay{padding:9px;align-items:end}.game-editor-modal{max-height:94vh;padding:18px;border-radius:23px}.game-editor-head h2{font-size:25px}.game-editor-grid{grid-template-columns:1fr;gap:13px}.game-editor-grid label.wide,.game-image-preview-wrap.wide{grid-column:auto}.game-image-preview-wrap{grid-template-columns:100px 1fr;gap:10px;padding:10px}.game-image-preview{width:100px}.game-editor-footer{align-items:flex-start;flex-direction:column}.game-editor-footer>div{width:100%}.game-editor-footer .btn{flex:1}}
+
+
+/* Homepage curation and new-release cards */
+.new-release-rail .new-release-card{position:relative;display:block;flex:0 0 clamp(220px,24%,285px);width:clamp(220px,24%,285px);height:250px;aspect-ratio:auto;background:#17211d;border:1px solid #d6e7df;border-radius:20px;overflow:hidden;box-shadow:0 8px 20px #182c2412}
+.new-release-rail .new-release-card .game-thumb{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;transition:transform .35s ease,filter .25s ease}
+.new-release-rail .new-release-card:hover .game-thumb,.new-release-rail .new-release-card:focus-visible .game-thumb{transform:scale(1.07);filter:brightness(.82) saturate(1.12)}
+.new-release-rail .new-release-card .game-name{position:absolute;left:0;right:0;bottom:0;max-height:none;opacity:1;transform:none;padding:38px 15px 15px;background:linear-gradient(transparent,#08100ff0);color:#fff;text-align:left;font-size:16px;white-space:normal;line-height:1.25}
+.new-release-tag{position:absolute;top:12px;left:12px;z-index:2;padding:6px 9px;border-radius:999px;background:#d9ff6b;color:#17211d;font:800 9px/1 'Space Grotesk',sans-serif;letter-spacing:1px}
+.admin-placement-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+.admin-placement-title,.admin-placement-note{grid-column:1/-1}
+.admin-placement-title{font:700 13px 'Space Grotesk';color:var(--text,#17211d)}
+.admin-placement-option{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:var(--surface,#fff)}
+.admin-placement-option input{margin-top:3px;accent-color:#83d8bf}
+.admin-placement-option span{display:grid;gap:4px}
+.admin-placement-option b{font-size:12px}
+.admin-placement-option small,.admin-placement-note{font-size:11px;color:var(--muted);line-height:1.5}
+.admin-placement-note{margin:0}
+@media(max-width:560px){.admin-placement-options{grid-template-columns:1fr}.new-release-rail .new-release-card{height:225px;flex-basis:210px;width:210px}}
