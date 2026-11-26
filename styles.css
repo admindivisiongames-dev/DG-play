@@ -651,3 +651,21 @@ img,video,iframe{max-width:100%}
 @media(orientation:landscape) and (max-height:520px) and (max-width:950px){
   .game-frame{height:78vh;min-height:220px}
 }
+
+/* Keep the profile identity block compact on touch-sized screens */
+@media(max-width:1100px){
+  .profile-head{display:grid;grid-template-columns:84px minmax(0,1fr);align-items:start;column-gap:16px;row-gap:14px}
+  .profile-head .profile-big{grid-column:1;grid-row:1;width:84px;height:84px}
+  .profile-head .avatar-upload-btn{grid-column:1;grid-row:2;width:84px;max-width:100%;justify-self:start}
+  .profile-head>div[style*="flex:1"]{grid-column:2;grid-row:1 / span 2;width:100%;min-width:0}
+  .profile-head .profile-stats{grid-column:1/-1;grid-row:3}
+  .profile-head>#profileLogout{grid-column:1/-1;grid-row:4;width:100%}
+}
+@media(max-width:760px){
+  .profile-head{grid-template-columns:68px minmax(0,1fr);column-gap:12px;row-gap:12px}
+  .profile-head .profile-big{width:68px;height:68px}
+  .profile-head .avatar-upload-btn{width:68px;padding:9px 5px;font-size:10px;text-align:center}
+  .profile-head>div[style*="flex:1"]{grid-column:2;grid-row:1 / span 2}
+  .profile-head .profile-stats{grid-row:3}
+  .profile-head>#profileLogout{grid-row:4}
+}
