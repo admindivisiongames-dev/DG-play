@@ -358,3 +358,15 @@ button:disabled{opacity:.65;cursor:wait}
   .all-games-section #gameGrid .game-card.explore-card .game-thumb{border-radius:14px;aspect-ratio:4/3}
   .all-games-section #gameGrid .game-card.explore-card .game-name{font-size:14px;min-height:47px;padding:11px 7px 7px}
 }
+
+
+/* Explore All card proportions: taller tiles, slightly less wide feeling */
+.all-games-section #gameGrid .game-card.explore-card{min-height:286px}
+.all-games-section #gameGrid .game-card.explore-card .game-thumb{aspect-ratio:4/3}
+@media(max-width:900px){
+  .all-games-section #gameGrid .game-card.explore-card{min-height:260px}
+}
+@media(max-width:650px){
+  .all-games-section #gameGrid .game-card.explore-card{min-height:238px}
+  .all-games-section #gameGrid .game-card.explore-card .game-thumb{aspect-ratio:4/3}
+}
