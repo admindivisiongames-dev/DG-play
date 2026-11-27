@@ -14,7 +14,7 @@ function header(){let u=user();return '<header class="topbar">'+brand()+'<label 
 
 function footer(){return '<footer class="footer"><span>© 2026 Division. Play different.</span><span><strong class="official-footer-label">Official Division website</strong> · <a href="settings.html">Settings</a></span></footer>'}
 function shell(content){return content}
-function mountPage(markup){const app=$('#app');if(!app)return;app.innerHTML=markup;const authPage=page==='login'||page==='signup';const head=$('#division-header'),foot=$('#division-footer'),wrapper=$('#division-shell');if(head)head.innerHTML=authPage?'':header();if(foot)foot.innerHTML=authPage?'':footer();if(wrapper)wrapper.classList.toggle('auth-shell',authPage);}
+function mountPage(markup){const app=$('#app');if(!app)return;app.innerHTML=markup;const authPage=page==='login'||page==='signup';const head=$('#division-header'),foot=$('#division-footer'),wrapper=$('#division-shell');if(head){head.innerHTML=authPage?'':header();if(page==='home'){const source=$('#home-header-search'),generated=head.querySelector('.header-search');if(source&&generated){const search=source.content.firstElementChild.cloneNode(true);generated.replaceWith(search)}}}if(foot)foot.innerHTML=authPage?'':footer();if(wrapper)wrapper.classList.toggle('auth-shell',authPage);}
 const PANIC_DEFAULT_URL='https://classroom.google.com/';
 const PANIC_URL_KEY='division_panic_url';
 const PANIC_INTRO_KEY='division_panic_intro_seen';
