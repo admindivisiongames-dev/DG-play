@@ -2120,3 +2120,15 @@ body[data-page="home"] .division-quick-actions .division-xp-note{display:none!im
 .game-action-buttons .vote-button svg{width:15px!important;height:15px!important;flex:0 0 15px!important}
 .game-action-buttons .vote-button:active{transform:scale(.97)}
 @media(max-width:600px){.game-action-buttons{gap:6px!important}.game-action-buttons .vote-button{height:30px!important;min-height:30px!important;min-width:43px!important;padding:4px 7px!important}.game-action-buttons .vote-button svg{width:14px!important;height:14px!important;flex-basis:14px!important}}
+
+/* Verified Division account: blue seal with a clear white check */
+.verified-badge{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  width:20px!important;height:20px!important;min-width:20px!important;flex:0 0 20px!important;
+  margin-left:5px!important;vertical-align:-4px!important;border:0!important;border-radius:50%!important;
+  color:#1d9bf0!important;background:transparent!important;box-shadow:none!important;line-height:1!important;
+}
+.verified-badge svg{display:block!important;width:20px!important;height:20px!important;overflow:visible!important}
+.verified-badge .verified-seal{fill:#1d9bf0!important;stroke:none!important}
+.verified-badge .verified-check{fill:none!important;stroke:#fff!important;stroke-width:2.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+.account-pill .verified-badge,.profile-identity .verified-badge,.public-profile-main .verified-badge{vertical-align:-4px!important}
