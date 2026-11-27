@@ -974,3 +974,44 @@ img,video,iframe{max-width:100%}
 .brand.brand-wordmark{display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;width:auto!important;color:#101b49!important;font:800 clamp(20px,2vw,27px)/1 'Space Grotesk',sans-serif!important;letter-spacing:-.075em!important;white-space:nowrap!important}
 .brand.brand-wordmark:after{content:"";display:inline-block;width:7px;height:7px;margin:0 0 0 5px;border-radius:50%;background:#62e6c8;box-shadow:0 0 0 4px #62e6c826}
 @media(max-width:600px){.topbar>.brand.brand-wordmark{font-size:clamp(18px,5.6vw,23px)!important}.topbar>.brand.brand-wordmark:after{width:6px;height:6px;margin-left:4px}}
+
+
+/* Profile surfaces clip accidental sideways overflow on small screens */
+html,body{max-width:100%;overflow-x:hidden}
+.shell{max-width:100%;overflow-x:clip}
+.profile-page,.public-profile-page{max-width:100%;overflow:hidden;overflow-wrap:anywhere}
+.profile-page>* ,.public-profile-page>*{max-width:100%}
+.public-profile-head,.profile-head{min-width:0;max-width:100%}
+.public-profile-main,.profile-head>div{min-width:0}
+.public-profile-main .page-title,.profile-display-name{overflow-wrap:anywhere;word-break:break-word}
+.public-profile-main .profile-bio,.profile-bio{overflow-wrap:anywhere;word-break:break-word}
+.public-profile-avatar,.profile-big{max-width:100%}
+
+/* Generated Division mascot image and accurate official-site label */
+.brand.brand-wordmark{display:inline-flex!important;align-items:center!important;gap:9px!important;width:auto!important;min-width:0!important;color:#101b49!important;font:800 clamp(20px,2vw,27px)/1 'Space Grotesk',sans-serif!important;letter-spacing:-.075em!important;white-space:nowrap!important}
+.brand.brand-wordmark:after{display:none!important}
+.brand.brand-wordmark img{display:block!important;width:38px!important;height:38px!important;object-fit:contain!important;flex:0 0 38px!important;border-radius:11px!important}
+.brand.brand-wordmark>span:not(.official-site-label){display:inline-block!important}
+.official-site-label{display:inline-flex!important;align-items:center!important;gap:4px!important;padding:4px 6px!important;border-radius:6px!important;background:#dff7f0!important;color:#167a68!important;font:700 8px/1 'DM Sans',sans-serif!important;letter-spacing:.08em!important}
+.official-site-label:before{content:"";width:5px;height:5px;border-radius:50%;background:#36b99b!important}
+.official-footer-label{color:var(--muted);font-weight:600}
+.public-profile-head.official-admin-profile{background:linear-gradient(135deg,#111b43,#142b45 65%,#122d32)!important;border-color:#27465c!important}
+.official-admin-profile .eyebrow{color:#72e7cd!important}
+.admin-private-profile{margin:18px 0;padding:22px;border:1px solid #315b72!important;background:linear-gradient(140deg,#101d3b,#132b35)!important}
+.admin-private-profile h2{margin:8px 0;font-size:22px}
+.admin-private-profile p{max-width:650px;color:#a8bdc9;line-height:1.7}
+@media(max-width:600px){
+ .brand.brand-wordmark{gap:6px!important;font-size:clamp(17px,5vw,21px)!important;letter-spacing:-.07em!important}
+ .brand.brand-wordmark img{width:32px!important;height:32px!important;flex-basis:32px!important;border-radius:9px!important}
+ .official-site-label{font-size:7px!important;padding:3px 5px!important}
+ .profile-page,.public-profile-page{padding-left:0;padding-right:0}
+ .public-profile-head{align-items:flex-start!important;gap:12px!important;padding:17px!important}
+ .public-profile-avatar{width:60px!important;height:60px!important;flex-basis:60px!important;border-radius:17px!important;font-size:24px!important}
+ .public-profile-main .page-title{font-size:clamp(21px,6vw,28px)!important}
+ .admin-private-profile{padding:17px!important;border-radius:17px!important}
+}
+@media(max-width:340px){
+ .brand.brand-wordmark{gap:5px!important;font-size:16px!important}
+ .brand.brand-wordmark img{width:28px!important;height:28px!important;flex-basis:28px!important}
+ .official-site-label{font-size:6px!important;padding:3px 4px!important}
+}
