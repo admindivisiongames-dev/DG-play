@@ -28,7 +28,6 @@
       <section class="all-games-section" id="popular">
         <div class="section-head explore-title-row">
           <h2 class="explore-page-title">Explore</h2>
-          <label class="searchbar explore-search"><input class="field" id="gameSearch" type="search" placeholder="Search games..." aria-label="Search games"></label>
         </div>
         <div class="game-grid" id="gameGrid"><!-- EXPLORE_CARDS --></div>
       </section>
@@ -69,6 +68,14 @@
 
   <div class="shell" id="division-shell">
     <header id="division-header"></header>
+  <template id="home-header-search">
+    <label class="header-search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input id="topSearch" type="search" placeholder="Search games..." aria-label="Search games" autocomplete="off">
+      <button class="search-clear" id="clearTopSearch" type="button" aria-label="Clear search" hidden>×</button>
+      <div class="header-search-results" id="headerSearchResults" hidden></div>
+    </label>
+  </template>
     <main id="app"></main>
     <footer id="division-footer"></footer>
   </div>
