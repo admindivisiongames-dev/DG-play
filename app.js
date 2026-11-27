@@ -193,6 +193,7 @@ if(p.error){console.error('Division profile reload failed:',p.error);throw p.err
 }
 currentProfile=p.data||null;
 if(currentProfile?.suspended){await sb.auth.signOut();if(run!==stateLoadId)return;currentUser=null;currentProfile=null;toast('This account is currently suspended.');return}
+detectAndSaveCountry();
 const [f,l,h]=await Promise.all([sb.from('favorites').select('game_id').eq('user_id',uid),sb.from('likes').select('game_id').eq('user_id',uid),sb.from('play_history').select('game_id,played_at').eq('user_id',uid).order('played_at',{ascending:false})]);
 if(run!==stateLoadId)return;
 favoriteIds=(f.data||[]).map(x=>x.game_id);likedIds=(l.data||[]).map(x=>x.game_id);historyIds=(h.data||[]).map(x=>x.game_id);
