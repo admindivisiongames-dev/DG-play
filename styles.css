@@ -2530,3 +2530,11 @@ body[data-page="home"] .home-discovery #division-recent .division-extra-rail .ga
  body[data-page="home"] .home-discovery #division-recent .division-extra-rail{grid-template-columns:repeat(2,minmax(0,1fr))!important}
  body[data-page="home"] .home-discovery #division-recent .division-extra-rail .game-thumb{height:clamp(90px,25vw,150px)!important}
 }
+
+
+/* Official Division mascot wordmark */
+.brand.brand-wordmark{display:flex;flex:0 0 150px;width:150px;height:108px;min-width:0;padding:3px;gap:0;overflow:hidden;align-items:center;justify-content:center;background:#101b49;border:2px solid #74ead5;border-radius:14px;box-shadow:0 3px 0 #101b4918;}
+.brand.brand-wordmark .division-brand-logo{display:block;width:100%;height:100%;max-width:none;object-fit:contain;border-radius:9px;}
+.topbar{height:120px;min-height:120px;}
+@media(max-width:900px){.brand.brand-wordmark{flex-basis:128px;width:128px;height:92px;}.topbar{height:104px;min-height:104px;}}
+@media(max-width:600px){.brand.brand-wordmark{flex-basis:104px;width:104px;height:76px;padding:2px;border-radius:10px;}.brand.brand-wordmark .division-brand-logo{border-radius:7px;}.topbar{height:88px;min-height:88px;gap:10px;padding:0 12px;}}
