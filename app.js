@@ -187,16 +187,27 @@ await loadUserLists();
 finally{recordingPlayKey=''}
 }
 function normalizeImageUrl(value){const raw=String(value||'').trim();if(!raw)return '';try{const u=new URL(raw);if(u.hostname==='share.google'||u.hostname.endsWith('.share.google'))return '';if((u.hostname==='drive.google.com'||u.hostname==='www.drive.google.com')){const parts=u.pathname.split('/').filter(Boolean),di=parts.indexOf('d');let id=(di>=0?parts[di+1]:null)||u.searchParams.get('id');if(id)return 'https://drive.google.com/uc?export=view&id='+encodeURIComponent(id)}if(u.protocol==='https:')return u.href;return ''}catch{return ''}}
+function normalizeSearchText(value){
+return String(value||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+}
+function gameSearchText(game){
+return normalizeSearchText([game.name,game.category,game.description,game.developer_name,game.instructions,game.controls,game.tags,game.keywords].flatMap(value=>Array.isArray(value)?value:[value]).join(' '));
+}
 function gameMatchesSearch(game,query){
-const q=String(query||'').trim().toLowerCase();
-if(!q)return true;
-const fields=[game.name,game.category,game.description,game.developer_name,game.instructions,game.controls,game.tags,game.keywords];
-return fields.some(value=>Array.isArray(value)?value.some(item=>String(item).toLowerCase().includes(q)):String(value||'').toLowerCase().includes(q));
+const terms=normalizeSearchText(query).split(/\\s+/).filter(Boolean);
+if(!terms.length)return true;
+const text=gameSearchText(game);
+return terms.every(term=>text.includes(term));
+}
+function gameSearchScore(game,query){
+const q=normalizeSearchText(query),name=normalizeSearchText(game.name),text=gameSearchText(game);
+if(!q)return 0;
+return (name===q?1000:0)+(name.startsWith(q)?300:0)+(name.includes(q)?150:0)+q.split(/\\s+/).filter(term=>name.includes(term)).length*30+Number(game.play_count||0)*.001;
 }
 function searchResultsMarkup(query){
 const q=String(query||'').trim();
 if(!q)return '';
-const matches=games.filter(g=>gameMatchesSearch(g,q)).sort((a,b)=>Number(b.play_count||0)-Number(a.play_count||0)).slice(0,7);
+const matches=games.filter(g=>gameMatchesSearch(g,q)).sort((a,b)=>gameSearchScore(b,q)-gameSearchScore(a,q)).slice(0,8);
 if(!matches.length)return '<div class="search-result-empty">No games found. Try another title or category.</div>';
 return matches.map(g=>'<a class="search-result-item" href="game.html?game='+encodeURIComponent(g.id)+'"><img src="'+esc(normalizeImageUrl(g.image_url)||'')+'" alt="" loading="lazy"><span><b>'+esc(g.name)+'</b><small>'+esc(g.category||'Game')+'</small></span><span class="search-result-arrow">↗</span></a>').join('');
 }
@@ -227,7 +238,12 @@ if(top){
 top.value=initialSearch;
 updateHeaderSearch(initialSearch);
 top.oninput=()=>{const q=top.value;updateHeaderSearch(q);if(page==='home')updateHomeSearch(q)};
-top.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();const q=top.value.trim();if(page==='home'){updateHomeSearch(q);updateHeaderSearch('');if(q)history.replaceState(null,'',location.pathname+'?search='+encodeURIComponent(q)+'#popular');else history.replaceState(null,'',location.pathname+'#popular');const explore=$('#popular');if(explore)explore.scrollIntoView({block:'start',behavior:'smooth'})}else location.href='index.html'+(q?'?search='+encodeURIComponent(q):'')+'#popular'}else if(e.key==='Escape'){top.value='';updateHeaderSearch('');if(page==='home')updateHomeSearch('')}};
+top.onfocus=()=>{if(top.value.trim())updateHeaderSearch(top.value)};
+ top.onkeydown=e=>{const panel=$('#headerSearchResults'),items=panel?[...panel.querySelectorAll('a.search-result-item')]:[],active=items.indexOf(document.activeElement);
+ if(e.key==='ArrowDown'&&items.length){e.preventDefault();items[Math.min(active+1,items.length-1)].focus()}
+ else if(e.key==='ArrowUp'&&items.length){e.preventDefault();if(active<=0)top.focus();else items[active-1].focus()}
+ else if(e.key==='Enter'){e.preventDefault();const q=top.value.trim();if(page==='home'){updateHomeSearch(q);updateHeaderSearch('');if(q)history.replaceState(null,'',location.pathname+'?search='+encodeURIComponent(q)+'#popular');else history.replaceState(null,'',location.pathname+'#popular');const explore=$('#popular');if(explore)explore.scrollIntoView({block:'start',behavior:'smooth'})}else location.href='index.html'+(q?'?search='+encodeURIComponent(q):'')+'#popular'}
+ else if(e.key==='Escape'){top.value='';updateHeaderSearch('');if(page==='home')updateHomeSearch('')}};
 }
 if(clearTop)clearTop.onclick=()=>{if(top){top.value='';updateHeaderSearch('');if(page==='home')updateHomeSearch('');top.focus()}};
 if(page==='home'){
