@@ -217,7 +217,7 @@ const grid=$('#gameGrid');
 if(grid)grid.innerHTML=gameCards(games.filter(g=>gameMatchesSearch(g,q)),'explore-card');
 document.querySelectorAll('.home-discovery>[data-category-section],.home-discovery>.game-rail-section,.home-discovery>.division-about').forEach(section=>{section.hidden=!!q});
 const explore=$('#popular');if(explore)explore.hidden=false;
-if(q&&explore)explore.scrollIntoView({block:'start',behavior:'smooth'});
+
 }
 function bind(){
 const panic=$('#panicKey');if(panic)panic.onclick=()=>{try{panicGo()}catch{openPanicSetup(true)}};
