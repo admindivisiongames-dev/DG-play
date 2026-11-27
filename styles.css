@@ -2603,7 +2603,7 @@ body[data-page="profile"] .profile-tab-panel .game-grid>.empty-state{grid-column
 
 
 /* Division interaction and scrolling polish */
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%;overscroll-behavior-y:contain}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
 body{overscroll-behavior-x:none;-webkit-tap-highlight-color:transparent}
 a,button,[role="button"],input,select,textarea{touch-action:manipulation}
 button,a,.chip,.btn,.game-card,.popular-card{ -webkit-tap-highlight-color:transparent}
@@ -2615,7 +2615,6 @@ button:active,.btn:active,.chip:active,.division-quick-btn:active{transform:scal
 .game-rail{scroll-snap-stop:normal;scroll-behavior:smooth}
 .game-grid,.for-you-grid,.game-rail{min-width:0}
 .game-card,.popular-card{min-width:0}
-img{content-visibility:auto}
 :focus-visible{outline:3px solid #101b49;outline-offset:3px}
 @media(hover:hover) and (pointer:fine){
  .game-card,.popular-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
