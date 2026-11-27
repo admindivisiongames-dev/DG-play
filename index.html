@@ -8,7 +8,65 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="home">
-  <!-- EDITABLE PAGE SHELL: shared header, page content and footer -->
+  <!-- EDITABLE HOME PAGE: change headings, text, sections and containers here. -->
+  <template id="home-template">
+    <main class="home-discovery">
+      <section class="game-rail-section for-you-section" id="for-you">
+        <div class="section-head"><h2>For you</h2></div>
+        <div class="for-you-grid" id="forYouGrid"><!-- FOR_YOU_CARDS --></div>
+      </section>
+      <section class="game-rail-section popular-games-section" id="hot-games">
+        <div class="section-head"><h2>Popular Games</h2></div>
+        <div class="game-rail" id="hotGamesRail"><!-- POPULAR_CARDS --></div>
+      </section>
+      <section class="game-rail-section new-games-section" id="new-games">
+        <div class="section-head"><h2>New Games</h2></div>
+        <div class="game-rail new-release-rail" id="newGamesRail"><!-- NEW_CARDS --></div>
+      </section>
+      <!-- PLAY_TOGETHER_SECTION -->
+      <!-- CATEGORY_SECTIONS -->
+      <section class="all-games-section" id="popular">
+        <div class="section-head explore-title-row">
+          <h2 class="explore-page-title">Explore</h2>
+          <label class="searchbar explore-search"><input class="field" id="gameSearch" type="search" placeholder="Search games..." aria-label="Search games"></label>
+        </div>
+        <div class="game-grid" id="gameGrid"><!-- EXPLORE_CARDS --></div>
+      </section>
+      <section class="division-about" id="about-division">
+        <div class="division-about-intro">
+          <span class="eyebrow">A LITTLE ABOUT US</span>
+          <svg class="division-orbit-art" viewBox="0 0 180 100" aria-hidden="true">
+            <defs><linearGradient id="divOrbGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8fffd8"/><stop offset="1" stop-color="#bba7ff"/></linearGradient></defs>
+            <ellipse cx="90" cy="50" rx="78" ry="25" fill="none" stroke="url(#divOrbGrad)" stroke-width="1.5" opacity=".55" transform="rotate(-22 90 50)"/>
+            <ellipse cx="90" cy="50" rx="54" ry="40" fill="none" stroke="#8fffd8" stroke-width="1" opacity=".25" transform="rotate(28 90 50)"/>
+            <circle cx="90" cy="50" r="24" fill="url(#divOrbGrad)" opacity=".16"/><path d="M78 50h24M90 38v24" stroke="#b6ffe6" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="28" cy="27" r="4" fill="#bba7ff"/><circle cx="151" cy="70" r="5" fill="#8fffd8"/>
+          </svg>
+          <h2>More games.<br><span>More ways to play.</span></h2>
+          <p>Division brings different games, genres and experiences together in one place. Find something that fits your mood, then jump straight into the fun.</p>
+          <a class="division-about-cta" href="#popular">Explore the arcade <span>→</span></a>
+        </div>
+        <div class="division-faq-grid">
+          <article class="division-faq-card"><span class="division-faq-index">01</span><h3>So, what can you actually do here?</h3><p>Explore browser games, search for specific titles, browse categories and jump straight into a game. Division includes racing, driving, action, shooting, multiplayer, simulation, fighting and many more genres.</p></article>
+          <article class="division-faq-card"><span class="division-faq-index">02</span><h3>What devices does Division work on?</h3><p>Division is made for the web and works on supported browsers across Chromebooks, laptops, desktops, tablets and other compatible devices. If your browser can run the game, you should be ready to play.</p></article>
+          <article class="division-faq-card"><span class="division-faq-index">03</span><h3>Why the name Division?</h3><p>Division brings different games, genres and experiences together in one place. Instead of focusing on one type of game, the site gives players different choices depending on what they feel like playing.</p></article>
+          <article class="division-faq-card"><span class="division-faq-index">04</span><h3>Does Division own all the games?</h3><p>No. Division does not own every game featured on the platform. Some games are embedded from other websites and providers. We find fun games, organize them on Division and make discovery and play smoother. We continue improving the experience and curating games worth featuring.</p></article>
+          <article class="division-faq-card"><span class="division-faq-index">05</span><h3>Who’s behind Division?</h3><p>Division was created and developed by Borquaye Gabriel, a young developer from Ghana interested in coding, technology and gaming. The project is being built step by step, from its design and game pages to new features and improvements.</p></article>
+          <article class="division-faq-card"><span class="division-faq-index">06</span><h3>Is Division finished?</h3><p>Not yet—and that’s part of the journey. Division is still growing. New games, features, improvements and changes will continue to arrive as the project develops.</p></article>
+        </div>
+      </section>
+      <div class="category-overlay" id="categoryOverlay" hidden>
+        <div class="category-overlay-panel" role="dialog" aria-modal="true" aria-labelledby="categoryOverlayTitle">
+          <div class="category-overlay-head">
+            <div><div class="eyebrow">DIVISION CATEGORY</div><h2 id="categoryOverlayTitle">Games</h2><p id="categoryOverlayCount"></p></div>
+            <button class="category-overlay-close" type="button" id="closeCategoryOverlay" aria-label="Close category games">×</button>
+          </div>
+          <div class="category-overlay-grid game-grid" id="categoryOverlayGrid"></div>
+        </div>
+      </div>
+    </main>
+  </template>
+
   <div class="shell" id="division-shell">
     <header id="division-header"></header>
     <main id="app"></main>
