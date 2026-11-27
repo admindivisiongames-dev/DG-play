@@ -97,7 +97,7 @@ function addHomeFeatures() {
     '<div class="division-request-list"></div>';
   home.insertBefore(modal, quick.nextSibling);
 
-  modal.querySelector('#divisionRequestOpen')?.addEventListener('click', () => {
+  quick.querySelector('#divisionRequestOpen')?.addEventListener('click', () => {
     modal.hidden = false;
     modal.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
