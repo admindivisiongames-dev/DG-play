@@ -2530,3 +2530,8 @@ body[data-page="home"] .home-discovery #division-recent .division-extra-rail .ga
  body[data-page="home"] .home-discovery #division-recent .division-extra-rail{grid-template-columns:repeat(2,minmax(0,1fr))!important}
  body[data-page="home"] .home-discovery #division-recent .division-extra-rail .game-thumb{height:clamp(90px,25vw,150px)!important}
 }
+
+
+/* Reliable verified-admin tick, independent of icon fonts */
+.verified-badge{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:18px!important;height:18px!important;flex:0 0 18px!important;margin-left:6px!important;border-radius:50%!important;background:#3288f5!important;color:#fff!important;box-shadow:0 0 0 2px #3288f51a!important;font-family:Arial,sans-serif!important;font-size:13px!important;font-weight:900!important;line-height:1!important;vertical-align:middle!important}
+.verified-badge>span{display:block!important;transform:translateY(-.4px)!important}
