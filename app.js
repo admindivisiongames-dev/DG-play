@@ -141,6 +141,13 @@ for(const [key,value] of Object.entries(values))markup=markup.replace('<!-- '+ke
 return shell(markup);
 }
 function toast(msg){let t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.append(t);setTimeout(()=>t.remove(),2600)}
+function showLoginSessionNotice(){
+if(page!=='login'||!currentUser)return;
+const box=$('.auth-box');if(!box||$('#alreadyLoggedInNotice'))return;
+const notice=document.createElement('div');notice.id='alreadyLoggedInNotice';notice.className='panel already-logged-in-notice';
+notice.innerHTML='<strong>You are already logged in.</strong><p class="muted">Your Division session is active. Continue to your account profile.</p><a class="btn primary" href="profile.html">Go to profile →</a>';
+const heading=box.querySelector('h2');if(heading)heading.insertAdjacentElement('beforebegin',notice);else box.prepend(notice);
+}
 function render(){let app=$('#app');if(!app)return;try{mountPage(page==='home'?home():page==='login'||page==='signup'?auth(page):page==='profile'?profile():page==='settings'?settings():page==='admin'?admin():page==='game'?gamePage():home())}catch(error){console.error('Division page render failed:',error);app.innerHTML='<main class="page"><section class="panel"><h1 class="page-title">Division could not load this page</h1><p class="muted">A page error occurred. Reload to try again.</p><button class="btn primary" id="reloadDivision">Reload page</button></section></main>';const reload=$('#reloadDivision');if(reload)reload.onclick=()=>location.reload();return}try{bind()}catch(error){console.error('Division page controls failed:',error);toast('The page loaded, but some controls could not start. Reload to try again.')}if(page==='profile'&&publicProfileId())loadPublicProfileView().catch(error=>{console.error('Public profile load:',error);const app=$('#app');if(app)mountPage(shell('<div class="page"><div class="panel"><h1 class="page-title">Profile could not load</h1><p class="muted">Please refresh and try again.</p></div></div>'))})}
 
 async function loadUserLists(){favoriteIds=[];likedIds=[];historyIds=[];if(!currentUser||!sb)return;const uid=currentUser.id;const [f,l,h]=await Promise.all([sb.from('favorites').select('game_id').eq('user_id',uid),sb.from('likes').select('game_id').eq('user_id',uid),sb.from('play_history').select('game_id,played_at').eq('user_id',uid).order('played_at',{ascending:false})]);favoriteIds=(f.data||[]).map(x=>x.game_id);likedIds=(l.data||[]).map(x=>x.game_id);historyIds=(h.data||[]).map(x=>x.game_id)}
