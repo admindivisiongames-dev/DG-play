@@ -1144,3 +1144,57 @@ body[data-page="home"] .topbar{justify-content:space-between!important}
 .home-discovery .division-faq-grid{display:grid!important}
 .home-discovery .division-popular-games{display:block!important}
 .home-discovery .division-popular-list{display:grid!important}
+
+
+/* Site-wide spacing cleanup: prevent legacy section margins from stacking */
+.shell{padding-left:clamp(12px,2.2vw,28px)!important;padding-right:clamp(12px,2.2vw,28px)!important}
+.topbar{margin:10px 0 16px!important}
+.home-discovery{padding:4px 0 24px!important}
+.home-discovery>.game-rail-section,
+.home-discovery>.category-game-section,
+.home-discovery>.all-games-section{margin:0 0 16px!important;padding:8px 0 14px!important}
+.home-discovery>.game-rail-section .section-head,
+.home-discovery>.all-games-section .section-head{margin:10px 0 12px!important;gap:12px!important}
+.home-discovery>.game-rail-section .section-head h2{margin:0!important}
+.home-discovery .game-rail{gap:12px!important;padding:2px 2px 10px!important}
+.home-discovery .game-rail-section .game-card{flex:0 0 clamp(150px,19vw,230px)!important;width:clamp(150px,19vw,230px)!important}
+.home-discovery .category-game-head{margin:8px 0 10px!important}
+.home-discovery .category-game-head .eyebrow{margin-bottom:3px!important}
+.home-discovery .category-game-head h2{margin:0!important}
+.home-discovery .category-game-head p{margin:4px 0 0!important;line-height:1.35!important}
+.home-discovery .division-about{margin:20px 0!important;padding:clamp(18px,2.5vw,28px)!important}
+.home-discovery .division-about-intro h2{margin:8px 0 10px!important}
+.home-discovery .division-faq-grid{gap:10px!important}
+.home-discovery .division-faq-card{padding:16px!important}
+.home-discovery .division-popular-games{margin:20px 0!important;padding:18px!important}
+.page{padding:14px 0 30px!important}
+.footer{margin-top:28px!important;padding:20px 0!important}
+.game-shell{padding:8px 0 18px!important}
+.game-lower-layout{gap:14px!important;margin-top:14px!important}
+.profile-content{gap:14px!important;margin-top:14px!important}
+.profile-tabs{margin-bottom:12px!important}
+.profile-tab-panel{margin-bottom:12px!important}
+@media(max-width:900px){
+ .home-discovery>.game-rail-section,
+ .home-discovery>.category-game-section,
+ .home-discovery>.all-games-section{margin-bottom:14px!important;padding:6px 0 10px!important}
+ .home-discovery .game-rail{gap:10px!important}
+ .home-discovery .game-rail-section .game-card{flex-basis:clamp(145px,30vw,190px)!important;width:clamp(145px,30vw,190px)!important}
+}
+@media(max-width:600px){
+ .topbar{margin:8px 0 12px!important}
+ .home-discovery{padding:2px 0 18px!important}
+ .home-discovery>.game-rail-section,
+ .home-discovery>.category-game-section,
+ .home-discovery>.all-games-section{margin:0 0 12px!important;padding:4px 0 8px!important}
+ .home-discovery>.game-rail-section .section-head,
+ .home-discovery>.all-games-section .section-head{margin:8px 0 10px!important}
+ .home-discovery .game-rail{gap:9px!important;padding:2px 1px 8px!important}
+ .home-discovery .game-rail-section .game-card{flex-basis:clamp(138px,42vw,170px)!important;width:clamp(138px,42vw,170px)!important}
+ .home-discovery .division-about{margin:14px 0!important;padding:16px!important}
+ .home-discovery .division-faq-card{padding:14px!important}
+ .home-discovery .division-popular-games{margin:14px 0!important;padding:15px!important}
+ .page{padding:10px 0 22px!important}
+ .footer{margin-top:20px!important;padding:16px 0!important}
+ .game-shell{padding:4px 0 14px!important}
+}
