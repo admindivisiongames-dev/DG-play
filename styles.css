@@ -1135,3 +1135,12 @@ body[data-page="home"] .topbar{justify-content:space-between!important}
  body[data-page="home"] .topbar>.brand{flex:0 0 auto!important;width:auto!important;max-width:none!important}
  body[data-page="home"] .topbar>.actions>a[href="login.html"]{display:inline-flex!important}
 }
+
+
+/* Restore the sections outside Explore; only Explore itself stays simplified */
+.home-discovery>.game-rail-section,
+.home-discovery>.category-game-section,
+.home-discovery>.all-games-section{display:block!important}
+.home-discovery .division-faq-grid{display:grid!important}
+.home-discovery .division-popular-games{display:block!important}
+.home-discovery .division-popular-list{display:grid!important}
