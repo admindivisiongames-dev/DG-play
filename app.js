@@ -106,7 +106,7 @@ let markup=template.innerHTML;
  const changedAt=currentProfile?.username_changed_at?new Date(currentProfile.username_changed_at):null;
  const nextUsernameChange=changedAt?new Date(changedAt.getTime()+30*24*60*60*1000):null;
  const usernameLocked=!!(nextUsernameChange&&nextUsernameChange.getTime()>Date.now());
- if(usernameField&&usernameLocked)usernameField.disabled=true;
+ if(usernameField&&usernameLocked)usernameField.readOnly=true;
  if(cooldownHint)cooldownHint.textContent=usernameLocked?'Username changes are locked until '+nextUsernameChange.toLocaleDateString(undefined,{month:'long',day:'numeric',year:'numeric'})+'. You can change it once every 30 days.':'You can change your username once every 30 days.';
  if(emailField)emailField.value=u.email==='Not signed in'?'':u.email;
  if(bioField)bioField.value=currentProfile?.bio||'';
