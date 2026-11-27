@@ -1047,3 +1047,23 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:600px){.topbar{display:grid!important;grid-template-columns:110px minmax(0,1fr) 36px max-content!important;grid-template-rows:1fr;align-items:center;gap:8px;min-height:65px;height:auto}.topbar>.brand{grid-column:1;grid-row:1;width:110px;max-width:110px}.topbar>.brand .official-site-label{display:none!important}.topbar>.header-search{grid-column:2;grid-row:1;width:100%;min-width:0}.topbar>#panicKey{grid-column:3;grid-row:1}.topbar>.actions{grid-column:4;grid-row:1;display:flex;width:auto;min-width:0}}
 
 @media(max-width:600px){.topbar{display:flex!important;flex-wrap:nowrap!important;align-items:center;gap:8px;height:auto;min-height:65px;overflow:visible}.topbar>.brand{flex:0 0 110px;width:110px;max-width:110px}.topbar>.brand .official-site-label{display:none!important}.topbar>.header-search{position:relative!important;display:flex!important;flex:1 1 70px!important;width:auto!important;min-width:0!important;max-width:none!important;margin:0!important}.topbar>#panicKey{position:relative!important;flex:0 0 36px!important;width:36px!important;height:36px!important;margin:0!important}.topbar>.actions{position:relative!important;display:flex!important;flex:0 0 auto!important;width:auto!important;min-width:0!important;margin:0!important;gap:0}.topbar .actions>a[href="login.html"]{display:inline-flex!important;padding:9px 10px;font-size:12px;white-space:nowrap}.topbar .actions>a[href="signup.html"]{display:none!important}.topbar .account-pill{flex:0 0 38px}}
+
+/* Panic Key first-visit education and destination setup */
+.panic-setup-overlay{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:20px;background:rgba(5,7,6,.82);backdrop-filter:blur(9px)}
+.panic-setup-card{width:min(100%,480px);max-height:min(90vh,760px);overflow:auto;padding:clamp(22px,5vw,36px);border:1px solid #3a423c;border-radius:24px;background:#151916;box-shadow:0 24px 90px #0009}
+.panic-setup-symbol{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:#ff74381c;color:var(--orange);margin-bottom:20px}
+.panic-setup-symbol svg{width:30px;height:30px}
+.panic-setup-card h2{font:700 clamp(25px,5vw,34px)/1.12 'Space Grotesk',sans-serif;letter-spacing:-1px;margin:10px 0 14px}
+.panic-setup-copy{font-size:15px;line-height:1.75;color:#b7c0b8;margin:0 0 22px}
+.panic-setup-form{display:grid;gap:12px}
+.panic-setup-form label{font-weight:700;font-size:13px}
+.panic-setup-help{color:var(--muted);font-size:12px;line-height:1.5;margin:-4px 0 6px}
+.panic-setup-form .btn{width:100%;min-height:45px}
+.panic-setup-actions{display:flex;gap:10px}
+.panic-setup-actions .btn{flex:1;min-height:44px}
+.panic-setup-error{color:#ff9eb5;font-size:13px;line-height:1.5;margin:14px 0 0}
+.panic-setup-card [hidden]{display:none!important}
+#panic-settings{padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+#panic-settings .form-stack{max-width:560px;margin-top:18px}
+#panic-settings .form-stack .btn{width:100%}
+@media(max-width:520px){.panic-setup-overlay{padding:14px}.panic-setup-card{border-radius:20px;padding:24px 20px}.panic-setup-actions{flex-direction:column}}
