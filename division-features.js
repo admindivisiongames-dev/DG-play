@@ -75,9 +75,8 @@ function addHomeFeatures() {
   quick.innerHTML =
     '<button class="division-quick-btn" id="divisionRandom" type="button">✦ Random Game</button>' +
     '<button class="division-quick-btn" id="divisionRequestOpen" type="button">＋ Request a Game</button>' +
-    '<div class="division-xp-card"><span class="division-xp-label">DIVISION XP</span>' +
-    '<strong id="divisionXP">' + uniqueCount * 10 + '</strong>' +
-    '<span class="division-xp-note">' + uniqueCount + ' unique games played</span></div>';
+    '<div class="division-xp-card"><span class="division-xp-label">XP</span>' +
+    '<strong id="divisionXP">' + uniqueCount * 10 + '</strong></div>';
   home.insertBefore(quick, home.firstChild);
 
   const modal = document.createElement('section');
