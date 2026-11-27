@@ -2600,3 +2600,31 @@ body[data-page="profile"] .profile-tab-panel .game-grid>.empty-state{grid-column
  body[data-page="home"] .home-discovery>.popular-games-section{order:3!important}
  body[data-page="home"] .home-discovery #division-recent .division-extra-rail{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;max-height:none!important;overflow:visible!important}
 }
+
+
+/* Division interaction and scrolling polish */
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%;overscroll-behavior-y:contain}
+body{overscroll-behavior-x:none;-webkit-tap-highlight-color:transparent}
+a,button,[role="button"],input,select,textarea{touch-action:manipulation}
+button,a,.chip,.btn,.game-card,.popular-card{ -webkit-tap-highlight-color:transparent}
+button,.btn,.chip,.division-quick-btn{transition:background-color .16s ease,color .16s ease,border-color .16s ease,box-shadow .16s ease,transform .16s ease}
+button:active,.btn:active,.chip:active,.division-quick-btn:active{transform:scale(.975)}
+.game-card,.popular-card{backface-visibility:hidden; -webkit-backface-visibility:hidden}
+.game-card img,.popular-card img{display:block;max-width:100%;height:auto}
+.game-rail,.division-extra-rail{overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable}
+.game-rail{scroll-snap-stop:normal;scroll-behavior:smooth}
+.game-grid,.for-you-grid,.game-rail{min-width:0}
+.game-card,.popular-card{min-width:0}
+img{content-visibility:auto}
+:focus-visible{outline:3px solid #101b49;outline-offset:3px}
+@media(hover:hover) and (pointer:fine){
+ .game-card,.popular-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+ .game-card:hover,.popular-card:hover{transform:translateY(-3px)}
+}
+@media(hover:none),(pointer:coarse){
+ button:hover,.btn:hover,.chip:hover,.game-card:hover,.popular-card:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
