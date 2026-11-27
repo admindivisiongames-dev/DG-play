@@ -1096,3 +1096,42 @@ html,body{max-width:100%;overflow-x:hidden}
   .home-discovery>.all-games-section{margin-top:24px!important;margin-bottom:24px!important}
   .home-discovery .division-about{margin:24px 0!important;padding:20px!important}
 }
+
+
+/* Explore: clean Poki-style layout — one standout most-played tile, all others compact */
+body[data-page="home"] .topbar>.header-search{display:none!important}
+body[data-page="home"] .topbar{justify-content:space-between!important}
+.home-discovery{max-width:1320px;margin:0 auto;padding:clamp(10px,2vw,24px) 0 48px}
+.home-discovery .all-games-section{margin:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
+.home-discovery .explore-title-row{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;margin:8px 0 22px!important;padding:0!important}
+.home-discovery .explore-page-title{margin:0!important;font:800 clamp(27px,4vw,42px)/1.1 'Space Grotesk',system-ui,sans-serif!important;letter-spacing:-.045em!important;color:var(--text,#fff)!important}
+.home-discovery .explore-search{display:block!important;width:min(360px,52vw)!important;max-width:100%!important;margin:0!important}
+.home-discovery .explore-search .field{width:100%!important;min-height:44px!important;border-radius:14px!important}
+.home-discovery #gameGrid{display:grid!important;grid-template-columns:repeat(8,minmax(0,1fr))!important;grid-auto-rows:clamp(66px,7vw,96px)!important;grid-auto-flow:dense!important;gap:clamp(10px,1.35vw,18px)!important}
+.home-discovery #gameGrid .explore-card{grid-column:span 2!important;grid-row:span 2!important;min-width:0!important;min-height:0!important;height:100%!important;border-radius:clamp(12px,1.4vw,20px)!important;overflow:hidden!important;box-shadow:none!important}
+.home-discovery #gameGrid .explore-card.explore-most-played{grid-column:span 4!important;grid-row:span 4!important;border-radius:clamp(16px,2vw,24px)!important}
+.home-discovery #gameGrid .explore-card .game-thumb{width:100%!important;height:100%!important;object-fit:cover!important}
+.home-discovery #gameGrid .explore-card .game-name{position:absolute!important;left:0!important;right:0!important;bottom:0!important;padding:24px 10px 10px!important;font-size:clamp(11px,1.1vw,14px)!important;line-height:1.25!important;background:linear-gradient(transparent,#080b12e8)!important;white-space:normal!important;overflow-wrap:anywhere!important}
+.home-discovery #gameGrid .explore-card.explore-most-played .game-name{padding:42px 16px 15px!important;font-size:clamp(15px,1.8vw,23px)!important}
+.home-discovery #gameGrid .explore-card:hover{transform:translateY(-2px)!important}
+@media(max-width:900px){
+ .home-discovery{padding:12px 14px 36px}
+ .home-discovery #gameGrid{grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-auto-rows:clamp(58px,10vw,78px)!important;gap:10px!important}
+ .home-discovery #gameGrid .explore-card{grid-column:span 2!important;grid-row:span 2!important}
+ .home-discovery #gameGrid .explore-card.explore-most-played{grid-column:span 4!important;grid-row:span 4!important}
+}
+@media(max-width:600px){
+ .home-discovery{padding:6px 12px 30px}
+ .home-discovery .explore-title-row{align-items:center!important;gap:10px!important;margin:10px 0 15px!important}
+ .home-discovery .explore-page-title{font-size:27px!important}
+ .home-discovery .explore-search{width:min(220px,58vw)!important}
+ .home-discovery .explore-search .field{min-height:40px!important;padding:9px 12px!important;font-size:13px!important}
+ .home-discovery #gameGrid{grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-auto-rows:clamp(54px,14vw,76px)!important;gap:8px!important}
+ .home-discovery #gameGrid .explore-card{grid-column:span 3!important;grid-row:span 2!important;border-radius:13px!important}
+ .home-discovery #gameGrid .explore-card.explore-most-played{grid-column:span 6!important;grid-row:span 3!important;border-radius:17px!important}
+ .home-discovery #gameGrid .explore-card .game-name{font-size:11px!important;padding:23px 8px 8px!important}
+ .home-discovery #gameGrid .explore-card.explore-most-played .game-name{font-size:17px!important;padding:35px 12px 12px!important}
+ body[data-page="home"] .topbar{margin:8px 0 15px!important;padding:0 12px!important;min-height:56px!important}
+ body[data-page="home"] .topbar>.brand{flex:0 0 auto!important;width:auto!important;max-width:none!important}
+ body[data-page="home"] .topbar>.actions>a[href="login.html"]{display:inline-flex!important}
+}
