@@ -1295,7 +1295,7 @@ body[data-page="home"] .topbar>.header-search{display:none!important}
 
 
 /* Division mint gaming artwork background (used site-wide) */
-body{background-color:#70eedb!important;background-image:url('assets/division-mint-background.svg')!important;background-size:cover!important;background-position:center top!important;background-repeat:no-repeat!important;background-attachment:fixed!important}
+body{background-color:#70eedb!important;background-image:url('assets/division-mint-background.jpg')!important;background-size:cover!important;background-position:center top!important;background-repeat:no-repeat!important;background-attachment:fixed!important}
 body[data-page="home"] .home-discovery{background:transparent!important}
 @media(max-width:700px){body{background-attachment:scroll!important;background-position:center top!important;background-size:auto 100vh!important}}
 
@@ -1313,7 +1313,7 @@ body{background-color:#70eedb!important;background-image:url('/assets/division-m
 /* Final mint artwork: use the actual SVG art, not the tiny placeholder JPG */
 body{
   background-color:#70eedb!important;
-  background-image:url('/assets/division-mint-background.svg?v=3')!important;
+  background-image:url('/assets/division-mint-background.jpg?v=3')!important;
   background-size:100vw auto!important;
   background-position:center top!important;
   background-repeat:repeat-y!important;
