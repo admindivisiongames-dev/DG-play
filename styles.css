@@ -1450,3 +1450,29 @@ body[data-page="home"] .home-discovery{
   .category-overlay-grid .game-card{aspect-ratio:4/3!important;border-radius:14px!important;border-width:2px!important}
   .category-overlay-grid .game-card .game-name{font-size:12px!important;padding:30px 9px 9px!important}
 }
+
+
+/* Give each category block breathing room while keeping it screen-wide */
+.home-discovery{
+  width:100%!important;
+  max-width:none!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:clamp(18px,2.5vw,30px)!important;
+}
+.home-discovery .category-game-section{
+  width:100%!important;
+  max-width:none!important;
+  box-sizing:border-box!important;
+  flex:0 0 auto!important;
+  margin:0!important;
+}
+.home-discovery .category-game-section + .category-game-section{
+  margin-top:0!important;
+}
+@media(max-width:700px){
+  .home-discovery{gap:18px!important}
+  .home-discovery .category-game-section{width:100%!important}
+}
