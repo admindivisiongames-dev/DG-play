@@ -1068,3 +1068,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .panic-quick-panel .btn.primary{background:#176eaa!important;color:#fff!important;border-color:#176eaa!important}
 .panic-quick-panel .btn.ghost{background:#eaf1f8!important;color:#304861!important;border:1px solid #d7e3ed!important}
 @media(max-width:520px){.panic-quick-panel{padding:16px!important;border-radius:14px!important}.panic-quick-panel .panic-setup-actions{flex-direction:row!important}}
+
+
+/* Full-width wrapper for the standalone login and signup layouts. */
+.auth-shell{max-width:none!important;width:100%!important;padding:0!important;margin:0!important}
