@@ -2016,7 +2016,7 @@ body[data-page="home"] .for-you-section .section-head{margin-top:12px!important}
  box-shadow:0 2px 7px #4f46e555!important;
 }
 .verified-badge .fa-solid{font-size:12px;line-height:1;display:block}
-.verified-badge svg path{stroke:#fff!important;stroke-width:3!important}
+.verified-badge .fa-solid{color:#fff!important}
 
 
 /* Global compact header sizing — shared by every Division page */
