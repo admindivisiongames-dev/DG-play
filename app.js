@@ -1,5 +1,6 @@
 (() => {
 'use strict';
+// Homepage layout density is styled in styles.css; keep this file focused on behavior.
 const $=s=>document.querySelector(s), page=document.body.dataset.page||'home';
 const games=[];
 const read=(k,f)=>{try{return JSON.parse(localStorage.getItem(k))??f}catch{return f}};
