@@ -1476,3 +1476,34 @@ body[data-page="home"] .home-discovery{
   .home-discovery{gap:18px!important}
   .home-discovery .category-game-section{width:100%!important}
 }
+
+
+/* Layout cleanup: full-width sections with consistent breathing room */
+#app{width:100%;min-width:0;box-sizing:border-box}
+.home-discovery{
+  width:100%!important;max-width:none!important;box-sizing:border-box!important;
+  padding:clamp(12px,2vw,26px)!important;
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;
+  gap:clamp(18px,2.4vw,30px)!important;
+}
+.home-discovery>section,.home-discovery>.category-game-section{
+  width:100%!important;max-width:none!important;box-sizing:border-box!important;
+  flex:0 0 auto!important;margin:0!important;
+}
+.home-discovery>.category-game-section{
+  padding:clamp(15px,2vw,25px)!important;
+  border-radius:clamp(16px,2vw,24px)!important;
+}
+.home-discovery .section-head,.home-discovery .category-game-head{
+  margin-bottom:clamp(10px,1.5vw,18px)!important;
+}
+.home-discovery .game-grid{gap:clamp(10px,1.4vw,18px)!important}
+.home-discovery .game-rail{gap:clamp(10px,1.2vw,16px)!important}
+.profile-page,.settings-layout,.admin-layout,.game-shell{min-width:0}
+.profile-page .profile-content{gap:clamp(14px,2vw,24px)!important}
+.admin-content>.panel{margin-top:clamp(14px,2vw,22px)!important}
+@media(max-width:700px){
+  .home-discovery{padding:10px!important;gap:17px!important}
+  .home-discovery>.category-game-section{padding:13px!important}
+  .profile-page,.settings-layout{padding-left:10px!important;padding-right:10px!important}
+}
