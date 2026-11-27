@@ -2114,3 +2114,9 @@ body[data-page="home"] .division-quick-actions .division-xp-note{display:none!im
 .game-action-buttons .vote-button svg{width:19px;height:19px;flex:0 0 19px}
 .game-action-buttons .vote-button.active{background:var(--navy);color:#fff}
 .game-action-buttons .dislike-button.active{background:#b64a57;color:#fff}
+
+/* Final compact sizing for game reaction buttons */
+.game-action-buttons .vote-button{height:32px!important;min-height:32px!important;min-width:46px!important;padding:5px 8px!important;gap:5px!important;border-radius:9px!important;font-size:12px!important;line-height:1!important;font-weight:700!important;box-shadow:none!important}
+.game-action-buttons .vote-button svg{width:15px!important;height:15px!important;flex:0 0 15px!important}
+.game-action-buttons .vote-button:active{transform:scale(.97)}
+@media(max-width:600px){.game-action-buttons{gap:6px!important}.game-action-buttons .vote-button{height:30px!important;min-height:30px!important;min-width:43px!important;padding:4px 7px!important}.game-action-buttons .vote-button svg{width:14px!important;height:14px!important;flex-basis:14px!important}}
