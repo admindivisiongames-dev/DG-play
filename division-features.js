@@ -76,7 +76,16 @@ function addHomeFeatures() {
     '<button class="division-quick-btn" id="divisionRandom" type="button">✦ Random Game</button>' +
     '<button class="division-quick-btn" id="divisionRequestOpen" type="button">＋ Request a Game</button>' +
     '<div class="division-xp-card"><span class="division-xp-label">XP</span>' +
-    '<strong id="divisionXP">' + uniqueCount * 10 + '</strong></div>';
+    '<strong id="divisionXP">0</strong></div>';
+  const xpClient = window.divisionSupabase;
+  if (xpClient) xpClient.auth.getUser().then(({data}) => {
+    const active = data && data.user;
+    if (!active) return;
+    return xpClient.from('player_xp').select('xp').eq('user_id', active.id).maybeSingle().then(({data: xpRow, error}) => {
+      const node = document.getElementById('divisionXP');
+      if (node && !error) node.textContent = Number(xpRow?.xp || 0).toLocaleString();
+    });
+  }).catch(error => console.warn('Division XP sync unavailable:', error));
   home.insertBefore(quick, home.firstChild);
 
   const modal = document.createElement('section');
