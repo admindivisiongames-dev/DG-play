@@ -807,3 +807,76 @@ img,video,iframe{max-width:100%}
   .division-faq-card h3:before{height:21px!important;margin-top:4px!important}
   .division-faq-card p{font-size:15px!important;line-height:1.95!important}
 }
+
+
+/* Division mascot logo + verified profile identity */
+.brand{display:inline-flex;align-items:center;flex:0 0 auto;line-height:0}
+.brand img{display:block;width:clamp(145px,16vw,190px);height:auto;max-height:48px;object-fit:contain}
+.verified-badge{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;flex:0 0 17px;margin-left:5px;vertical-align:middle;border-radius:50%;background:#3288f5;color:#fff;box-shadow:0 0 0 2px #3288f51a}
+.verified-badge svg{width:12px;height:12px;display:block}
+.profile-display-name,.public-profile-main .page-title{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.account-pill>span:last-child{display:inline-flex;align-items:center;gap:2px}
+.comment-profile-link{display:inline-flex;align-items:center;gap:10px;color:inherit;text-decoration:none;max-width:100%}
+.comment-profile-link:hover .comment-author-name{text-decoration:underline;text-underline-offset:3px}
+.comment-avatar,.profile-avatar-small{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;overflow:hidden;border-radius:50%;background:#111944;color:#62e6c8;font:700 15px 'Space Grotesk',sans-serif}
+.comment-avatar img,.profile-avatar-small img{display:block;width:100%;height:100%;object-fit:cover}
+.comment-author-name{display:inline-flex;align-items:center;flex-wrap:wrap;font-weight:800}
+.comment-item .comment-author{margin-bottom:10px}
+.comment-reply-author{margin-bottom:7px}
+.comment-reply .comment-avatar{width:30px;height:30px;flex-basis:30px;font-size:12px}
+.comment-reply .verified-badge{width:15px;height:15px;flex-basis:15px}
+.comment-reply .verified-badge svg{width:10px;height:10px}
+.profile-joined{margin:7px 0 0;color:var(--muted);font-size:13px}
+.public-profile-page{max-width:920px;margin:34px auto}
+.public-profile-head{display:flex;align-items:center;gap:24px;padding:clamp(22px,4vw,42px);background:linear-gradient(145deg,#171d34,#151716 70%);border:1px solid #2b302d;border-radius:24px}
+.public-profile-avatar{width:110px;height:110px;flex:0 0 110px;display:grid;place-items:center;overflow:hidden;border-radius:28px;background:#111944;color:#62e6c8;font:700 38px 'Space Grotesk',sans-serif}
+.public-profile-avatar img{width:100%;height:100%;object-fit:cover}
+.public-profile-main{min-width:0;flex:1}
+.public-profile-main .page-title{margin:8px 0;font-size:clamp(26px,4vw,38px)}
+.public-profile-fullname{margin:0;color:#c4cbc7;font-weight:600}
+.public-profile-main .profile-bio{max-width:620px;line-height:1.8;overflow-wrap:anywhere}
+.public-profile-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;color:#9aa6b0;font-size:13px}
+.public-profile-meta span{padding:8px 11px;border:1px solid #303949;border-radius:999px;background:#111827}
+.public-profile-back{margin-top:18px}
+.public-profile-loading{padding:30px}
+
+/* Smaller homepage game tiles; keep the home arcade dense and scannable */
+.home-discovery .game-rail{gap:12px;padding-bottom:12px}
+.home-discovery .game-rail .game-card{flex:0 0 clamp(155px,17vw,205px)!important;width:clamp(155px,17vw,205px)!important;height:150px!important;min-height:0!important;border-radius:14px!important}
+.home-discovery .game-rail .game-card .game-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.home-discovery .game-rail .game-card .game-name{position:absolute;left:0;right:0;bottom:0;max-height:none;min-height:0;padding:30px 10px 11px;opacity:1;transform:none;color:#fff;background:linear-gradient(transparent,#07110ff0);font:700 14px/1.25 'Space Grotesk',sans-serif;white-space:normal;overflow-wrap:anywhere;text-align:left}
+.home-discovery .game-rail .game-card:hover{transform:translateY(-3px)}
+.all-games-section #gameGrid{grid-auto-rows:66px;gap:10px}
+.all-games-section #gameGrid .explore-card{grid-column:span 3!important;grid-row:span 2!important;min-height:0!important;height:100%!important;border-radius:15px!important}
+.all-games-section #gameGrid .explore-card:nth-child(7n + 2){grid-column:span 2!important;grid-row:span 2!important}
+.all-games-section #gameGrid .explore-card:nth-child(9n + 5){grid-column:span 3!important;grid-row:span 2!important}
+.all-games-section #gameGrid .explore-card.explore-hot-large{grid-column:span 4!important;grid-row:span 3!important;border-radius:18px!important}
+.all-games-section #gameGrid .explore-card.explore-played-large{grid-column:span 3!important;grid-row:span 3!important;border-radius:18px!important}
+.all-games-section #gameGrid .explore-card.explore-hot-large.explore-played-large{grid-column:span 4!important;grid-row:span 3!important}
+.all-games-section #gameGrid .explore-card .game-name{padding:27px 10px 10px;font-size:13px}
+@media(max-width:900px){
+ .brand img{width:150px}
+ .home-discovery .game-rail .game-card{flex-basis:180px!important;width:180px!important;height:142px!important}
+ .all-games-section #gameGrid{grid-auto-rows:58px;gap:9px}
+ .all-games-section #gameGrid .explore-card.explore-hot-large{grid-column:span 4!important;grid-row:span 3!important}
+ .all-games-section #gameGrid .explore-card.explore-played-large{grid-column:span 3!important;grid-row:span 3!important}
+}
+@media(max-width:600px){
+ .brand img{width:132px;max-height:40px}
+ .home-discovery .game-rail{gap:10px}
+ .home-discovery .game-rail .game-card{flex-basis:158px!important;width:158px!important;height:128px!important}
+ .home-discovery .game-rail .game-card .game-name{font-size:12px;padding:27px 8px 9px}
+ .all-games-section #gameGrid{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:54px;gap:8px}
+ .all-games-section #gameGrid .explore-card{grid-column:span 3!important;grid-row:span 2!important}
+ .all-games-section #gameGrid .explore-card:nth-child(7n + 2){grid-column:span 3!important;grid-row:span 2!important}
+ .all-games-section #gameGrid .explore-card:nth-child(9n + 5){grid-column:span 3!important;grid-row:span 2!important}
+ .all-games-section #gameGrid .explore-card.explore-hot-large{grid-column:span 6!important;grid-row:span 3!important}
+ .all-games-section #gameGrid .explore-card.explore-played-large{grid-column:span 3!important;grid-row:span 3!important}
+ .all-games-section #gameGrid .explore-card.explore-hot-large.explore-played-large{grid-column:span 6!important;grid-row:span 3!important}
+ .all-games-section #gameGrid .explore-card .game-name{font-size:12px;padding:24px 8px 8px}
+ .public-profile-head{align-items:flex-start;gap:16px;padding:20px;border-radius:18px}
+ .public-profile-avatar{width:72px;height:72px;flex-basis:72px;border-radius:20px;font-size:28px}
+ .public-profile-main .page-title{font-size:25px}
+ .comment-profile-link{gap:8px}
+ .comment-avatar{width:34px;height:34px;flex-basis:34px}
+}
