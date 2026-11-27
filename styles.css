@@ -813,7 +813,7 @@ img,video,iframe{max-width:100%}
 .brand{display:inline-flex;align-items:center;flex:0 0 auto;line-height:0}
 .brand img{display:block;width:clamp(145px,16vw,190px);height:auto;max-height:48px;object-fit:contain}
 .verified-badge{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;flex:0 0 17px;margin-left:5px;vertical-align:middle;border-radius:50%;background:#3288f5;color:#fff;box-shadow:0 0 0 2px #3288f51a}
-.verified-badge svg{width:12px;height:12px;display:block}
+.verified-badge .fa-solid{font-size:12px;line-height:1;display:block}
 .profile-display-name,.public-profile-main .page-title{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
 .account-pill>span:last-child{display:inline-flex;align-items:center;gap:2px}
 .comment-profile-link{display:inline-flex;align-items:center;gap:10px;color:inherit;text-decoration:none;max-width:100%}
@@ -825,7 +825,7 @@ img,video,iframe{max-width:100%}
 .comment-reply-author{margin-bottom:7px}
 .comment-reply .comment-avatar{width:30px;height:30px;flex-basis:30px;font-size:12px}
 .comment-reply .verified-badge{width:15px;height:15px;flex-basis:15px}
-.comment-reply .verified-badge svg{width:10px;height:10px}
+.comment-reply .verified-badge .fa-solid{font-size:12px;line-height:1;display:block}
 .profile-joined{margin:7px 0 0;color:var(--muted);font-size:13px}
 .public-profile-page{max-width:920px;margin:34px auto}
 .public-profile-head{display:flex;align-items:center;gap:24px;padding:clamp(22px,4vw,42px);background:linear-gradient(145deg,#171d34,#151716 70%);border:1px solid #2b302d;border-radius:24px}
@@ -1576,7 +1576,7 @@ body[data-page="home"] .topbar{justify-content:space-between!important;gap:clamp
 @media(max-width:620px){.division-quick-actions{display:grid;grid-template-columns:1fr 1fr}.division-quick-btn{padding:12px 9px;font-size:13px}.division-xp-card{grid-column:1/-1;margin-left:0;justify-content:center}.division-extra-rail>a{flex-basis:145px}.division-request-panel{padding:15px}}
 
 /* Notifications and admin announcements */
-.division-notification-wrap{position:relative;display:flex;align-items:center}.division-notification-bell{position:relative;width:42px;height:42px;padding:8px}.division-notification-bell svg{width:22px;height:22px}#divisionNotificationCount{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;padding:0 4px;border-radius:20px;background:var(--orange);color:#20110a;font-size:10px;font-weight:800;display:grid;place-items:center}.division-notification-panel{position:absolute;top:calc(100% + 12px);right:0;width:min(360px,calc(100vw - 24px));max-height:420px;overflow:auto;background:#151716;border:1px solid #343a35;border-radius:16px;box-shadow:0 18px 50px #0009;z-index:1000}.division-notification-head{display:flex;justify-content:space-between;align-items:center;padding:15px;border-bottom:1px solid var(--line)}.division-notification-head button{border:0;background:transparent;color:var(--orange);font-size:12px;font-weight:700}.division-notification-item{display:flex;width:100%;gap:10px;text-align:left;padding:14px;border:0;border-bottom:1px solid #262b27;background:transparent;color:var(--text)}.division-notification-item.unread{background:#20251f}.division-notification-dot{width:8px;height:8px;flex:0 0 8px;margin-top:6px;border-radius:50%;background:transparent}.division-notification-item.unread .division-notification-dot{background:var(--orange)}.division-notification-copy{display:grid;gap:5px;min-width:0}.division-notification-copy b{font-size:13px}.division-notification-copy span{font-size:12px;color:var(--muted);overflow-wrap:anywhere}.division-notification-copy small{font-size:10px;color:#788078}.division-notification-empty{padding:20px;text-align:center}.admin-broadcast-form{display:grid;gap:13px;margin-top:16px}.admin-broadcast-form label{display:grid;gap:7px;font-size:13px;font-weight:700;color:var(--muted)}@media(max-width:600px){.division-notification-panel{right:-8px}.division-notification-bell{width:38px;height:38px}}
+.division-notification-wrap{position:relative;display:flex;align-items:center}.division-notification-bell{position:relative;width:42px;height:42px;padding:8px}.division-notification-bell .fa-solid{font-size:22px;line-height:1}#divisionNotificationCount{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;padding:0 4px;border-radius:20px;background:var(--orange);color:#20110a;font-size:10px;font-weight:800;display:grid;place-items:center}.division-notification-panel{position:absolute;top:calc(100% + 12px);right:0;width:min(360px,calc(100vw - 24px));max-height:420px;overflow:auto;background:#151716;border:1px solid #343a35;border-radius:16px;box-shadow:0 18px 50px #0009;z-index:1000}.division-notification-head{display:flex;justify-content:space-between;align-items:center;padding:15px;border-bottom:1px solid var(--line)}.division-notification-head button{border:0;background:transparent;color:var(--orange);font-size:12px;font-weight:700}.division-notification-item{display:flex;width:100%;gap:10px;text-align:left;padding:14px;border:0;border-bottom:1px solid #262b27;background:transparent;color:var(--text)}.division-notification-item.unread{background:#20251f}.division-notification-dot{width:8px;height:8px;flex:0 0 8px;margin-top:6px;border-radius:50%;background:transparent}.division-notification-item.unread .division-notification-dot{background:var(--orange)}.division-notification-copy{display:grid;gap:5px;min-width:0}.division-notification-copy b{font-size:13px}.division-notification-copy span{font-size:12px;color:var(--muted);overflow-wrap:anywhere}.division-notification-copy small{font-size:10px;color:#788078}.division-notification-empty{padding:20px;text-align:center}.admin-broadcast-form{display:grid;gap:13px;margin-top:16px}.admin-broadcast-form label{display:grid;gap:7px;font-size:13px;font-weight:700;color:var(--muted)}@media(max-width:600px){.division-notification-panel{right:-8px}.division-notification-bell{width:38px;height:38px}}
 #divisionNotificationCount[hidden]{display:none!important}.division-notification-panel[hidden]{display:none!important}
 
 /* Notification UI polish — desktop, mobile and keyboard states */
@@ -1614,7 +1614,7 @@ body[data-page="home"] .topbar{justify-content:space-between!important;gap:clamp
   outline:2px solid var(--orange)!important;
   outline-offset:3px!important;
 }
-.division-notification-bell svg{display:block;width:21px;height:21px}
+.division-notification-bell .fa-solid{font-size:22px;line-height:1}
 #divisionNotificationCount{
   display:grid;
   place-items:center;
@@ -2015,7 +2015,7 @@ body[data-page="home"] .for-you-section .section-head{margin-top:12px!important}
  color:#fff!important;background:linear-gradient(145deg,#8b5cf6,#4f46e5)!important;
  box-shadow:0 2px 7px #4f46e555!important;
 }
-.verified-badge svg{width:13px!important;height:13px!important;display:block!important}
+.verified-badge .fa-solid{font-size:12px;line-height:1;display:block}
 .verified-badge svg path{stroke:#fff!important;stroke-width:3!important}
 
 
@@ -2109,17 +2109,17 @@ body[data-page="home"] .division-quick-actions .division-xp-note{display:none!im
 
 /* Verified identity and game voting */
 .verified-badge{width:19px;height:19px;flex:0 0 19px;margin-left:5px;border-radius:50%;background:#d6a629;color:#d6a629;box-shadow:0 0 0 2px #d6a62925}
-.verified-badge svg{width:19px;height:19px}
+.verified-badge .fa-solid{font-size:12px;line-height:1;display:block}
 .game-action-buttons .vote-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:70px;padding:10px 13px;background:#eaf5f1;color:var(--navy);border:0}
-.game-action-buttons .vote-button svg{width:19px;height:19px;flex:0 0 19px}
+.game-action-buttons .vote-button .fa-solid{font-size:19px;line-height:1;flex:0 0 19px}
 .game-action-buttons .vote-button.active{background:var(--navy);color:#fff}
 .game-action-buttons .dislike-button.active{background:#b64a57;color:#fff}
 
 /* Final compact sizing for game reaction buttons */
 .game-action-buttons .vote-button{height:32px!important;min-height:32px!important;min-width:46px!important;padding:5px 8px!important;gap:5px!important;border-radius:9px!important;font-size:12px!important;line-height:1!important;font-weight:700!important;box-shadow:none!important}
-.game-action-buttons .vote-button svg{width:15px!important;height:15px!important;flex:0 0 15px!important}
+.game-action-buttons .vote-button .fa-solid{font-size:19px;line-height:1;flex:0 0 19px}
 .game-action-buttons .vote-button:active{transform:scale(.97)}
-@media(max-width:600px){.game-action-buttons{gap:6px!important}.game-action-buttons .vote-button{height:30px!important;min-height:30px!important;min-width:43px!important;padding:4px 7px!important}.game-action-buttons .vote-button svg{width:14px!important;height:14px!important;flex-basis:14px!important}}
+@media(max-width:600px){.game-action-buttons{gap:6px!important}.game-action-buttons .vote-button{height:30px!important;min-height:30px!important;min-width:43px!important;padding:4px 7px!important}.game-action-buttons .vote-button .fa-solid{font-size:19px;line-height:1;flex:0 0 19px}}
 
 /* Verified Division account: blue seal with a clear white check */
 .verified-badge{
@@ -2128,7 +2128,7 @@ body[data-page="home"] .division-quick-actions .division-xp-note{display:none!im
   margin-left:5px!important;vertical-align:-4px!important;border:0!important;border-radius:50%!important;
   color:#1d9bf0!important;background:transparent!important;box-shadow:none!important;line-height:1!important;
 }
-.verified-badge svg{display:block!important;width:20px!important;height:20px!important;overflow:visible!important}
+.verified-badge .fa-solid{font-size:12px;line-height:1;display:block}
 .verified-badge .verified-seal{fill:#1d9bf0!important;stroke:none!important}
 .verified-badge .verified-check{fill:none!important;stroke:#fff!important;stroke-width:2.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 .account-pill .verified-badge,.profile-identity .verified-badge,.public-profile-main .verified-badge{vertical-align:-4px!important}
@@ -2187,13 +2187,7 @@ body[data-page="home"] .division-quick-actions .division-xp-note{display:none!im
   white-space:nowrap!important;
   transform:none!important;
 }
-.game-detail-bar .game-vote-group .vote-button svg{
-  display:block!important;
-  width:15px!important;
-  height:15px!important;
-  flex:0 0 15px!important;
-  margin:0!important;
-}
+.game-detail-bar .game-vote-group .vote-button .fa-solid{font-size:19px;line-height:1;flex:0 0 19px}
 .game-detail-bar .game-vote-group .vote-button .vote-count{
   display:inline-block!important;
   min-width:1ch!important;
@@ -2234,11 +2228,17 @@ body[data-page="home"] .division-quick-actions .division-xp-note{display:none!im
 .header-search{flex:1;min-width:90px;max-width:430px}
 .actions{gap:6px;flex-shrink:0}
 .header-icon-link{width:38px;height:38px;min-width:38px;padding:0!important;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;flex-shrink:0}
-.header-icon-link svg,.panic-key.header-icon-link svg{width:19px;height:19px;display:block}
+.header-icon-link .fa-solid,.panic-key.header-icon-link .fa-solid{font-size:19px;line-height:1;display:block}
 .account-pill.header-icon-link{width:38px;height:38px;min-width:38px;padding:0!important}
 .account-pill.header-icon-link .avatar{width:36px;height:36px}
 .panic-key.header-icon-link{border:0;background:#eef7f4;color:var(--navy);border-radius:50%;width:38px;height:38px;min-width:38px;padding:0;display:grid;place-items:center}
 .panic-key.header-icon-link span{display:none}
 .admin-nav-link.header-icon-link{background:#eef7f4;color:var(--navy)}
-@media(max-width:760px){.shell{padding:0 14px}.topbar{height:58px;margin:10px 0 18px;padding:0 10px;gap:8px}.brand{font-size:0;gap:0}.brand img{width:30px;height:30px}.actions{gap:4px}.header-icon-link,.panic-key.header-icon-link{width:34px;height:34px;min-width:34px}.account-pill.header-icon-link .avatar{width:32px;height:32px}.header-icon-link svg,.panic-key.header-icon-link svg{width:17px;height:17px}}
+@media(max-width:760px){.shell{padding:0 14px}.topbar{height:58px;margin:10px 0 18px;padding:0 10px;gap:8px}.brand{font-size:0;gap:0}.brand img{width:30px;height:30px}.actions{gap:4px}.header-icon-link,.panic-key.header-icon-link{width:34px;height:34px;min-width:34px}.account-pill.header-icon-link .avatar{width:32px;height:32px}.header-icon-link .fa-solid,.panic-key.header-icon-link .fa-solid{font-size:19px;line-height:1;display:block}}
 @media(max-width:390px){.topbar{gap:6px}.header-search input{font-size:13px}.actions{gap:3px}.header-icon-link,.panic-key.header-icon-link{width:31px;height:31px;min-width:31px}.account-pill.header-icon-link .avatar{width:29px;height:29px}}
+
+/* Font Awesome icon font — shared Division interface icon system */
+.fa-solid{display:inline-block;font-style:normal;line-height:1;vertical-align:middle}
+.header-search>.fa-solid{font-size:18px;flex:0 0 auto;color:var(--navy,#101b49)}
+.division-orbit-art.fa-solid{font-size:clamp(58px,9vw,110px);line-height:1;color:#74ead5}
+.verified-badge .fa-solid{color:#fff}
