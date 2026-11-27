@@ -1507,3 +1507,32 @@ body[data-page="home"] .home-discovery{
   .home-discovery>.category-game-section{padding:13px!important}
   .profile-page,.settings-layout{padding-left:10px!important;padding-right:10px!important}
 }
+
+
+/* Header search: visible, responsive, and usable on every page */
+.topbar .header-search{position:relative;overflow:visible;z-index:40}
+.topbar .header-search>svg{width:21px;height:21px;flex:0 0 21px;color:#536d67}
+.topbar .header-search input{flex:1 1 auto}
+.header-search .search-clear{border:0;background:transparent;color:#637c75;font-size:22px;line-height:1;padding:2px 3px;cursor:pointer}
+.header-search-results{
+  position:absolute;top:calc(100% + 10px);left:0;right:0;min-width:min(360px,calc(100vw - 28px));
+  max-height:min(68vh,440px);overflow:auto;padding:8px;border:1px solid #d4e9e3;
+  border-radius:18px;background:#f8fffd;color:#101b49;box-shadow:0 18px 45px #102b2830;
+}
+.header-search-results[hidden]{display:none!important}
+.search-result-item{display:flex;align-items:center;gap:11px;padding:9px;border-radius:12px;text-decoration:none;min-width:0}
+.search-result-item:hover,.search-result-item:focus-visible{background:#e5f6f0;outline:none}
+.search-result-item img{width:42px;height:42px;object-fit:cover;border-radius:10px;background:#dbece6;flex:0 0 42px}
+.search-result-item>span:nth-child(2){display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.search-result-item b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.search-result-item small{font-size:11px;color:#6a7d76}
+.search-result-arrow{font-size:17px;color:#6b8178}
+.search-result-empty{padding:14px;font-size:13px;color:#6a7d76}
+.topbar .icon-link{display:grid;place-items:center}
+.topbar .icon-link svg{width:22px;height:22px;display:block}
+@media(max-width:600px){
+  .topbar>.header-search{position:relative!important}
+  .header-search-results{left:0;right:0;min-width:0;width:100%;max-height:55vh}
+  .topbar>.actions .icon-link{width:38px!important;height:38px!important;flex:0 0 38px}
+  .topbar>.actions .icon-link svg{width:20px;height:20px}
+}
