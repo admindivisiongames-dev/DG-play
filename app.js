@@ -175,7 +175,7 @@ authReady=true;render();
 if(!currentUser)return;
 const uid=currentUser.id;
 try{
-let p=await sb.from('profiles').select('id,username,role,settings,avatar_url,bio,suspended,created_at').eq('id',uid).maybeSingle();
+let p=await sb.from('profiles').select('id,username,role,settings,avatar_url,bio,suspended,created_at,username_changed_at').eq('id',uid).maybeSingle();
 if(run!==stateLoadId)return;
 if(p.error){console.error('Division profile lookup failed:',p.error);throw p.error}
 if(!p.data){
@@ -183,7 +183,7 @@ const fallbackUsername=String(currentUser.user_metadata?.username||currentUser.e
 const created=await sb.from('profiles').upsert({id:uid,username:fallbackUsername,role:'user'},{onConflict:'id',ignoreDuplicates:true});
 if(created.error)console.error('Division profile recovery failed:',created.error);
 if(run!==stateLoadId)return;
-p=await sb.from('profiles').select('id,username,role,settings,avatar_url,bio,suspended,created_at').eq('id',uid).maybeSingle();
+p=await sb.from('profiles').select('id,username,role,settings,avatar_url,bio,suspended,created_at,username_changed_at').eq('id',uid).maybeSingle();
 if(p.error){console.error('Division profile reload failed:',p.error);throw p.error}
 }
 currentProfile=p.data||null;
