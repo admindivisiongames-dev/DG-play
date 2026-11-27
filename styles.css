@@ -2106,3 +2106,11 @@ body[data-page="home"] .division-quick-actions .division-xp-note{display:none!im
 .leaderboard-avatar{width:32px;height:32px;flex:0 0 32px;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:rgba(255,255,255,.08);font-size:13px}
 .leaderboard-avatar img{width:100%;height:100%;object-fit:cover}
 .leaderboard-panel .data-table tbody tr:last-child td{border-bottom:0}
+
+/* Verified identity and game voting */
+.verified-badge{width:19px;height:19px;flex:0 0 19px;margin-left:5px;border-radius:50%;background:#d6a629;color:#d6a629;box-shadow:0 0 0 2px #d6a62925}
+.verified-badge svg{width:19px;height:19px}
+.game-action-buttons .vote-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:70px;padding:10px 13px;background:#eaf5f1;color:var(--navy);border:0}
+.game-action-buttons .vote-button svg{width:19px;height:19px;flex:0 0 19px}
+.game-action-buttons .vote-button.active{background:var(--navy);color:#fff}
+.game-action-buttons .dislike-button.active{background:#b64a57;color:#fff}
