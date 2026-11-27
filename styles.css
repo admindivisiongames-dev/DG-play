@@ -1015,3 +1015,12 @@ html,body{max-width:100%;overflow-x:hidden}
  .brand.brand-wordmark img{width:28px!important;height:28px!important;flex-basis:28px!important}
  .official-site-label{font-size:6px!important;padding:3px 4px!important}
 }
+
+/* Profile pages: clip horizontal spill without cutting off vertical content */
+.profile-page,.public-profile-page{width:100%;max-width:100%;min-width:0;overflow-x:clip}
+.profile-page .profile-head,.profile-page .profile-content,.profile-page .profile-content main,.profile-page .profile-tab-panel,.profile-page .profile-settings-card,.public-profile-page .public-profile-head,.public-profile-page .public-profile-main{min-width:0;max-width:100%}
+.profile-page .profile-content,.profile-page .profile-content main,.profile-page .profile-tab-panel{overflow-x:clip}
+.profile-page .profile-head>*{min-width:0}
+.profile-page .profile-display-name,.profile-page .profile-bio,.profile-page .profile-setting-summary span{overflow-wrap:anywhere;word-break:break-word}
+.profile-page .profile-tab-panel .game-grid{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}
+@media(min-width:1101px){.profile-page .profile-content{grid-template-columns:minmax(0,1fr) 290px}.profile-page .profile-content main{min-width:0}}
