@@ -1776,3 +1776,98 @@ body[data-page="home"] .topbar{justify-content:space-between!important;gap:clamp
 @media(prefers-reduced-motion:reduce){
   .division-notification-bell,.division-notification-item{transition:none!important}
 }
+
+
+/* GLOBAL CONTRAST REPAIR — keep dark surfaces readable against the light Division theme */
+:root{
+  color-scheme:light;
+  --text:#101b49;
+  --muted:#647873;
+}
+
+/* Dark cards, panels and profile headers must use light foreground text. */
+.division-xp-card,
+.admin-content .metric,
+.new-release-rail .new-release-card,
+.game-rail .game-card,
+.category-overlay-grid .category-modal-card,
+.all-games-section #gameGrid .explore-card,
+.public-profile-head,
+.admin-private-profile,
+.division-about,
+.division-about-cta,
+.division-popular-browse,
+.division-notification-panel{
+  color:#f7fbff!important;
+}
+.division-xp-card strong,
+.admin-content .metric strong,
+.new-release-rail .new-release-card h3,
+.game-rail .game-card h3,
+.category-overlay-grid .category-modal-card h3,
+.all-games-section #gameGrid .explore-card h3,
+.public-profile-head h1,
+.public-profile-head h2,
+.admin-private-profile h1,
+.admin-private-profile h2{
+  color:#fff!important;
+}
+.division-xp-card .division-xp-note,
+.admin-content .metric small,
+.public-profile-head small,
+.public-profile-head .muted,
+.admin-private-profile small,
+.admin-private-profile .muted{
+  color:#c4d0dc!important;
+}
+
+/* Keep every dark form control readable; placeholder text stays distinguishable. */
+#divisionRequestForm input,
+#divisionRequestForm textarea,
+.admin-broadcast-form input,
+.admin-broadcast-form textarea,
+.admin-broadcast-form select{
+  background:#fff!important;
+  color:#101b49!important;
+  border:1px solid #cbded7!important;
+}
+#divisionRequestForm input::placeholder,
+#divisionRequestForm textarea::placeholder,
+.admin-broadcast-form input::placeholder,
+.admin-broadcast-form textarea::placeholder{
+  color:#71827d!important;
+  opacity:1!important;
+}
+
+/* Unlocked achievement cards are dark by design, so their full text is light. */
+.division-achievement.unlocked{background:#20291a!important;color:#d8ff9b!important}
+.division-achievement.unlocked small{color:#c1d6a6!important}
+
+/* Dark blue and charcoal navigation/action surfaces need clear foregrounds. */
+.admin-sidebar{color:#f4f7ff!important}
+.admin-sidebar a{color:#dce7ff!important}
+.admin-sidebar a.active,
+.admin-sidebar a:hover{background:#74ead6!important;color:#101b49!important}
+.public-profile-meta span{color:#eef4ff!important}
+.comment-avatar,.profile-avatar-small{color:#fff!important}
+
+/* Text on the dark game player must remain white; controls keep their own contrast. */
+.game-frame,.game-iframe{color:#fff!important}
+.game-frame p,.game-frame h1,.game-frame h2,.game-frame h3{color:#fff!important}
+
+/* Guard against inherited navy text on any intentionally dark card surface. */
+.new-release-rail .new-release-card *,
+.game-rail .game-card *,
+.category-overlay-grid .category-modal-card *,
+.all-games-section #gameGrid .explore-card *,
+.admin-content .metric *,
+.public-profile-head *,
+.admin-private-profile *{
+  text-shadow:none;
+}
+.new-release-rail .new-release-card .game-name,
+.game-rail .game-card .game-name,
+.category-overlay-grid .category-modal-card .game-name,
+.all-games-section #gameGrid .explore-card .game-name{
+  color:#fff!important;
+}
