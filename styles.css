@@ -2017,3 +2017,54 @@ body[data-page="home"] .for-you-section .section-head{margin-top:12px!important}
 }
 .verified-badge svg{width:13px!important;height:13px!important;display:block!important}
 .verified-badge svg path{stroke:#fff!important;stroke-width:3!important}
+
+
+/* Global compact header sizing — shared by every Division page */
+.topbar{
+  height:66px!important;
+  min-height:66px!important;
+  margin-top:14px!important;
+  margin-bottom:20px!important;
+  padding-top:0!important;
+  padding-bottom:0!important;
+  gap:14px!important;
+}
+.topbar>.brand img{
+  max-height:36px!important;
+  height:auto!important;
+}
+.topbar>.header-search{
+  height:42px!important;
+}
+.topbar>.actions{gap:7px!important}
+.topbar>.actions .icon-link{
+  width:38px!important;height:38px!important;
+}
+@media(max-width:900px){
+  .topbar{
+    height:60px!important;min-height:60px!important;
+    margin-top:10px!important;margin-bottom:16px!important;
+  }
+  .topbar>.brand img{max-height:33px!important}
+}
+@media(max-width:600px){
+  .topbar{
+    height:auto!important;min-height:0!important;
+    padding:8px!important;gap:7px 8px!important;
+    margin:8px 0 14px!important;
+  }
+  .topbar>.brand img{
+    width:clamp(108px,32vw,136px)!important;
+    max-height:31px!important;
+  }
+  .topbar>.header-search{
+    height:38px!important;min-height:38px!important;
+    padding:0 11px!important;
+  }
+  .topbar>.actions .icon-link{
+    width:32px!important;height:32px!important;flex-basis:32px!important;
+  }
+  .topbar>.actions .account-pill .avatar{
+    width:27px!important;height:27px!important;
+  }
+}
