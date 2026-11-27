@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+<title id="title">Division mascot</title>
+<defs>
+ <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#24376b"/><stop offset=".58" stop-color="#101b49"/><stop offset="1" stop-color="#071329"/></linearGradient>
+ <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ffff0"/><stop offset=".48" stop-color="#26e9bd"/><stop offset="1" stop-color="#06a9d9"/></linearGradient>
+ <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+</defs>
+<!-- crown -->
+<path d="M150 155 126 72 201 117 256 40 311 117 386 72 362 155Z" fill="url(#mint)" stroke="#101b49" stroke-width="18" stroke-linejoin="round"/>
+<path d="M150 155 126 72 201 117 256 40 311 117 386 72 362 155Z" fill="none" stroke="#b8fff0" stroke-width="5" stroke-linejoin="round"/>
+<path d="M240 88 256 68 272 88 256 111Z" fill="#d9fff7"/>
+<!-- mascot head -->
+<rect x="100" y="135" width="312" height="285" rx="78" fill="url(#shell)" stroke="#263d70" stroke-width="18"/>
+<path d="M132 174Q132 153 153 153H354Q378 153 388 175" fill="none" stroke="#8ba7e7" stroke-opacity=".65" stroke-width="10" stroke-linecap="round"/>
+<rect x="138" y="184" width="236" height="192" rx="52" fill="#030c20" stroke="#1d3767" stroke-width="8"/>
+<path d="M157 205Q157 197 171 197H265" fill="none" stroke="url(#shine)" stroke-width="9" stroke-linecap="round"/>
+<!-- eyes and smile -->
+<ellipse cx="203" cy="271" rx="25" ry="36" fill="#53ffd8"/>
+<ellipse cx="309" cy="271" rx="25" ry="36" fill="#53ffd8"/>
+<path d="M229 316Q256 344 283 316" fill="none" stroke="#53ffd8" stroke-width="15" stroke-linecap="round"/>
+<!-- side headset -->
+<path d="M101 230Q63 236 65 286V319Q65 350 101 355" fill="#132751" stroke="#263d70" stroke-width="13"/>
+<path d="M411 230Q449 236 447 286V319Q447 350 411 355" fill="#132751" stroke="#263d70" stroke-width="13"/>
+<path d="M87 264V321M425 264V321" stroke="#28e9c2" stroke-width="12" stroke-linecap="round"/>
+<!-- orbital ring -->
+<ellipse cx="256" cy="303" rx="225" ry="72" transform="rotate(-24 256 303)" fill="none" stroke="#06162d" stroke-width="28"/>
+<ellipse cx="256" cy="303" rx="225" ry="72" transform="rotate(-24 256 303)" fill="none" stroke="url(#mint)" stroke-width="17"/>
+<ellipse cx="256" cy="303" rx="225" ry="72" transform="rotate(-24 256 303)" fill="none" stroke="#b8fff0" stroke-width="4" stroke-opacity=".85"/>
+<!-- bottom neck -->
+<path d="M205 416V445Q256 477 307 445V416" fill="url(#shell)" stroke="#263d70" stroke-width="13"/>
+<path d="M229 445H283" stroke="#28e9c2" stroke-width="10" stroke-linecap="round"/>
+<!-- energy ticks -->
+<path d="M82 121 64 102M101 105 91 78M430 121 448 102M411 105 421 78" stroke="#28e9c2" stroke-width="12" stroke-linecap="round"/>
+<path d="m389 170 19-12-2 23 21 7-23 5-7 21-6-22-21-6 20-7Z" fill="#8ffff0"/>
+</svg>
