@@ -2132,3 +2132,8 @@ body[data-page="home"] .division-quick-actions .division-xp-note{display:none!im
 .verified-badge .verified-seal{fill:#1d9bf0!important;stroke:none!important}
 .verified-badge .verified-check{fill:none!important;stroke:#fff!important;stroke-width:2.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 .account-pill .verified-badge,.profile-identity .verified-badge,.public-profile-main .verified-badge{vertical-align:-4px!important}
+
+/* Player country line */
+.profile-country-row{margin-top:8px;min-height:20px}
+.profile-country{display:inline-flex;align-items:center;gap:7px;color:var(--text-secondary,#a9a9a9);font-size:13px;font-weight:600;line-height:1.4}
+.profile-country-row .profile-country{color:var(--text-secondary,#a9a9a9)}
