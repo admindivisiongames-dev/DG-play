@@ -969,3 +969,8 @@ img,video,iframe{max-width:100%}
   .topbar>.actions .account-pill{max-width:82px!important}
   .topbar>.header-search{height:42px!important}
 }
+
+/* Temporary plain wordmark while the owner chooses a generated image logo */
+.brand.brand-wordmark{display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;width:auto!important;color:#101b49!important;font:800 clamp(20px,2vw,27px)/1 'Space Grotesk',sans-serif!important;letter-spacing:-.075em!important;white-space:nowrap!important}
+.brand.brand-wordmark:after{content:"";display:inline-block;width:7px;height:7px;margin:0 0 0 5px;border-radius:50%;background:#62e6c8;box-shadow:0 0 0 4px #62e6c826}
+@media(max-width:600px){.topbar>.brand.brand-wordmark{font-size:clamp(18px,5.6vw,23px)!important}.topbar>.brand.brand-wordmark:after{width:6px;height:6px;margin-left:4px}}
