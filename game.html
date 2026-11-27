@@ -1,21 +1,24 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#101010">
-  <title>Play Game — Division</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101010"><title>Play Game — Division</title><link rel="stylesheet" href="styles.css"></head>
 <body data-page="game">
-  <!-- EDITABLE PAGE SHELL: shared header, page content and footer -->
-  <div class="shell" id="division-shell">
-    <header id="division-header"></header>
-    <main id="app"></main>
-    <footer id="division-footer"></footer>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="supabase-client.js" defer></script>
-  <script src="app.js" defer></script>
-</body>
-</html>
+  <!-- EDITABLE GAME PAGE: page structure, headings and controls are in HTML. JS fills game data. -->
+  <template id="game-template">
+    <div class="game-shell">
+      <div class="game-player-card">
+        <div class="game-frame"><!-- GAME_FRAME --></div>
+        <div class="game-detail-bar">
+          <div class="game-cover-mini"><!-- GAME_COVER --></div>
+          <div class="game-title-block"><h1><!-- GAME_TITLE --></h1><span><!-- GAME_META --></span></div>
+          <div class="game-action-buttons"><button class="btn like-button" id="likeGame">♥ <span id="likeCount">0</span> Likes</button><button class="btn" id="favorite">☆ Favourite</button><button class="btn" id="fullscreen">⛶</button></div>
+        </div>
+      </div>
+      <div class="game-lower-layout">
+        <section class="panel game-about"><h2>About <!-- GAME_ABOUT_TITLE --></h2><p><!-- GAME_DESCRIPTION --></p><h3>How to Play</h3><p><!-- GAME_INSTRUCTIONS --></p><h3>Controls</h3><p><!-- GAME_CONTROLS --></p></section>
+        <aside class="panel developer-card"><h2>Developer Info</h2><b><!-- GAME_DEVELOPER --></b><p class="muted">Game creator</p></aside>
+      </div>
+      <section class="panel comments-panel"><h2>Comments</h2><form id="commentForm" class="comment-form"><textarea class="field" id="commentText" rows="3" placeholder="Share your thoughts about this game..." required></textarea><button class="btn primary" type="submit">Post Comment</button></form><p class="comment-status muted" id="commentStatus" aria-live="polite"></p><div id="commentList" class="comment-list"><p class="muted">Loading comments…</p></div></section>
+    </div>
+  </template>
+  <div class="shell" id="division-shell"><header id="division-header"></header><main id="app"></main><footer id="division-footer"></footer></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script><script src="supabase-client.js" defer></script><script src="app.js" defer></script>
+</body></html>
