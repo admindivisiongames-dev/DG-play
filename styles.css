@@ -669,3 +669,12 @@ img,video,iframe{max-width:100%}
   .profile-head .profile-stats{grid-row:3}
   .profile-head>#profileLogout{grid-row:4}
 }
+
+/* Official Division account verification */
+.comment-author{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.comment-author-name{font-weight:800}
+.division-verified{display:inline-flex;align-items:center;gap:5px;color:#087fdb;font-size:11px;font-weight:800;letter-spacing:.01em;vertical-align:middle}
+.division-verified svg{width:17px;height:17px;flex:0 0 17px}
+.comment-reply-author{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:13px}
+.comment-reply-author .division-verified{font-size:10px}
+.comment-reply-author .division-verified svg{width:15px;height:15px;flex-basis:15px}
