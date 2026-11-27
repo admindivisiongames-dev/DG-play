@@ -8,12 +8,49 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="profile">
-  <!-- EDITABLE PAGE SHELL: shared header, page content and footer -->
-  <div class="shell" id="division-shell">
-    <header id="division-header"></header>
-    <main id="app"></main>
-    <footer id="division-footer"></footer>
-  </div>
+  <!-- EDITABLE PROFILE PAGE: structure and labels are HTML; JS fills account data and game cards. -->
+  <template id="profile-template">
+    <div class="page profile-page">
+      <section class="panel profile-head">
+        <div class="profile-big"><!-- PROFILE_AVATAR --></div>
+        <label class="avatar-upload-btn">Change photo<input id="avatarUpload" type="file" accept="image/png,image/jpeg,image/webp" hidden></label>
+        <div class="profile-identity">
+          <div class="eyebrow">Player profile</div>
+          <h1 class="page-title profile-display-name"><!-- PROFILE_USERNAME --><!-- PROFILE_VERIFIED --></h1>
+          <p class="muted"><!-- PROFILE_EMAIL --></p>
+          <p class="profile-bio"><!-- PROFILE_BIO --></p>
+          <p class="profile-joined">Joined <!-- PROFILE_JOINED --></p>
+        </div>
+        <div class="stats profile-stats">
+          <div class="stat"><strong><!-- PROFILE_FAV_COUNT --></strong><span>Favourites</span></div>
+          <div class="stat"><strong><!-- PROFILE_LIKE_COUNT --></strong><span>Liked games</span></div>
+          <div class="stat"><strong><!-- PROFILE_HISTORY_COUNT --></strong><span>Played</span></div>
+        </div>
+        <button class="btn" id="profileLogout">Sign Out</button>
+      </section>
+      <!-- PROFILE_ADMIN_PANEL -->
+      <div class="profile-content">
+        <main>
+          <nav class="profile-tabs">
+            <button class="chip active" data-profile-tab="favs">Favourite Games</button>
+            <button class="chip" data-profile-tab="likes">Liked Games</button>
+            <button class="chip" data-profile-tab="history">Recently Played</button>
+            <a class="chip" href="settings.html">Account Settings</a>
+          </nav>
+          <section class="profile-tab-panel" id="profile-favs"><div class="section-head"><h2>Favourite Games</h2><a class="muted" href="index.html#popular">Browse More</a></div><div class="game-grid"><!-- PROFILE_FAV_CARDS --></div></section>
+          <section class="profile-tab-panel hidden" id="profile-likes"><div class="section-head"><h2>Liked Games</h2></div><div class="game-grid"><!-- PROFILE_LIKE_CARDS --></div></section>
+          <section class="profile-tab-panel hidden" id="profile-history"><div class="section-head"><h2>Recently Played</h2></div><div class="game-grid"><!-- PROFILE_HISTORY_CARDS --></div></section>
+        </main>
+        <aside class="panel profile-settings-card">
+          <h2>Account Settings</h2><p class="muted">Manage your profile and privacy.</p>
+          <div class="profile-setting-summary"><b>Username</b><span><!-- PROFILE_SETTING_USERNAME --></span></div>
+          <div class="profile-setting-summary"><b>Email</b><span><!-- PROFILE_SETTING_EMAIL --></span></div>
+          <a class="btn lime" href="settings.html">Manage Settings</a>
+        </aside>
+      </div>
+    </div>
+  </template>
+  <div class="shell" id="division-shell"><header id="division-header"></header><main id="app"></main><footer id="division-footer"></footer></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="supabase-client.js" defer></script>
   <script src="app.js" defer></script>
