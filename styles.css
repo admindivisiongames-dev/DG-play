@@ -1541,3 +1541,36 @@ body[data-page="home"] .home-discovery{
 body[data-page="home"] .topbar>.header-search{display:flex!important;flex:1 1 240px!important;min-width:120px!important;max-width:460px!important}
 body[data-page="home"] .topbar{justify-content:space-between!important;gap:clamp(8px,1.4vw,18px)!important}
 @media(max-width:600px){body[data-page="home"] .topbar>.header-search{flex:1 1 80px!important;min-width:0!important;max-width:none!important}body[data-page="home"] .topbar>.header-search input{font-size:12px!important}}
+
+
+/* Division player features */
+.division-extra-wrap{display:grid;gap:26px;margin:26px 0}
+.division-extra-section{min-width:0}
+.division-extra-rail{display:flex;gap:14px;overflow-x:auto;padding:5px 2px 14px;scroll-snap-type:x mandatory}
+.division-extra-rail>a{flex:0 0 clamp(145px,19vw,210px);scroll-snap-align:start}
+.division-quick-actions{display:flex;align-items:stretch;gap:12px;flex-wrap:wrap;margin:18px 0 24px}
+.division-quick-btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:13px;padding:13px 18px;font-weight:700}
+.division-quick-btn:hover{border-color:var(--orange);transform:translateY(-1px)}
+.division-xp-card{display:flex;align-items:center;gap:12px;padding:10px 16px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(120deg,#1b211d,#171817);margin-left:auto}
+.division-xp-label{font-size:10px;letter-spacing:1px;color:var(--green);font-weight:800}
+.division-xp-card strong{font-size:23px;font-family:'Space Grotesk'}
+.division-xp-note{font-size:12px;color:var(--muted)}
+.division-request-panel{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:20px;margin:12px 0 24px}
+.division-request-panel[hidden]{display:none}
+.division-request-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.division-request-head h2{margin:0;font:700 22px 'Space Grotesk'}
+.division-request-head button{border:0;background:transparent;color:var(--text);font-size:28px}
+#divisionRequestForm{display:grid;gap:10px;max-width:620px}
+#divisionRequestForm input,#divisionRequestForm textarea{width:100%;background:#101211;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px}
+.division-request-status{color:var(--green);font-size:13px}
+.division-request-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+.division-request-list p{display:flex;justify-content:space-between;gap:8px;background:var(--panel2);padding:10px;border-radius:9px;font-size:13px}
+.division-request-list small{color:var(--muted)}
+.division-achievements{margin-top:20px;padding:20px}
+.division-achievements h2{font:700 22px 'Space Grotesk';margin:0 0 8px}
+.division-badges{display:flex;gap:10px;flex-wrap:wrap}
+.division-achievement{display:grid;gap:4px;border:1px solid var(--line);border-radius:12px;padding:12px 15px;font-weight:700;font-size:13px}
+.division-achievement small{font-size:11px;color:var(--muted);font-weight:500}
+.division-achievement.unlocked{border-color:#627c42;background:#20291a;color:var(--green)}
+.division-achievement.locked{opacity:.52}
+@media(max-width:620px){.division-quick-actions{display:grid;grid-template-columns:1fr 1fr}.division-quick-btn{padding:12px 9px;font-size:13px}.division-xp-card{grid-column:1/-1;margin-left:0;justify-content:center}.division-extra-rail>a{flex-basis:145px}.division-request-panel{padding:15px}}
