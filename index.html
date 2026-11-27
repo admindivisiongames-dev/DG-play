@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#74ead5">
   <title>Division — Play beyond the ordinary</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="home">
@@ -34,13 +35,7 @@
       <section class="division-about" id="about-division">
         <div class="division-about-intro">
           <span class="eyebrow">A LITTLE ABOUT US</span>
-          <svg class="division-orbit-art" viewBox="0 0 180 100" aria-hidden="true">
-            <defs><linearGradient id="divOrbGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8fffd8"/><stop offset="1" stop-color="#bba7ff"/></linearGradient></defs>
-            <ellipse cx="90" cy="50" rx="78" ry="25" fill="none" stroke="url(#divOrbGrad)" stroke-width="1.5" opacity=".55" transform="rotate(-22 90 50)"/>
-            <ellipse cx="90" cy="50" rx="54" ry="40" fill="none" stroke="#8fffd8" stroke-width="1" opacity=".25" transform="rotate(28 90 50)"/>
-            <circle cx="90" cy="50" r="24" fill="url(#divOrbGrad)" opacity=".16"/><path d="M78 50h24M90 38v24" stroke="#b6ffe6" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="28" cy="27" r="4" fill="#bba7ff"/><circle cx="151" cy="70" r="5" fill="#8fffd8"/>
-          </svg>
+          <i class="fa-solid fa-atom division-orbit-art" aria-hidden="true"></i>
           <h2>More games.<br><span>More ways to play.</span></h2>
           <p>Division brings different games, genres and experiences together in one place. Find something that fits your mood, then jump straight into the fun.</p>
           <a class="division-about-cta" href="#popular">Explore the arcade <span>→</span></a>
@@ -70,7 +65,7 @@
     <header id="division-header"></header>
   <template id="home-header-search">
     <label class="header-search">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
       <input id="topSearch" type="search" placeholder="Search games..." aria-label="Search games" autocomplete="off">
       <button class="search-clear" id="clearTopSearch" type="button" aria-label="Clear search" hidden>×</button>
       <div class="header-search-results" id="headerSearchResults" hidden></div>
