@@ -163,8 +163,17 @@ authReady=true;render();
 if(!currentUser)return;
 const uid=currentUser.id;
 try{
-const p=await sb.from('profiles').select('id,username,role,settings,avatar_url,bio,suspended,created_at').eq('id',uid).maybeSingle();
+let p=await sb.from('profiles').select('id,username,role,settings,avatar_url,bio,suspended,created_at').eq('id',uid).maybeSingle();
 if(run!==stateLoadId)return;
+if(p.error){console.error('Division profile lookup failed:',p.error);throw p.error}
+if(!p.data){
+const fallbackUsername=String(currentUser.user_metadata?.username||currentUser.email?.split('@')[0]||'Player').trim().slice(0,20)||'Player';
+const created=await sb.from('profiles').upsert({id:uid,username:fallbackUsername,role:'user'},{onConflict:'id',ignoreDuplicates:true});
+if(created.error)console.error('Division profile recovery failed:',created.error);
+if(run!==stateLoadId)return;
+p=await sb.from('profiles').select('id,username,role,settings,avatar_url,bio,suspended,created_at').eq('id',uid).maybeSingle();
+if(p.error){console.error('Division profile reload failed:',p.error);throw p.error}
+}
 currentProfile=p.data||null;
 if(currentProfile?.suspended){await sb.auth.signOut();if(run!==stateLoadId)return;currentUser=null;currentProfile=null;toast('This account is currently suspended.');return}
 const [f,l,h]=await Promise.all([sb.from('favorites').select('game_id').eq('user_id',uid),sb.from('likes').select('game_id').eq('user_id',uid),sb.from('play_history').select('game_id,played_at').eq('user_id',uid).order('played_at',{ascending:false})]);
