@@ -61,9 +61,14 @@ function addHomeFeatures() {
 
   const extraSections = document.createElement('div');
   extraSections.className = 'division-extra-wrap';
-  extraSections.innerHTML =
-    rail('Recently Played', 'division-recent', recent) +
-    rail('Trending on Division', 'division-trending', trending);
+  extraSections.innerHTML = rail('Trending on Division', 'division-trending', trending);
+
+  const recentSection = document.createElement('div');
+  recentSection.innerHTML = rail('Recently Played', 'division-recent', recent);
+  const recentNode = recentSection.firstElementChild;
+  const forYouSection = home.querySelector('.for-you-section');
+  if (recentNode && forYouSection) home.insertBefore(recentNode, forYouSection);
+  else if (recentNode) home.insertBefore(recentNode, home.firstChild);
 
   const explore = home.querySelector('#popular');
   if (explore) home.insertBefore(extraSections, explore);
