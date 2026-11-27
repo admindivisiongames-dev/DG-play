@@ -98,7 +98,30 @@ if(!template)return shell('<div class="page"><div class="panel"><h1>Admin templa
 const rows=games.map(g=>'<tr><td>'+esc(g.name)+'</td><td>'+esc(g.category)+'</td><td class="status">'+(g.published?'Published':'Draft')+'</td><td><button class="btn" data-edit="'+esc(g.id)+'">Edit</button> <button class="btn" data-toggle="'+esc(g.id)+'">'+(g.published?'Unpublish':'Publish')+'</button> <button class="btn" data-remove="'+esc(g.id)+'">Delete</button></td></tr>').join('');
 return shell(template.innerHTML.replace('<!-- ADMIN_GAME_ROWS -->',rows));
 }
-function gamePage(){let id=new URLSearchParams(location.search).get('game'),g=games.find(x=>x.id===id);if(!g)return shell('<div class="page"><div class="panel"><h1 class="page-title">Game unavailable</h1><p class="muted">This game is unpublished or the link is invalid.</p><a class="btn primary" href="index.html">Browse games</a></div></div>');let src='',sandbox='allow-scripts allow-forms allow-pointer-lock allow-presentation';try{let parsed=new URL(g.game_url||'',location.href);if(parsed.protocol==='https:'||parsed.origin===location.origin){src=parsed.href;if(parsed.origin!==location.origin)sandbox+=' allow-same-origin'}}catch{}return shell('<div class="game-shell"><div class="game-player-card"><div class="game-frame">'+(src?'<iframe class="game-iframe" src="'+esc(src)+'" title="'+esc(g.name)+'" sandbox="'+sandbox+'" referrerpolicy="no-referrer" allow="fullscreen; gamepad"></iframe>':'<div class="game-unavailable"><div class="game-symbol">'+esc(g.symbol||'✦')+'</div><h2>'+esc(g.name)+'</h2><p>This game does not have a playable source yet.</p></div>')+'</div><div class="game-detail-bar"><div class="game-cover-mini">'+(g.image_url?'<img src="'+esc(g.image_url)+'" alt="">':esc((g.name||'G')[0]))+'</div><div class="game-title-block"><h1>'+esc(g.name)+'</h1><span>'+esc(g.category||'Game')+' · '+esc(g.developer_name||'Division')+'</span></div><div class="game-action-buttons"><button class="btn like-button" id="likeGame">♥ <span id="likeCount">0</span> Likes</button><button class="btn" id="favorite">☆ Favourite</button><button class="btn" id="fullscreen">⛶</button></div></div></div><div class="game-lower-layout"><section class="panel game-about"><h2>About '+esc(g.name)+'</h2><p>'+esc(g.description||'Description not added yet.')+'</p><h3>How to Play</h3><p>'+esc(g.instructions||'Follow the in-game instructions.')+'</p><h3>Controls</h3><p>'+esc(g.controls||'Controls are provided in the game.')+'</p></section><aside class="panel developer-card"><h2>Developer Info</h2><b>'+esc(g.developer_name||'Division')+'</b><p class="muted">Game creator</p></aside></div><section class="panel comments-panel"><h2>Comments</h2><form id="commentForm" class="comment-form"><textarea class="field" id="commentText" rows="3" placeholder="Share your thoughts about this game..." required></textarea><button class="btn primary" type="submit">Post Comment</button></form><p class="comment-status muted" id="commentStatus" aria-live="polite"></p><div id="commentList" class="comment-list"><p class="muted">Loading comments…</p></div></section></div>')}
+function gamePage(){
+const id=new URLSearchParams(location.search).get('game'),g=games.find(x=>x.id===id);
+if(!g)return shell('<div class="page"><div class="panel"><h1 class="page-title">Game unavailable</h1><p class="muted">This game is unpublished or the link is invalid.</p><a class="btn primary" href="index.html">Browse games</a></div></div>');
+let src='',sandbox='allow-scripts allow-forms allow-pointer-lock allow-presentation';
+try{const parsed=new URL(g.game_url||'',location.href);if(parsed.protocol==='https:'||parsed.origin===location.origin){src=parsed.href;if(parsed.origin!==location.origin)sandbox+=' allow-same-origin'}}catch{}
+const frame=src?'<iframe class="game-iframe" src="'+esc(src)+'" title="'+esc(g.name)+'" sandbox="'+sandbox+'" referrerpolicy="no-referrer" allow="fullscreen; gamepad"></iframe>':'<div class="game-unavailable"><div class="game-symbol">'+esc(g.symbol||'✦')+'</div><h2>'+esc(g.name)+'</h2><p>This game does not have a playable source yet.</p></div>';
+const cover=g.image_url?'<img src="'+esc(g.image_url)+'" alt="">':esc((g.name||'G')[0]);
+const template=document.getElementById('game-template');
+if(!template)return shell('<div class="page"><div class="panel"><h1>Game template missing</h1></div></div>');
+let markup=template.innerHTML;
+const values={
+'GAME_FRAME':frame,
+'GAME_COVER':cover,
+'GAME_TITLE':esc(g.name),
+'GAME_META':esc(g.category||'Game')+' · '+esc(g.developer_name||'Division'),
+'GAME_ABOUT_TITLE':esc(g.name),
+'GAME_DESCRIPTION':esc(g.description||'Description not added yet.'),
+'GAME_INSTRUCTIONS':esc(g.instructions||'Follow the in-game instructions.'),
+'GAME_CONTROLS':esc(g.controls||'Controls are provided in the game.'),
+'GAME_DEVELOPER':esc(g.developer_name||'Division')
+};
+for(const [key,value] of Object.entries(values))markup=markup.replace('<!-- '+key+' -->',value);
+return shell(markup);
+}
 function toast(msg){let t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.append(t);setTimeout(()=>t.remove(),2600)}
 function render(){let app=$('#app');if(!app)return;try{mountPage(page==='home'?home():page==='login'||page==='signup'?auth(page):page==='profile'?profile():page==='settings'?settings():page==='admin'?admin():page==='game'?gamePage():home())}catch(error){console.error('Division page render failed:',error);app.innerHTML='<main class="page"><section class="panel"><h1 class="page-title">Division could not load this page</h1><p class="muted">A page error occurred. Reload to try again.</p><button class="btn primary" id="reloadDivision">Reload page</button></section></main>';const reload=$('#reloadDivision');if(reload)reload.onclick=()=>location.reload();return}try{bind()}catch(error){console.error('Division page controls failed:',error);toast('The page loaded, but some controls could not start. Reload to try again.')}if(page==='profile'&&publicProfileId())loadPublicProfileView().catch(error=>{console.error('Public profile load:',error);const app=$('#app');if(app)mountPage(shell('<div class="page"><div class="panel"><h1 class="page-title">Profile could not load</h1><p class="muted">Please refresh and try again.</p></div></div>'))})}
 
