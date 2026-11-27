@@ -2243,3 +2243,7 @@ body[data-page="home"] .division-quick-actions .division-xp-note{display:none!im
 .division-orbit-art.fa-solid{font-size:clamp(58px,9vw,110px);line-height:1;color:#74ead5}
 .verified-badge .fa-solid{color:#fff}
 \n.admin-broadcast-history-wrap{margin-top:22px;padding-top:18px;border-top:1px solid var(--border,#dce7e5)}.admin-broadcast-history-wrap h3{margin:0 0 12px;font-size:16px}.admin-broadcast-history-item{padding:14px 0;border-bottom:1px solid var(--border,#dce7e5)}.admin-broadcast-history-item .split{align-items:flex-start;gap:12px}.admin-broadcast-history-item strong{color:var(--text,#101b49)}.admin-broadcast-history-item small{font-size:12px;color:var(--muted,#687580)}.admin-broadcast-history-item p{margin:8px 0;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--text,#101b49)}.admin-broadcast-history-item:last-child{border-bottom:0}\n
+/* Keep the notification control visible in the header on every screen size. */
+.topbar .actions .division-notification-wrap{display:flex!important;visibility:visible!important;opacity:1!important;flex:0 0 auto!important}
+.topbar .actions .division-notification-bell{display:inline-flex!important;align-items:center!important;justify-content:center!important;visibility:visible!important;opacity:1!important;width:38px!important;min-width:38px!important;height:38px!important;padding:0!important;border-radius:50%!important;position:relative!important}
+.topbar .actions .division-notification-bell .fa-solid{display:block!important;font-size:19px!important;line-height:1!important}
