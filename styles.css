@@ -1536,3 +1536,8 @@ body[data-page="home"] .home-discovery{
   .topbar>.actions .icon-link{width:38px!important;height:38px!important;flex:0 0 38px}
   .topbar>.actions .icon-link svg{width:20px;height:20px}
 }
+
+/* Header search: visible on every page, including the homepage. */
+body[data-page="home"] .topbar>.header-search{display:flex!important;flex:1 1 240px!important;min-width:120px!important;max-width:460px!important}
+body[data-page="home"] .topbar{justify-content:space-between!important;gap:clamp(8px,1.4vw,18px)!important}
+@media(max-width:600px){body[data-page="home"] .topbar>.header-search{flex:1 1 80px!important;min-width:0!important;max-width:none!important}body[data-page="home"] .topbar>.header-search input{font-size:12px!important}}
