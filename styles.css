@@ -2415,3 +2415,30 @@ body[data-page="home"] .home-discovery #division-recent .division-extra-rail .ga
   body[data-page="home"] .home-discovery>.for-you-section{grid-column:1!important;grid-row:auto!important}
   body[data-page="home"] .home-discovery>.division-recent{order:-2!important}
 }
+
+
+/* Profile page: explicit layout prevents identity content collapsing into a narrow grid column */
+.profile-page .profile-head{
+  display:grid!important;
+  grid-template-columns:100px minmax(0,1fr) auto!important;
+  grid-template-rows:auto auto!important;
+  align-items:center!important;
+  gap:18px!important;
+}
+.profile-page .profile-head>.profile-big{grid-column:1!important;grid-row:1!important;width:100px!important;height:100px!important;flex:none!important}
+.profile-page .profile-head>.profile-identity{grid-column:2!important;grid-row:1 / span 2!important;width:100%!important;min-width:0!important;flex:none!important;overflow-wrap:anywhere!important}
+.profile-page .profile-head>.avatar-upload-btn{grid-column:3!important;grid-row:1!important;justify-self:end!important;white-space:nowrap!important}
+.profile-page .profile-head>#profileLogout{grid-column:3!important;grid-row:2!important;justify-self:end!important;align-self:start!important;width:auto!important;margin:0!important}
+.profile-page .profile-head>.profile-stats{grid-column:1/-1!important;grid-row:3!important;width:100%!important;margin:4px 0 0!important}
+.profile-page .profile-identity .profile-display-name{line-height:1.15!important;overflow-wrap:normal!important;word-break:normal!important;white-space:normal!important}
+.profile-page .profile-identity p{max-width:100%;overflow-wrap:anywhere}
+.profile-page .profile-identity .profile-country-row{margin-top:10px}
+@media(max-width:600px){
+ .profile-page .profile-head{grid-template-columns:68px minmax(0,1fr)!important;grid-template-rows:auto auto auto!important;gap:12px!important;padding:16px!important}
+ .profile-page .profile-head>.profile-big{grid-column:1!important;grid-row:1!important;width:68px!important;height:68px!important}
+ .profile-page .profile-head>.profile-identity{grid-column:2!important;grid-row:1 / span 2!important;width:100%!important}
+ .profile-page .profile-head>.avatar-upload-btn{grid-column:1!important;grid-row:2!important;justify-self:stretch!important;width:68px!important;white-space:normal!important;text-align:center!important;padding:8px 4px!important;font-size:10px!important}
+ .profile-page .profile-head>#profileLogout{grid-column:1/-1!important;grid-row:3!important;justify-self:stretch!important;width:100%!important}
+ .profile-page .profile-head>.profile-stats{grid-column:1/-1!important;grid-row:4!important}
+ .profile-page .profile-identity .profile-display-name{font-size:clamp(24px,6vw,32px)!important;line-height:1.15!important}
+}
