@@ -1308,3 +1308,145 @@ body{background-size:720px 405px!important;background-repeat:repeat!important;ba
 /* Use the latest faint gaming artwork with a fixed, non-tiled background */
 body{background-color:#70eedb!important;background-image:url('/assets/division-mint-background.jpg')!important;background-size:cover!important;background-repeat:no-repeat!important;background-position:center center!important;background-attachment:fixed!important}
 @media(max-width:700px){body{background-size:cover!important;background-position:center top!important;background-attachment:scroll!important}}
+
+
+/* Final mint artwork: use the actual SVG art, not the tiny placeholder JPG */
+body{
+  background-color:#70eedb!important;
+  background-image:url('/assets/division-mint-background.svg?v=3')!important;
+  background-size:100vw auto!important;
+  background-position:center top!important;
+  background-repeat:repeat-y!important;
+  background-attachment:scroll!important;
+}
+body[data-page="home"] .home-discovery{background:transparent!important}
+
+/* Homepage and category rows use the full available width */
+body[data-page="home"] .home-discovery{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding-left:clamp(12px,2.4vw,36px)!important;
+  padding-right:clamp(12px,2.4vw,36px)!important;
+}
+.home-discovery>.category-game-section{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:clamp(15px,2vw,26px)!important;
+  border:1px solid #ffffff9c!important;
+  border-radius:clamp(16px,2vw,24px)!important;
+  box-shadow:0 10px 28px #167f7620!important;
+  overflow:hidden!important;
+}
+.home-discovery .category-game-section:nth-of-type(1n){
+  background:linear-gradient(135deg,#c9fff2 0%,#a9f4e5 100%)!important;
+}
+.home-discovery .category-game-section:nth-of-type(2n){
+  background:linear-gradient(135deg,#d7f0ff 0%,#b9e5ff 100%)!important;
+}
+.home-discovery .category-game-section:nth-of-type(3n){
+  background:linear-gradient(135deg,#ffe0ef 0%,#ffcce3 100%)!important;
+}
+.home-discovery .category-game-section:nth-of-type(4n){
+  background:linear-gradient(135deg,#fff0c7 0%,#ffe2a2 100%)!important;
+}
+.home-discovery .category-game-head{
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  gap:12px!important;margin:0 0 14px!important;
+}
+.home-discovery .category-game-head h2{
+  color:#123a55!important;font-weight:800!important;letter-spacing:-.04em!important;
+}
+.home-discovery .category-game-head .see-all-category{
+  border:1px solid #ffffffb8!important;
+  background:#ffffffb8!important;color:#153b55!important;
+  border-radius:999px!important;padding:8px 14px!important;
+  box-shadow:0 3px 10px #163f5510!important;
+}
+.home-discovery .category-game-rail{
+  width:100%!important;max-width:none!important;gap:clamp(10px,1.2vw,16px)!important;
+  padding:2px 2px 10px!important;
+}
+.home-discovery .category-game-rail .game-card{
+  flex:0 0 clamp(150px,19vw,235px)!important;
+  width:clamp(150px,19vw,235px)!important;
+  height:clamp(120px,15vw,190px)!important;
+  border:2px solid #ffffffb8!important;border-radius:18px!important;
+  box-shadow:0 8px 20px #154c5c18!important;
+  transition:transform .18s ease,box-shadow .18s ease!important;
+}
+.home-discovery .category-game-rail .game-card:hover{
+  transform:translateY(-4px)!important;box-shadow:0 14px 26px #154c5c2a!important;
+}
+.home-discovery .category-game-rail .game-card .game-name{
+  font-size:13px!important;padding:34px 12px 10px!important;
+  background:linear-gradient(transparent,#07101ce8)!important;color:#fff!important;
+}
+
+/* Category "See all" view: true full-screen width with a clean colorful grid */
+.category-overlay{
+  padding:0!important;place-items:stretch!important;
+  background:rgba(17,65,77,.68)!important;backdrop-filter:blur(12px)!important;
+}
+.category-overlay-panel{
+  width:100vw!important;max-width:none!important;
+  height:100dvh!important;max-height:100dvh!important;
+  border:0!important;border-radius:0!important;
+  padding:clamp(16px,3vw,38px)!important;
+  background:linear-gradient(145deg,#e9fff9 0%,#d9f4ff 55%,#f8eaff 100%)!important;
+  color:#123a55!important;box-shadow:none!important;
+}
+.category-overlay-head{
+  position:sticky!important;top:0!important;z-index:3;
+  padding:8px 0 18px!important;margin:0 0 18px!important;
+  background:linear-gradient(180deg,#e9fff9 85%,#e9fff900)!important;
+}
+.category-overlay-head h2{color:#123a55!important;font-size:clamp(26px,4vw,42px)!important}
+.category-overlay-head p{color:#507080!important}
+.category-overlay-close{
+  width:46px!important;height:46px!important;border:0!important;
+  background:#ffffffc9!important;color:#123a55!important;
+  border-radius:15px!important;font-size:28px!important;
+  box-shadow:0 5px 18px #18495a15!important;
+}
+.category-overlay-grid{
+  width:100%!important;max-width:none!important;
+  display:grid!important;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr))!important;
+  gap:clamp(12px,1.5vw,20px)!important;
+  padding:0 0 30px!important;
+}
+.category-overlay-grid .game-card{
+  min-width:0!important;height:auto!important;min-height:0!important;
+  aspect-ratio:16/11!important;border:3px solid #ffffffb8!important;
+  border-radius:20px!important;overflow:hidden!important;
+  box-shadow:0 8px 24px #15546a1c!important;
+  background:#bdeee5!important;transition:transform .18s ease,box-shadow .18s ease!important;
+}
+.category-overlay-grid .game-card:hover{
+  transform:translateY(-4px) scale(1.01)!important;
+  box-shadow:0 15px 28px #15546a30!important;
+}
+.category-overlay-grid .game-card .game-thumb{
+  width:100%!important;height:100%!important;object-fit:cover!important;
+}
+.category-overlay-grid .game-card .game-name{
+  opacity:1!important;transform:none!important;max-height:none!important;
+  position:absolute!important;left:0!important;right:0!important;bottom:0!important;
+  padding:38px 12px 12px!important;color:#fff!important;
+  background:linear-gradient(transparent,#07101cf0)!important;
+  font-size:14px!important;font-weight:800!important;
+}
+@media(max-width:700px){
+  body[data-page="home"] .home-discovery{padding-left:10px!important;padding-right:10px!important}
+  .home-discovery>.category-game-section{padding:13px!important;border-radius:16px!important}
+  .home-discovery .category-game-rail .game-card{
+    flex-basis:clamp(135px,42vw,170px)!important;width:clamp(135px,42vw,170px)!important;
+    height:clamp(112px,34vw,145px)!important;border-radius:14px!important;
+  }
+  .category-overlay-panel{padding:12px!important}
+  .category-overlay-head{padding:7px 0 12px!important;margin-bottom:12px!important}
+  .category-overlay-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  .category-overlay-grid .game-card{aspect-ratio:4/3!important;border-radius:14px!important;border-width:2px!important}
+  .category-overlay-grid .game-card .game-name{font-size:12px!important;padding:30px 9px 9px!important}
+}
