@@ -100,9 +100,13 @@ const u=user()||{username:'Guest',email:'Not signed in'};
 const template=document.getElementById('settings-template');
 if(!template)return shell('<div class="page"><div class="panel"><h1>Settings template missing</h1></div></div>');
 let markup=template.innerHTML;
-const values={'SETTINGS_USERNAME':esc(u.username),'SETTINGS_EMAIL':esc(u.email),'SETTINGS_BIO':esc(currentProfile?.bio||''),'SETTINGS_PANIC_URL':esc(panicSavedUrl())};
-for(const [key,value] of Object.entries(values))markup=markup.replace('<!-- '+key+' -->',value);
-return shell(markup);
+ const holder=document.createElement('div');holder.innerHTML=markup;
+ const usernameField=holder.querySelector('[name="username"]'),emailField=holder.querySelector('[name="email"]'),bioField=holder.querySelector('[name="bio"]'),panicField=holder.querySelector('#panicSettingsUrl');
+ if(usernameField)usernameField.value=u.username==='Guest'?'':u.username;
+ if(emailField)emailField.value=u.email==='Not signed in'?'':u.email;
+ if(bioField)bioField.value=currentProfile?.bio||'';
+ if(panicField)panicField.value=panicSavedUrl()||'';
+ return shell(holder.innerHTML);
 }
 function admin(){
 let u=user();
