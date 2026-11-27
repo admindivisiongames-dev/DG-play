@@ -1,21 +1,22 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#101010">
-  <title>Admin Studio — Division</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101010"><title>Admin Studio — Division</title><link rel="stylesheet" href="styles.css"></head>
 <body data-page="admin">
-  <!-- EDITABLE PAGE SHELL: shared header, page content and footer -->
-  <div class="shell" id="division-shell">
-    <header id="division-header"></header>
-    <main id="app"></main>
-    <footer id="division-footer"></footer>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="supabase-client.js" defer></script>
-  <script src="app.js" defer></script>
-</body>
-</html>
+  <!-- EDITABLE ADMIN PAGE: labels, sections, tables and panels live here. JS fills live rows and metrics. -->
+  <template id="admin-template">
+    <div class="page">
+      <div class="split"><div><div class="eyebrow">Division control room</div><h1 class="page-title">Admin Studio</h1><p class="muted">Manage games and platform content.</p></div><span class="pill">Admin verified</span></div>
+      <div class="admin-layout" style="margin-top:24px">
+        <aside class="admin-sidebar"><a class="active" href="#overview">Overview</a><a href="#games">Games</a><a href="#players">Players</a><a href="#moderation">Comments</a><a href="index.html">← View site</a></aside>
+        <main class="admin-content">
+          <div class="metric-grid" id="adminMetrics"><div class="metric"><small>Published games</small><strong>…</strong></div><div class="metric"><small>Players</small><strong>…</strong></div><div class="metric"><small>Comments</small><strong>…</strong></div><div class="metric"><small>Total plays</small><strong>…</strong></div></div>
+          <section class="panel" id="games" style="margin-top:20px"><div class="split"><div><h2>Game library</h2><p class="muted">Create, edit, publish and remove games.</p></div><button class="btn primary" id="addGame">+ Add game</button></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Game</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminGames"><!-- ADMIN_GAME_ROWS --></tbody></table></div></section>
+          <section class="panel" id="players" style="margin-top:20px"><h2>Players</h2><div class="table-wrap"><table class="data-table"><thead><tr><th>Username</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminPlayers"><tr><td colspan="4">Loading players…</td></tr></tbody></table></div></section>
+          <section class="panel" id="moderation" style="margin-top:20px"><h2>Comment moderation</h2><div id="adminComments" class="comment-list"><p class="muted">Loading comments…</p></div></section>
+        </main>
+      </div>
+    </div>
+  </template>
+  <div class="shell" id="division-shell"><header id="division-header"></header><main id="app"></main><footer id="division-footer"></footer></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script><script src="supabase-client.js" defer></script><script src="app.js" defer></script>
+</body></html>
