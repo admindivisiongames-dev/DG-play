@@ -2442,3 +2442,52 @@ body[data-page="home"] .home-discovery #division-recent .division-extra-rail .ga
  .profile-page .profile-head>.profile-stats{grid-column:1/-1!important;grid-row:4!important}
  .profile-page .profile-identity .profile-display-name{font-size:clamp(24px,6vw,32px)!important;line-height:1.15!important}
 }
+
+
+/* Profile page color correction: keep profile surfaces white with black text */
+.profile-page,
+.profile-page .profile-head,
+.profile-page .profile-content,
+.profile-page .profile-tab-panel,
+.profile-page .profile-settings-card,
+.profile-page .profile-tabs,
+.profile-page .profile-stats .stat,
+.profile-page .profile-setting-summary span{
+  background:#fff!important;
+  color:#111!important;
+  border-color:#e5e5e5!important;
+  box-shadow:none!important;
+}
+.profile-page .profile-head .page-title,
+.profile-page .profile-head h1,
+.profile-page .profile-head h2,
+.profile-page .profile-head p,
+.profile-page .profile-head .muted,
+.profile-page .profile-head .eyebrow,
+.profile-page .profile-tab-panel h2,
+.profile-page .profile-settings-card h2,
+.profile-page .profile-settings-card p,
+.profile-page .profile-setting-summary,
+.profile-page .profile-setting-summary b,
+.profile-page .profile-setting-summary span,
+.profile-page .profile-joined,
+.profile-page .profile-country-row,
+.profile-page .profile-country-row .profile-country{
+  color:#111!important;
+}
+.profile-page .profile-tabs .chip{
+  background:#fff!important;color:#111!important;border-color:#ddd!important;
+}
+.profile-page .profile-tabs .chip.active{
+  background:#111!important;color:#fff!important;border-color:#111!important;
+}
+.profile-page .profile-setting-summary span{background:#fff!important;color:#111!important}
+.profile-page .profile-head .avatar-upload-btn,
+.profile-page .profile-settings-card .btn{
+  background:#fff!important;color:#111!important;border:1px solid #ddd!important;
+}
+.profile-page .profile-head #profileLogout{
+  background:#fff!important;color:#111!important;border:1px solid #ddd!important;
+}
+.profile-page .profile-stats .stat strong,
+.profile-page .profile-stats .stat span{color:#111!important}
