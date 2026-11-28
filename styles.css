@@ -3760,3 +3760,50 @@ body[data-page="home"] .home-discovery > .popular-games-section .popular-card .g
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
+/* Homepage section styling requested: recent is unboxed, popular has a clear color, categories each own a tint. */
+body[data-page="home"] .home-discovery > .recently-played-section{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  border-radius:0!important;padding:0!important;margin:0!important;overflow:visible!important;
+}
+body[data-page="home"] .home-discovery > .recently-played-section .section-head{
+  margin:0 0 14px!important;
+}
+body[data-page="home"] .home-discovery > .popular-games-section{
+  background:#ffe44c!important;color:#101b49!important;
+  border:0!important;border-radius:24px!important;box-shadow:none!important;
+  padding:24px!important;margin:0!important;overflow:hidden!important;
+}
+body[data-page="home"] .home-discovery > .popular-games-section .section-head{
+  margin:0 0 16px!important;
+}
+body[data-page="home"] .home-discovery > .popular-games-section .section-head h2{
+  color:#101b49!important;
+}
+body[data-page="home"] .home-discovery > [data-category-section]{
+  border:0!important;border-radius:24px!important;box-shadow:none!important;
+  padding:22px!important;margin:0!important;overflow:hidden!important;
+}
+body[data-page="home"] .home-discovery > [data-category-section="Adventure" i]{background:#e9ddff!important}
+body[data-page="home"] .home-discovery > [data-category-section="Skill Games" i]{background:#fff0c9!important}
+body[data-page="home"] .home-discovery > [data-category-section="Action" i]{background:#ffdce3!important}
+body[data-page="home"] .home-discovery > [data-category-section="IO Games" i]{background:#d9efff!important}
+body[data-page="home"] .home-discovery > [data-category-section="Puzzle" i]{background:#e7f4d7!important}
+body[data-page="home"] .home-discovery > [data-category-section="Platform" i]{background:#ffe7d2!important}
+body[data-page="home"] .home-discovery > [data-category-section="Driving" i]{background:#dcecff!important}
+body[data-page="home"] .home-discovery > [data-category-section="Racing" i]{background:#ffe0ef!important}
+body[data-page="home"] .home-discovery > [data-category-section="Sports" i]{background:#e1f2df!important}
+body[data-page="home"] .home-discovery > [data-category-section="Simulation" i]{background:#e8e2ff!important}
+body[data-page="home"] .home-discovery > [data-category-section="Shooting" i]{background:#ffe1d5!important}
+body[data-page="home"] .home-discovery > [data-category-section="Fighting" i]{background:#f8dfe0!important}
+body[data-page="home"] .home-discovery > [data-category-section="Multiplayer" i]{background:#d9f2e8!important}
+body[data-page="home"] .home-discovery > [data-category-section] .category-game-head h2{
+  color:#101b49!important;
+}
+@media(max-width:900px){
+  body[data-page="home"] .home-discovery > .popular-games-section,
+  body[data-page="home"] .home-discovery > [data-category-section]{padding:16px!important;border-radius:18px!important}
+}
+@media(max-width:560px){
+  body[data-page="home"] .home-discovery > .popular-games-section,
+  body[data-page="home"] .home-discovery > [data-category-section]{padding:13px!important;border-radius:16px!important}
+}
