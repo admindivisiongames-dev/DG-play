@@ -4061,3 +4061,79 @@ body[data-page="home"] .recently-played-grid>.recent-card{
     width:72px!important;
   }
 }
+
+
+/* Division homepage discovery layout — inspired by compact game portals */
+@media (min-width:901px){
+  body[data-page="home"] .division-home-layout{display:block!important;position:relative!important}
+  body[data-page="home"] .division-home-main{min-width:0!important;margin-left:248px!important;width:calc(100% - 248px)!important}
+  body[data-page="home"].division-sidebar-collapsed .division-home-main{margin-left:96px!important;width:calc(100% - 96px)!important}
+  body[data-page="home"] .division-sidebar{left:max(18px,calc((100vw - 1600px)/2 + 18px))!important}
+}
+body[data-page="home"] .division-discovery-shortcuts{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:8px 0 28px;
+}
+body[data-page="home"] .division-discovery-tile{
+  min-height:112px;display:flex;flex-direction:column;justify-content:space-between;gap:7px;
+  padding:16px 18px;border-radius:21px;border:1px solid #101b4910;
+  color:#101b49;position:relative;overflow:hidden;transition:transform .18s ease,filter .18s ease;
+}
+body[data-page="home"] .division-discovery-tile:hover{transform:translateY(-3px);filter:saturate(1.05)}
+body[data-page="home"] .division-discovery-tile .tile-icon{
+  align-self:flex-end;width:37px;height:37px;display:grid;place-items:center;border-radius:13px;
+  background:#ffffff70;color:#101b49;font-size:19px;
+}
+body[data-page="home"] .division-discovery-tile strong{font:700 17px 'Space Grotesk',sans-serif;letter-spacing:-.35px}
+body[data-page="home"] .division-discovery-tile .tile-subtitle{font-size:11px;font-weight:600;opacity:.68}
+body[data-page="home"] .tile-blue{background:#b9e7ff}
+body[data-page="home"] .tile-pink{background:#ffb9d7}
+body[data-page="home"] .tile-mint{background:#a8eadb}
+body[data-page="home"] .tile-yellow{background:#ffe99a}
+body[data-page="home"] .division-featured-today{margin:0 0 30px;min-width:0}
+body[data-page="home"] .division-featured-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 15px}
+body[data-page="home"] .division-featured-heading h2{font:700 28px 'Space Grotesk',sans-serif;letter-spacing:-1px;color:#101b49;margin:0}
+body[data-page="home"] .division-featured-heading>a{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#101b49;white-space:nowrap}
+body[data-page="home"] .division-featured-mosaic{
+  display:grid;grid-template-columns:minmax(0,1.55fr) repeat(2,minmax(0,1fr));
+  grid-template-rows:clamp(118px,13vw,168px) clamp(118px,13vw,168px);gap:13px;min-width:0;
+}
+body[data-page="home"] .division-featured-mosaic>.today-featured-card{
+  display:block;position:relative;min-width:0;min-height:0;border:0;border-radius:20px;overflow:hidden;
+  background:#101b49;box-shadow:none;transform:none!important;
+}
+body[data-page="home"] .division-featured-mosaic>.today-featured-card:first-child{grid-row:1 / span 2}
+body[data-page="home"] .division-featured-mosaic>.today-featured-card .game-thumb{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .3s ease;
+}
+body[data-page="home"] .division-featured-mosaic>.today-featured-card:hover .game-thumb{transform:scale(1.045)}
+body[data-page="home"] .division-featured-mosaic>.today-featured-card .game-name{
+  position:absolute;left:0;right:0;bottom:0;padding:28px 15px 13px;
+  background:linear-gradient(transparent,#101b49e8);color:#fff;font:700 16px 'Space Grotesk',sans-serif;
+}
+body[data-page="home"] .division-featured-mosaic>.today-featured-card:first-child .game-name{font-size:clamp(20px,2vw,29px);padding:44px 20px 18px}
+body[data-page="home"] .home-discovery>.game-rail-section{margin-top:25px}
+body[data-page="home"] .home-discovery .section-head{margin:25px 0 14px}
+body[data-page="home"] .home-discovery .section-head h2{font-size:25px}
+@media(max-width:1200px){
+ body[data-page="home"] .division-home-main{margin-left:240px!important;width:calc(100% - 240px)!important}
+ body[data-page="home"].division-sidebar-collapsed .division-home-main{margin-left:88px!important;width:calc(100% - 88px)!important}
+ body[data-page="home"] .division-discovery-shortcuts{gap:10px}
+ body[data-page="home"] .division-discovery-tile{padding:14px;min-height:100px}
+}
+@media(max-width:900px){
+ body[data-page="home"] .division-home-main{margin-left:0!important;width:100%!important}
+ body[data-page="home"] .division-discovery-shortcuts{grid-template-columns:repeat(4,minmax(150px,1fr));overflow-x:auto;scrollbar-width:none;padding-bottom:3px}
+ body[data-page="home"] .division-discovery-shortcuts::-webkit-scrollbar{display:none}
+ body[data-page="home"] .division-featured-mosaic{grid-template-rows:120px 120px}
+}
+@media(max-width:600px){
+ body[data-page="home"] .division-discovery-shortcuts{grid-template-columns:repeat(4,42vw);gap:10px;margin:6px 0 22px}
+ body[data-page="home"] .division-discovery-tile{min-height:104px;border-radius:17px;padding:13px}
+ body[data-page="home"] .division-discovery-tile strong{font-size:15px}
+ body[data-page="home"] .division-featured-heading h2{font-size:23px}
+ body[data-page="home"] .division-featured-mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:190px 112px 112px;gap:9px}
+ body[data-page="home"] .division-featured-mosaic>.today-featured-card:first-child{grid-column:1 / -1;grid-row:1}
+ body[data-page="home"] .division-featured-mosaic>.today-featured-card .game-name{font-size:13px;padding:24px 10px 10px}
+ body[data-page="home"] .division-featured-mosaic>.today-featured-card:first-child .game-name{font-size:21px;padding:36px 14px 13px}
+ body[data-page="home"] .home-discovery>.game-rail-section{margin-top:20px}
+}
