@@ -217,9 +217,48 @@ function trackRecent() {
   if (target && !document.querySelector('.division-achievements')) target.after(box);
 }
 
+
+function setupScrollRailArrows() {
+  const rails = document.querySelectorAll('.game-rail, .recently-played-grid, .division-extra-rail');
+  rails.forEach(rail => {
+    const host = rail.closest('section') || rail.parentElement;
+    if (!host) return;
+    host.classList.add('division-scroll-arrow-host');
+    let controls = host.querySelector(':scope > .division-scroll-arrow-controls');
+    if (!controls) {
+      controls = document.createElement('div');
+      controls.className = 'division-scroll-arrow-controls';
+      controls.innerHTML =
+        '<button type="button" class="division-scroll-arrow division-scroll-arrow-left" aria-label="Scroll games left" title="Scroll left"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>' +
+        '<button type="button" class="division-scroll-arrow division-scroll-arrow-right" aria-label="Scroll games right" title="Scroll right"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>';
+      host.append(controls);
+      const left = controls.querySelector('.division-scroll-arrow-left');
+      const right = controls.querySelector('.division-scroll-arrow-right');
+      left.addEventListener('click', () => rail.scrollBy({ left: -Math.max(220, rail.clientWidth * 0.72), behavior: 'smooth' }));
+      right.addEventListener('click', () => rail.scrollBy({ left: Math.max(220, rail.clientWidth * 0.72), behavior: 'smooth' }));
+      rail.addEventListener('scroll', () => updateScrollRailArrows(rail, controls), { passive: true });
+    }
+    updateScrollRailArrows(rail, controls);
+  });
+}
+function updateScrollRailArrows(rail, controls) {
+  const canScroll = rail.scrollWidth > rail.clientWidth + 8;
+  controls.hidden = !canScroll;
+  const left = controls.querySelector('.division-scroll-arrow-left');
+  const right = controls.querySelector('.division-scroll-arrow-right');
+  if (!left || !right) return;
+  left.disabled = rail.scrollLeft <= 3;
+  right.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 3;
+  const host = controls.parentElement;
+  const railRect = rail.getBoundingClientRect();
+  const hostRect = host.getBoundingClientRect();
+  controls.style.top = Math.max(0, railRect.top - hostRect.top + rail.clientHeight / 2 - 22) + 'px';
+}
+
 function boot() {
   addHomeFeatures();
   trackRecent();
+  setupScrollRailArrows();
 }
 
 if (document.readyState === 'loading') {
