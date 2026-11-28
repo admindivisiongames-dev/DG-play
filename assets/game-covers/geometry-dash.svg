@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Geometry Dash game cover">
+<defs><linearGradient id="b" x2="1" y2="1"><stop stop-color="#173d67"/><stop offset="1" stop-color="#071226"/></linearGradient><linearGradient id="g" x2="0" y2="1"><stop stop-color="#b6ff57"/><stop offset="1" stop-color="#54d7a5"/></linearGradient></defs>
+<rect width="640" height="360" rx="24" fill="url(#b)"/>
+<g stroke="#8bcfff" stroke-opacity=".16" stroke-width="2"><path d="M0 60H640M0 120H640M0 180H640M0 240H640M0 300H640M60 0V360M120 0V360M180 0V360M240 0V360M300 0V360M360 0V360M420 0V360M480 0V360M540 0V360M600 0V360"/></g>
+<path d="M0 300 110 250 180 290 265 220 360 270 445 205 540 250 640 190V360H0Z" fill="#0a172c"/>
+<g transform="translate(390 155) rotate(14)"><rect x="-68" y="-68" width="136" height="136" rx="20" fill="url(#g)" stroke="#e9ffb7" stroke-width="7"/><rect x="-43" y="-37" width="24" height="31" rx="6" fill="#10284b"/><rect x="19" y="-37" width="24" height="31" rx="6" fill="#10284b"/><path d="M-36 24H36L22 42H-22Z" fill="#10284b"/><path d="M-81 0H-113M81 0H113M0-81V-112M0 81V112" stroke="#c8ff75" stroke-width="8" stroke-linecap="round"/></g>
+<text x="36" y="54" fill="#b6ff57" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="4">DIVISION • ARCADE</text>
+<text x="36" y="126" fill="#fff" font-family="Arial,sans-serif" font-size="43" font-weight="900">GEOMETRY</text>
+<text x="36" y="174" fill="#fff" font-family="Arial,sans-serif" font-size="43" font-weight="900">DASH</text>
+<text x="38" y="326" fill="#c7d9f0" font-family="Arial,sans-serif" font-size="16" letter-spacing="2">JUMP • DODGE • KEEP THE BEAT</text>
+</svg>
