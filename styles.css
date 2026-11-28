@@ -3390,10 +3390,13 @@ body[data-page="home"] .home-discovery>.all-games-section{padding:22px!important
 }
 
 
-/* Homepage layout refresh — recent games + responsive section order */
-.home-discovery{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:24px;row-gap:6px;align-items:start}
-.home-discovery>.recently-played-section,.home-discovery>.new-games-section,.home-discovery>.play-together-section,.home-discovery>[data-category-section],.home-discovery>.all-games-section,.home-discovery>.division-about{grid-column:1/-1;min-width:0}
-.home-discovery>.for-you-section,.home-discovery>.popular-games-section{grid-column:span 1;min-width:0}
+/* Homepage layout refresh — one recent-games block and responsive section placement */
+.home-discovery{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;column-gap:24px!important;row-gap:22px!important;align-items:start!important}
+.home-discovery>.recently-played-section,.home-discovery>.new-games-section,.home-discovery>.play-together-section,.home-discovery>[data-category-section],.home-discovery>.all-games-section,.home-discovery>.division-about{grid-column:1/-1!important;min-width:0!important}
+.home-discovery>.for-you-section{grid-column:1!important;grid-row:2!important;min-width:0!important}
+.home-discovery>.popular-games-section{grid-column:2!important;grid-row:2!important;min-width:0!important}
+.home-discovery>.recently-played-section{grid-row:1!important;width:100%!important;min-width:0!important}
+.home-discovery>.new-games-section{grid-row:auto!important}
 .home-discovery .section-head{margin:28px 0 16px;gap:12px}
 .home-discovery .section-head h2{font-size:clamp(21px,2.2vw,29px);color:#101b49}
 .recently-played-section{background:#f7fffd;border:1px solid #d9eae4;border-radius:24px;padding:8px 22px 22px;margin:12px 0 8px;box-shadow:0 5px 0 #101b4908}
@@ -3409,3 +3412,26 @@ body[data-page="home"] .home-discovery>.all-games-section{padding:22px!important
 .home-discovery #popular{grid-column:1/-1;margin-left:-34px;margin-right:-34px}
 @media(max-width:900px){.home-discovery{grid-template-columns:minmax(0,1fr);column-gap:0}.home-discovery>.for-you-section,.home-discovery>.popular-games-section{grid-column:1/-1}.recently-played-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.home-discovery #popular{margin-left:-24px;margin-right:-24px}}
 @media(max-width:600px){.recently-played-section{padding:4px 13px 15px;border-radius:19px;margin:6px 0}.recently-played-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.recent-card{border-radius:13px}.recent-card .game-name{padding:9px 10px 11px;font-size:13px}.home-discovery .section-head{margin:23px 0 13px}.home-discovery #popular{margin-left:-16px;margin-right:-16px}}
+
+/* Final responsive homepage order and single Recently Played card grid */
+@media(min-width:901px){
+ body[data-page="home"] .home-discovery{display:grid!important;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)!important;grid-auto-flow:row!important;column-gap:24px!important;row-gap:22px!important}
+ body[data-page="home"] .home-discovery>.division-quick-actions,body[data-page="home"] .home-discovery>.division-request-panel{grid-column:1/-1!important;grid-row:auto!important}
+ body[data-page="home"] .home-discovery>.recently-played-section{grid-column:1/-1!important;grid-row:auto!important}
+ body[data-page="home"] .home-discovery>.for-you-section{grid-column:1!important;grid-row:auto!important}
+ body[data-page="home"] .home-discovery>.popular-games-section{grid-column:2!important;grid-row:auto!important}
+ body[data-page="home"] .home-discovery>.new-games-section,body[data-page="home"] .home-discovery>.division-extra-wrap,body[data-page="home"] .home-discovery>.play-together-section,body[data-page="home"] .home-discovery>.category-game-section,body[data-page="home"] .home-discovery>.all-games-section,body[data-page="home"] .home-discovery>.division-about{grid-column:1/-1!important;grid-row:auto!important}
+ body[data-page="home"] .home-discovery>.popular-games-section .game-rail{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;overflow:visible!important;max-height:none!important}
+}
+@media(max-width:900px){
+ body[data-page="home"] .home-discovery{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:18px!important}
+ body[data-page="home"] .home-discovery>.recently-played-section,body[data-page="home"] .home-discovery>.for-you-section,body[data-page="home"] .home-discovery>.popular-games-section{order:initial!important;grid-column:1!important;grid-row:auto!important;width:100%!important;max-width:none!important;min-width:0!important}
+ body[data-page="home"] .home-discovery>.recently-played-section{order:0!important}
+ body[data-page="home"] .home-discovery>.for-you-section{order:1!important}
+ body[data-page="home"] .home-discovery>.popular-games-section{order:2!important}
+}
+@media(max-width:600px){
+ body[data-page="home"] .recently-played-section{padding:4px 13px 15px!important;border-radius:19px!important}
+ body[data-page="home"] .recently-played-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ body[data-page="home"] .recent-card .game-name{padding:9px 10px 11px!important;font-size:13px!important}
+}
