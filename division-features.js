@@ -63,16 +63,27 @@ function addHomeFeatures() {
   extraSections.className = 'division-extra-wrap';
   extraSections.innerHTML = rail('Trending on Division', 'division-trending', trending);
 
-  const recentSection = document.createElement('div');
-  recentSection.innerHTML = rail('Recently Played', 'division-recent', recent);
-  const recentNode = recentSection.firstElementChild;
-  const forYouSection = home.querySelector('.for-you-section');
-  if (recentNode && forYouSection) home.insertBefore(recentNode, forYouSection);
-  else if (recentNode) home.insertBefore(recentNode, home.firstChild);
+  // Rebuild Recently Played as its own full-width homepage section.
+  const recentNode = document.createElement('section');
+  recentNode.className = 'division-recent game-rail-section';
+  recentNode.id = 'division-recent';
+  recentNode.innerHTML =
+    '<div class="division-recent-heading"><div><h2>Recently Played</h2><p>Jump back into a game you played before.</p></div></div>' +
+    (recent.length
+      ? '<div class="division-recent-grid">' + recent.map(link => link.outerHTML).join('') + '</div>'
+      : '<div class="division-recent-empty"><span class="division-recent-empty-icon" aria-hidden="true"><i class="fa-solid fa-clock-rotate-left"></i></span><div><strong>Your recent games will show up here</strong><p>Play any game on Division and it will be saved in this section on this device.</p></div></div>');
+  const quickActions = home.querySelector('.division-quick-actions');
+  const requestPanel = home.querySelector('.division-request-panel');
+  if (requestPanel) requestPanel.insertAdjacentElement('afterend', recentNode);
+  else if (quickActions) quickActions.insertAdjacentElement('afterend', recentNode);
+  else home.insertBefore(recentNode, home.firstChild);
 
   const explore = home.querySelector('#popular');
-  if (explore) home.insertBefore(extraSections, explore);
-  else home.append(extraSections);
+  if (explore) {
+    explore.insertAdjacentElement('beforebegin', extraSections);
+  } else {
+    home.append(extraSections);
+  }
 
   const quick = document.createElement('div');
   quick.className = 'division-quick-actions';
