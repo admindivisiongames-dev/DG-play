@@ -4174,8 +4174,8 @@ body[data-page="home"] .home-discovery .section-head h2{font-size:25px}
   #division-header .brand.brand-wordmark{font-size:clamp(17px,5vw,22px)!important;flex:0 0 auto!important}
   #division-header .header-search{flex:1 1 60px!important;min-width:0!important;height:39px!important;padding:0 9px!important;gap:6px!important}
   #division-header .header-search input{font-size:12px!important}
-  #division-header .panic-key{width:34px!important;min-width:34px!important;height:34px!important;padding:0!important;flex:0 0 34px!important}
-  #division-header .panic-key-label{display:none!important}
+  #division-header .panic-key{width:auto!important;min-width:0!important;height:34px!important;padding:0 8px!important;flex:0 0 auto!important;gap:5px!important}
+  #division-header .panic-key-label{display:inline!important;font-size:10px!important;line-height:1!important;white-space:nowrap!important}
   #division-header .topbar .actions{gap:4px!important}
   #division-header .topbar .actions>a[href="signup.html"]{display:none!important}
   #division-header .topbar .actions>a[href="login.html"]{padding:8px 9px!important;font-size:11px!important}
