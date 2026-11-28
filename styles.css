@@ -4137,3 +4137,49 @@ body[data-page="home"] .home-discovery .section-head h2{font-size:25px}
  body[data-page="home"] .division-featured-mosaic>.today-featured-card:first-child .game-name{font-size:21px;padding:36px 14px 13px}
  body[data-page="home"] .home-discovery>.game-rail-section{margin-top:20px}
 }
+
+
+/* Fixed full-width Division header */
+#division-header{
+  position:fixed!important;top:0!important;left:0!important;right:0!important;
+  width:100%!important;z-index:10000!important;margin:0!important;padding:0!important;
+  background:#f0fbf7!important;border-bottom:1px solid #c3e8dd!important;
+  box-shadow:0 4px 18px #101b4910!important;
+}
+#division-header .topbar{
+  width:100%!important;max-width:none!important;height:76px!important;min-height:76px!important;
+  margin:0!important;padding:0 clamp(14px,2.2vw,34px)!important;border:0!important;
+  border-radius:0!important;background:#f0fbf7!important;box-shadow:none!important;
+  display:flex!important;align-items:center!important;gap:clamp(10px,1.4vw,20px)!important;
+}
+#division-header .brand{flex:0 0 auto!important}
+#division-header .header-search{
+  flex:1 1 360px!important;min-width:100px!important;max-width:640px!important;
+  margin:0!important;height:46px!important;
+}
+#division-header .topbar .actions{display:flex!important;align-items:center!important;gap:8px!important;flex:0 0 auto!important}
+#division-header .division-primary-nav{display:none!important}
+#division-header .panic-key{flex:0 0 auto!important}
+#division-shell{padding-top:92px!important}
+@media(min-width:901px){
+  body[data-page="home"] .division-sidebar{top:92px!important;height:calc(100vh - 108px)!important;max-height:calc(100vh - 108px)!important}
+}
+@media(max-width:900px){
+  #division-header .topbar{height:68px!important;min-height:68px!important;padding:0 14px!important;gap:9px!important}
+  #division-header .header-search{height:42px!important;flex:1 1 120px!important;min-width:0!important}
+  #division-shell{padding-top:82px!important}
+}
+@media(max-width:600px){
+  #division-header .topbar{height:62px!important;min-height:62px!important;padding:0 10px!important;gap:7px!important}
+  #division-header .brand.brand-wordmark{font-size:clamp(17px,5vw,22px)!important;flex:0 0 auto!important}
+  #division-header .header-search{flex:1 1 60px!important;min-width:0!important;height:39px!important;padding:0 9px!important;gap:6px!important}
+  #division-header .header-search input{font-size:12px!important}
+  #division-header .panic-key{width:34px!important;min-width:34px!important;height:34px!important;padding:0!important;flex:0 0 34px!important}
+  #division-header .panic-key-label{display:none!important}
+  #division-header .topbar .actions{gap:4px!important}
+  #division-header .topbar .actions>a[href="signup.html"]{display:none!important}
+  #division-header .topbar .actions>a[href="login.html"]{padding:8px 9px!important;font-size:11px!important}
+  #division-header .topbar .actions .account-pill{max-width:36px!important;flex:0 0 36px!important;padding:2px!important}
+  #division-header .topbar .actions .account-pill .avatar{width:31px!important;height:31px!important}
+  #division-shell{padding-top:74px!important}
+}
