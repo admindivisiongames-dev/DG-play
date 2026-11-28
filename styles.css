@@ -4187,16 +4187,16 @@ body[data-page="home"] .home-discovery .section-head h2{font-size:25px}
 
 /* Division homepage banner artwork */
 body[data-page="home"] .division-banner-slot{
-  display:block;width:100%;aspect-ratio:16/5;min-height:130px;max-height:250px;
+  display:block;width:100%;aspect-ratio:16/9;min-height:0;max-height:none;
   margin:8px 0 28px;overflow:hidden;border-radius:22px;
   background:transparent;border:0;box-shadow:none;
 }
 body[data-page="home"] .division-banner-slot img{
-  display:block;width:100%;height:100%;object-fit:cover;object-position:center;
+  display:block;width:100%;height:100%;object-fit:contain;object-position:center;
 }
 @media(max-width:900px){
- body[data-page="home"] .division-banner-slot{aspect-ratio:16/5.5;min-height:115px;margin:5px 0 22px;border-radius:17px}
+ body[data-page="home"] .division-banner-slot{margin:5px 0 22px;border-radius:17px}
 }
 @media(max-width:600px){
- body[data-page="home"] .division-banner-slot{aspect-ratio:16/6.5;min-height:100px;margin:4px 0 19px;border-radius:14px}
+ body[data-page="home"] .division-banner-slot{margin:4px 0 19px;border-radius:14px}
 }
