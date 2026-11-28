@@ -42,11 +42,13 @@ const discoveryTileDefs=[
  {match:/multi|co.?op|together/,title:'With friends',icon:'fa-users',tone:'mint'},
  {match:/quick|casual|puzz|skill/,title:'5-minute fun',icon:'fa-stopwatch',tone:'yellow'}
 ];
-const discoveryTiles=discoveryTileDefs.map(def=>{
+const discoveryTiles=discoveryTileDefs.map((def,tileIndex)=>{
  const cat=actualCategories.find(name=>def.match.test(name));
  const idx=actualCategories.findIndex(name=>name===cat);
- return cat?'<a class="division-discovery-tile tile-'+def.tone+'" href="#categoryRail'+idx+'"><span class="tile-icon"><i class="fa-solid '+def.icon+'" aria-hidden="true"></i></span><strong>'+def.title+'</strong><span class="tile-subtitle">'+esc(cat)+'</span></a>':'';
-}).filter(Boolean).slice(0,4).join('');
+ const fallback=actualCategories[tileIndex%Math.max(1,actualCategories.length)]||'Explore games';
+ const href=cat?'#categoryRail'+idx:'#popular';
+ return '<a class="division-discovery-tile tile-'+def.tone+'" href="'+href+'"><span class="tile-icon"><i class="fa-solid '+def.icon+'" aria-hidden="true"></i></span><strong>'+def.title+'</strong><span class="tile-subtitle">'+esc(cat||fallback)+'</span></a>';
+}).slice(0,4).join('');
 const featuredGames=ranked.slice(0,5);
 const featuredMarkup=featuredGames.length?'<section class="division-featured-today"><div class="division-featured-heading"><h2>Top games today</h2><a href="#popular">Explore all <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div><div class="division-featured-mosaic">'+featuredGames.map((g,i)=>gameCards([g],'today-featured-card')).join('')+'</div></section>':'';
 const together=games.filter(g=>/multi|co.?op|together/i.test(String(g.category||''))||g.multiplayer===true||g.is_multiplayer===true).slice(0,12);
