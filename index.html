@@ -8,7 +8,18 @@
   <link rel="preconnect" href="https://abjiexysxihygcbjfkok.supabase.co" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="theme-color" content="#74ead5">
-  <title>Division — Play beyond the ordinary</title>
+  <meta name="description" content="Play free online browser games on Division. Discover action, racing, driving, puzzle, simulation and multiplayer games, then jump straight into the fun.">
+  <link rel="canonical" href="https://dg-play.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dg-play.vercel.app/">
+  <meta property="og:title" content="Division — Free Online Browser Games">
+  <meta property="og:description" content="Discover free browser games across action, racing, driving, puzzle, simulation and multiplayer. Find a game and play on Division.">
+  <meta property="og:image" content="https://dg-play.vercel.app/assets/division-mint-background.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Division — Free Online Browser Games">
+  <meta name="twitter:description" content="Discover free browser games across action, racing, driving, puzzle, simulation and multiplayer.">
+  <meta name="twitter:image" content="https://dg-play.vercel.app/assets/division-mint-background.jpg">
+  <title>Division — Free Online Browser Games</title>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -67,6 +78,12 @@
 
   <div class="shell" id="division-shell">
     <header id="division-header"></header>
+    <nav class="sr-only" aria-label="Primary navigation">
+      <a href="#popular">Browse games</a>
+      <a href="#hot-games">Popular games</a>
+      <a href="#new-games">New games</a>
+      <a href="#about-division">About Division</a>
+    </nav>
   <template id="home-header-search">
     <label class="header-search">
       <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
@@ -75,7 +92,9 @@
       <div class="header-search-results" id="headerSearchResults" hidden></div>
     </label>
   </template>
-    <main id="app"></main>
+    <main id="app">
+      <h1 class="sr-only">Free Online Browser Games on Division</h1>
+    </main>
     <footer id="division-footer"></footer>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
