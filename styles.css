@@ -4261,3 +4261,5 @@ html[data-theme="dark"] .rail-arrow{background:#263246!important;color:#f3f5fb!i
 html[data-theme="dark"] .game-rail::-webkit-scrollbar-track{background:#202b3a!important}
 html[data-theme="dark"] .game-rail::-webkit-scrollbar-thumb{background:#46556d!important}
 @media(max-width:600px){html[data-theme="dark"] .category-band{padding:12px 13px;border-radius:18px}}
+
+@media(max-width:600px){.division-theme-toggle{width:32px!important;height:32px!important;flex-basis:32px!important}.division-theme-toggle svg{width:15px;height:15px}}
