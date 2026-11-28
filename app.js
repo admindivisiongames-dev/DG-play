@@ -42,7 +42,7 @@ if(!template)return '<div class="page"><div class="panel"><h1>Division</h1><p>Ho
 let markup=template.innerHTML;
 const togetherMarkup=together.length?'<section class="game-rail-section play-together-section" id="play-together"><div class="section-head"><h2>Play Together</h2></div><div class="game-rail" id="playTogetherRail">'+gameCards(together,'category-card')+'</div></section>':'';
 return shell(markup
-.replace('<div class="home-discovery">','<div class="home-discovery"><section class="division-home-intro" aria-labelledby="division-home-title"><h1 id="division-home-title">Free Online Browser Games</h1><p>Discover action, racing, driving, puzzle, simulation and multiplayer games on Division. Browse and play games on the site for free.</p><p class="division-home-community">Played a game? Rate it or share your thoughts on its game page.</p></section>')
+
 .replace('<!-- FOR_YOU_CARDS -->',gameCards(forYou,'for-you-card'))
 .replace('<!-- POPULAR_CARDS -->',gameCards(popular,'popular-card'))
 .replace('<!-- NEW_CARDS -->',gameCards(newest,'new-release-card'))
