@@ -2780,3 +2780,26 @@ body[data-page="home"] #division-recent .division-extra-rail>a{
     max-width:calc((100% - 20px)/3)!important;
   }
 }
+
+
+/* Performance pass: avoid layout shifts and defer off-screen sections */
+.game-card,.popular-card{min-width:0;contain:layout paint}
+.game-card .game-thumb,.popular-card .game-thumb{
+  aspect-ratio:16/9;
+  object-fit:cover;
+  background:#eaf4f1;
+}
+.home-discovery>.game-rail-section,
+.home-discovery>.all-games-section,
+.home-discovery>.division-extra-section{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 360px;
+}
+.home-discovery #popular{contain-intrinsic-size:auto 900px}
+.game-rail,.division-extra-rail{
+  overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;
+}
+@media(prefers-reduced-motion:reduce){
+  .game-card,.popular-card,.game-card:hover,.popular-card:hover{transition:none!important;transform:none!important}
+}
