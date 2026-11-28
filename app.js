@@ -71,7 +71,8 @@ const homeContent=markup
 .replace('<!-- PLAY_TOGETHER_SECTION -->',togetherMarkup)
 .replace('<!-- CATEGORY_SECTIONS -->',categoryMarkup)
 .replace('<!-- EXPLORE_CARDS -->',gameCards(games,'explore-card'));
-const discoveryHeader='<section class="division-discovery-shortcuts" aria-label="Game discovery shortcuts">'+discoveryTiles+'</section>'+featuredMarkup;\nreturn shell('<div class="division-home-layout">'+sidebarMarkup+'<div class="division-home-main">'+discoveryHeader+homeContent+'</div></div>');
+const discoveryHeader='<section class="division-discovery-shortcuts" aria-label="Game discovery shortcuts">'+discoveryTiles+'</section>'+featuredMarkup;
+return shell('<div class="division-home-layout">'+sidebarMarkup+'<div class="division-home-main">'+discoveryHeader+homeContent+'</div></div>');
 }
 function auth(which){
 const template=document.getElementById('auth-template');
