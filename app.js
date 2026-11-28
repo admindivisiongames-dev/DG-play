@@ -30,7 +30,7 @@ function gameCards(list=games,variant=''){if(!list.length){if(gamesLoadState==='
 const localRecent=(()=>{try{const value=JSON.parse(localStorage.getItem('division_recent_games')||'[]');return Array.isArray(value)?value:[]}catch{return []}})();
 const recentIds=[...new Set([...localRecent,...historyIds])].slice(0,12);
 const recent=recentIds.map(id=>games.find(g=>String(g.id)===String(id))).filter(Boolean).slice(0,8);
-const recentMarkup=recent.length?gameCards(recent,'recent-card'):'<div class="recent-empty"><p>Play a game and it’ll show up here.</p></div>';
+const recentMarkup=recent.length?gameCards(recent,'recent-card'):'';
 const ranked=[...games].sort((a,b)=>Number(b.play_count||0)-Number(a.play_count||0));
 const forYou=ranked.slice(0,12);
 const hot=games.filter(g=>g.popular===true||g.is_hot===true);
@@ -44,6 +44,7 @@ const categoryMarkup=actualCategories.filter(cat=>!/multi|co.?op|together/i.test
 const template=document.getElementById('home-template');
 if(!template)return '<div class="page"><div class="panel"><h1>Division</h1><p>Homepage template is missing.</p></div></div>';
 let markup=template.innerHTML;
+if(!recent.length)markup=markup.replace(/<section class="game-rail-section recently-played-section"[\s\S]*?<\/section>/,'');
 const togetherMarkup=together.length?'<section class="game-rail-section play-together-section" id="play-together"><div class="section-head"><h2>Play Together</h2></div><div class="game-rail" id="playTogetherRail">'+gameCards(together,'category-card')+'</div></section>':'';
 return shell(markup
 
