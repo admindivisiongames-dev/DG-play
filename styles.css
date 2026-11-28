@@ -4548,3 +4548,219 @@ html[data-theme="dark"] body[data-page="home"] .home-discovery input::placeholde
 html[data-theme="dark"] body[data-page="home"] .home-discovery textarea::placeholder{
   color:#9eabc0!important;
 }
+
+
+/* Division theme repair — centralized dark surfaces and readable text */
+:root{
+  color-scheme:light;
+  --surface:#f7fffd;
+  --surface-2:#edf7f3;
+  --surface-3:#e4f1ed;
+  --ink:#101b49;
+  --ink-soft:#435d65;
+  --border:#d5e8e1;
+  --muted-ink:#617873;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0c1115;
+  --panel:#151e24;
+  --panel2:#1b2830;
+  --line:#2a3942;
+  --text:#f2f7f8;
+  --muted:#a8b7bd;
+  --surface:#151e24;
+  --surface-2:#1b2830;
+  --surface-3:#22313a;
+  --ink:#f2f7f8;
+  --ink-soft:#c0cdd1;
+  --border:#30414a;
+  --muted-ink:#a8b7bd;
+}
+:root[data-theme="dark"] body{background:#0c1115!important;color:#f2f7f8!important}
+:root[data-theme="dark"] .topbar,
+:root[data-theme="dark"] .panel,
+:root[data-theme="dark"] .game-info,
+:root[data-theme="dark"] .game-card,
+:root[data-theme="dark"] .profile-head,
+:root[data-theme="dark"] .profile-tabs,
+:root[data-theme="dark"] .profile-tab-panel,
+:root[data-theme="dark"] .profile-settings-card,
+:root[data-theme="dark"] .side-menu,
+:root[data-theme="dark"] .metric,
+:root[data-theme="dark"] .table-wrap,
+:root[data-theme="dark"] .game-player-card,
+:root[data-theme="dark"] .game-detail-bar,
+:root[data-theme="dark"] .game-about,
+:root[data-theme="dark"] .developer-card,
+:root[data-theme="dark"] .comments-panel,
+:root[data-theme="dark"] .comment-item,
+:root[data-theme="dark"] .comment-reply,
+:root[data-theme="dark"] .empty-state,
+:root[data-theme="dark"] .game-grid .empty-state,
+:root[data-theme="dark"] .division-notification-panel{
+  background:var(--surface)!important;color:var(--ink)!important;border-color:var(--border)!important;
+  box-shadow:0 8px 24px #0003!important;
+}
+:root[data-theme="dark"] .topbar{background:#141d23!important}
+:root[data-theme="dark"] .section-head h2,
+:root[data-theme="dark"] .game-rail-section .section-head h2,
+:root[data-theme="dark"] .all-games-section .section-head h2,
+:root[data-theme="dark"] .page-title,
+:root[data-theme="dark"] .game-info h3,
+:root[data-theme="dark"] .game-title-block h1,
+:root[data-theme="dark"] .game-about h2,
+:root[data-theme="dark"] .game-about h3,
+:root[data-theme="dark"] .developer-card h2,
+:root[data-theme="dark"] .comments-panel h2,
+:root[data-theme="dark"] .profile-display-name,
+:root[data-theme="dark"] .auth-box h2,
+:root[data-theme="dark"] .setting-row,
+:root[data-theme="dark"] .metric strong,
+:root[data-theme="dark"] .data-table th,
+:root[data-theme="dark"] .data-table td,
+:root[data-theme="dark"] .division-popular-heading h2,
+:root[data-theme="dark"] .division-popular-link,
+:root[data-theme="dark"] .category-game-head h2{
+  color:#f2f7f8!important;
+}
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] .muted,
+:root[data-theme="dark"] .section-head p,
+:root[data-theme="dark"] .game-rail-section .section-head p,
+:root[data-theme="dark"] .all-games-section .section-head p,
+:root[data-theme="dark"] .game-info small,
+:root[data-theme="dark"] .game-meta .muted,
+:root[data-theme="dark"] .game-title-block span,
+:root[data-theme="dark"] .game-about p,
+:root[data-theme="dark"] .developer-card p,
+:root[data-theme="dark"] .data-table small,
+:root[data-theme="dark"] .profile-setting-summary,
+:root[data-theme="dark"] .profile-setting-summary span,
+:root[data-theme="dark"] .side-menu a,
+:root[data-theme="dark"] .form-stack label{
+  color:#b8c7cc!important;
+}
+:root[data-theme="dark"] .field,
+:root[data-theme="dark"] .header-search,
+:root[data-theme="dark"] .header-search input,
+:root[data-theme="dark"] .game-editor-grid .field,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select{
+  background:#10181e!important;color:#f2f7f8!important;border-color:#344750!important;
+}
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder{color:#91a3aa!important}
+:root[data-theme="dark"] .btn,
+:root[data-theme="dark"] .chip,
+:root[data-theme="dark"] .rail-arrow,
+:root[data-theme="dark"] .see-all-category,
+:root[data-theme="dark"] .avatar-upload-btn{
+  background:#263740!important;color:#f2f7f8!important;border-color:#3b505a!important;
+}
+:root[data-theme="dark"] .btn.primary,
+:root[data-theme="dark"] .chip.active,
+:root[data-theme="dark"] .chip:hover,
+:root[data-theme="dark"] .side-menu a.active,
+:root[data-theme="dark"] .side-menu a:hover{background:#74ead5!important;color:#10221f!important}
+:root[data-theme="dark"] .game-grid .explore-card,
+:root[data-theme="dark"] .game-rail .game-card,
+:root[data-theme="dark"] .category-game-rail .category-card{
+  background:#17232a!important;border:1px solid #2c414a!important;
+}
+:root[data-theme="dark"] .game-card .game-name,
+:root[data-theme="dark"] .all-games-section #gameGrid .explore-card .game-name{color:#fff!important}
+:root[data-theme="dark"] .footer{border-color:#2b3b43!important;color:#9eafb5!important}
+:root[data-theme="dark"] .data-table th,
+:root[data-theme="dark"] .data-table td{border-color:#30414a!important}
+:root[data-theme="dark"] .comment-reply{border-left-color:#74ead5!important}
+:root[data-theme="dark"] .new-games-section,
+:root[data-theme="dark"] .feature-section,
+:root[data-theme="dark"] .popular-section,
+:root[data-theme="dark"] .new-section,
+:root[data-theme="dark"] #popular,
+:root[data-theme="dark"] #popular+.section-head{
+  background:#121c22!important;border-color:#2b3b43!important;color:#f2f7f8!important;
+}
+:root[data-theme="dark"] .feature-section .section-head h2,
+:root[data-theme="dark"] .popular-section .section-head h2,
+:root[data-theme="dark"] .new-section .section-head h2,
+:root[data-theme="dark"] #popular .section-head h2,
+:root[data-theme="dark"] #popular+.section-head h2{color:#f2f7f8!important}
+:root[data-theme="dark"] .division-popular-games{
+  background:linear-gradient(135deg,#111a24,#17212e 65%,#10242a)!important;
+  border-color:#344752!important;color:#f2f7f8!important;
+}
+:root[data-theme="dark"] .division-popular-link{background:#1b2932!important;border-color:#344752!important}
+:root[data-theme="dark"] .division-about{
+  background:linear-gradient(135deg,#121c22,#17232c)!important;
+  border-color:#344752!important;color:#f2f7f8!important;
+}
+:root[data-theme="dark"] .division-faq-card,
+:root[data-theme="dark"] .division-faq-card:hover{background:transparent!important;border-color:transparent!important}
+:root[data-theme="dark"] .division-faq-card h3{color:#f2f7f8!important}
+:root[data-theme="dark"] .division-faq-card p{color:#b8c7cc!important}
+:root[data-theme="dark"] .game-editor-modal,
+:root[data-theme="dark"] .category-overlay-panel{background:#151e24!important;color:#f2f7f8!important;border-color:#30414a!important}
+:root[data-theme="dark"] .game-editor-head h2,
+:root[data-theme="dark"] .game-editor-grid label{color:#f2f7f8!important}
+:root[data-theme="dark"] .game-editor-head p,
+:root[data-theme="dark"] .game-editor-grid small,
+:root[data-theme="dark"] .game-image-help{color:#b8c7cc!important}
+:root[data-theme="dark"] .game-image-preview-wrap{background:#1b2830!important;border-color:#3b505a!important}
+:root[data-theme="dark"] .game-image-preview{background:#10181e!important;color:#b8c7cc!important}
+:root[data-theme="dark"] .game-editor-close,
+:root[data-theme="dark"] .category-overlay-close{background:#263740!important;color:#fff!important;border-color:#3b505a!important}
+:root[data-theme="dark"] .public-profile-head{background:linear-gradient(135deg,#111b2b,#172d37)!important;border-color:#344752!important}
+:root[data-theme="dark"] .public-profile-fullname{color:#c0cdd1!important}
+:root[data-theme="dark"] .public-profile-meta span{background:#1b2830!important;border-color:#344752!important;color:#c0cdd1!important}
+:root[data-theme="dark"] .topbar .brand.brand-wordmark{color:#f2f7f8!important}
+:root[data-theme="dark"] .official-site-label{background:#1e3d3b!important;color:#9ff2dc!important}
+:root[data-theme="dark"] .panic-key{background:#512638!important;color:#ffd9e5!important}
+
+/* Restore readable, consistent card proportions in Trending rails and Explore */
+.home-discovery .game-rail .game-card{
+  flex:0 0 clamp(220px,22vw,285px)!important;
+  width:clamp(220px,22vw,285px)!important;
+  height:220px!important;min-height:220px!important;
+}
+.home-discovery .game-rail .game-card .game-thumb{aspect-ratio:auto!important}
+.all-games-section #gameGrid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  grid-auto-rows:auto!important;
+  grid-auto-flow:row!important;
+  align-items:stretch!important;
+  gap:18px!important;
+}
+.all-games-section #gameGrid .explore-card,
+.all-games-section #gameGrid .explore-card:nth-child(n),
+.all-games-section #gameGrid .explore-card.explore-hot-large,
+.all-games-section #gameGrid .explore-card.explore-played-large{
+  grid-column:auto!important;grid-row:auto!important;
+  display:flex!important;position:relative!important;flex-direction:column!important;
+  width:100%!important;height:auto!important;min-height:0!important;
+  padding:7px!important;border-radius:20px!important;
+  background:var(--surface)!important;border:1px solid var(--border)!important;
+  box-shadow:0 6px 20px #12251c12!important;overflow:hidden!important;
+}
+.all-games-section #gameGrid .explore-card .game-thumb{
+  position:relative!important;inset:auto!important;width:100%!important;height:auto!important;
+  aspect-ratio:4/3!important;object-fit:cover!important;border-radius:14px!important;
+}
+.all-games-section #gameGrid .explore-card .game-name{
+  position:relative!important;inset:auto!important;display:block!important;
+  min-height:48px!important;padding:11px 8px 7px!important;
+  color:var(--ink)!important;background:transparent!important;
+  font-size:14px!important;line-height:1.3!important;text-align:left!important;
+}
+@media(max-width:900px){
+  .all-games-section #gameGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important}
+  .home-discovery .game-rail .game-card{height:205px!important;min-height:205px!important}
+}
+@media(max-width:600px){
+  .all-games-section #gameGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .all-games-section #gameGrid .explore-card .game-name{font-size:13px!important;min-height:44px!important}
+  .home-discovery .game-rail .game-card{flex-basis:78%!important;width:78%!important;max-width:270px!important;height:190px!important;min-height:190px!important}
+}
