@@ -53,8 +53,13 @@ function addHomeFeatures() {
   home.dataset.extrasReady = '1';
 
   const stored = read(KEY, { plays: {}, unique: [], recent: [] });
-  const recent = (Array.isArray(stored.recent) ? stored.recent : [])
-    .map(id => cards.find(link => idOf(link) === id)).filter(Boolean).slice(0, 10);
+  const localRecent = read('division_recent_games', []);
+  const recentIds = [...new Set([
+    ...(Array.isArray(localRecent) ? localRecent : []),
+    ...(Array.isArray(stored.recent) ? stored.recent : [])
+  ])].slice(0, 12);
+  const recent = recentIds
+    .map(id => cards.find(link => idOf(link) === String(id))).filter(Boolean).slice(0, 8);
   const trending = [...cards].sort((a, b) =>
     (stored.plays?.[idOf(b)] || 0) - (stored.plays?.[idOf(a)] || 0)
   ).slice(0, 10);
@@ -63,15 +68,15 @@ function addHomeFeatures() {
   extraSections.className = 'division-extra-wrap';
   extraSections.innerHTML = rail('Trending on Division', 'division-trending', trending);
 
-  // Rebuild Recently Played as its own full-width homepage section.
-  const recentNode = document.createElement('section');
-  recentNode.className = 'division-recent game-rail-section';
-  recentNode.id = 'division-recent';
+  // Populate the single Recently Played section already in the homepage template.
+  const recentNode = home.querySelector('#recently-played') || document.createElement('section');
+  recentNode.className = 'game-rail-section recently-played-section';
+  recentNode.id = 'recently-played';
   recentNode.innerHTML =
-    '<div class="division-recent-heading"><div><h2>Recently Played</h2><p>Jump back into a game you played before.</p></div></div>' +
+    '<div class="section-head"><h2>Recently Played</h2></div>' +
     (recent.length
-      ? '<div class="division-recent-grid">' + recent.map(link => link.outerHTML).join('') + '</div>'
-      : '<div class="division-recent-empty"><span class="division-recent-empty-icon" aria-hidden="true"><i class="fa-solid fa-clock-rotate-left"></i></span><div><strong>Your recent games will show up here</strong><p>Play any game on Division and it will be saved in this section on this device.</p></div></div>');
+      ? '<div class="recently-played-grid">' + recent.map(link => link.outerHTML).join('') + '</div>'
+      : '<div class="recent-empty"><p>Play a game and it’ll show up here.</p></div>');
   const quickActions = home.querySelector('.division-quick-actions');
   const requestPanel = home.querySelector('.division-request-panel');
   if (requestPanel) requestPanel.insertAdjacentElement('afterend', recentNode);
