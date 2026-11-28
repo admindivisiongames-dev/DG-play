@@ -39,19 +39,6 @@ const newest=games.slice(0,12);
 const actualCategories=[...new Set(games.map(g=>String(g.category||'').trim()).filter(Boolean))];
 const preferred=['Adventure','Skill Games','Action','IO Games','Puzzle','Platform','Driving','Racing','Sports','Simulation','Shooting','Fighting'];
 actualCategories.sort((a,b)=>{const ai=preferred.findIndex(x=>x.toLowerCase()===a.toLowerCase()),bi=preferred.findIndex(x=>x.toLowerCase()===b.toLowerCase());return (ai<0?999:ai)-(bi<0?999:bi)||a.localeCompare(b)});
-const discoveryTileDefs=[
- {match:/puzz|skill|brain/,title:'Train your brain',icon:'fa-brain',tone:'blue'},
- {match:/action|shoot|fight|racing/,title:'Adrenaline rush',icon:'fa-bolt',tone:'pink'},
- {match:/multi|co.?op|together/,title:'With friends',icon:'fa-users',tone:'mint'},
- {match:/quick|casual|puzz|skill/,title:'5-minute fun',icon:'fa-stopwatch',tone:'yellow'}
-];
-const discoveryTiles=discoveryTileDefs.map((def,tileIndex)=>{
- const cat=actualCategories.find(name=>def.match.test(name));
- const idx=actualCategories.findIndex(name=>name===cat);
- const fallback=actualCategories[tileIndex%Math.max(1,actualCategories.length)]||'Explore games';
- const href=cat?'#categoryRail'+idx:'#popular';
- return '<a class="division-discovery-tile tile-'+def.tone+'" href="'+href+'"><span class="tile-icon"><i class="fa-solid '+def.icon+'" aria-hidden="true"></i></span><strong>'+def.title+'</strong><span class="tile-subtitle">'+esc(cat||fallback)+'</span></a>';
-}).slice(0,4).join('');
 const featuredGames=ranked.slice(0,5);
 const featuredMarkup=featuredGames.length?'<section class="division-featured-today"><div class="division-featured-heading"><h2>Top games today</h2><a href="#popular">Explore all <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div><div class="division-featured-mosaic">'+featuredGames.map((g,i)=>gameCards([g],'today-featured-card')).join('')+'</div></section>':'';
 const together=games.filter(g=>/multi|co.?op|together/i.test(String(g.category||''))||g.multiplayer===true||g.is_multiplayer===true).slice(0,12);
@@ -72,7 +59,7 @@ const homeContent=markup
 .replace('<!-- PLAY_TOGETHER_SECTION -->',togetherMarkup)
 .replace('<!-- CATEGORY_SECTIONS -->',categoryMarkup)
 .replace('<!-- EXPLORE_CARDS -->',gameCards(games,'explore-card'));
-const discoveryHeader='<section class="division-discovery-shortcuts" aria-label="Game discovery shortcuts">'+discoveryTiles+'</section>'+featuredMarkup;
+const discoveryHeader='<div class="division-banner-slot" aria-label="Division banner image"></div>'+featuredMarkup;
 return shell('<div class="division-home-layout">'+sidebarMarkup+'<div class="division-home-main">'+discoveryHeader+homeContent+'</div></div>');
 }
 function auth(which){
