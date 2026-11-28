@@ -4186,3 +4186,78 @@ body[data-page="home"] .home-discovery .section-head h2{font-size:25px}
 
 
 
+
+
+
+/* Division dark mode — persistent theme controlled by html[data-theme] */
+.division-theme-toggle{width:40px!important;height:40px!important;flex:0 0 40px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border:0!important;border-radius:50%!important;background:#e5f5f0!important;color:#101b49!important;padding:0!important;cursor:pointer!important}
+.division-theme-toggle svg{width:18px;height:18px;display:block;fill:currentColor}
+.division-theme-toggle:hover{transform:translateY(-1px);filter:brightness(.96)}
+html[data-theme="dark"]{color-scheme:dark;--bg:#121723;--panel:#1b2230;--panel2:#222b3a;--line:#303b4d;--text:#f3f5fb;--muted:#a8b3c5}
+html[data-theme="dark"] body{background:#121723!important;color:#f3f5fb!important}
+html[data-theme="dark"] #division-header{background:#171e2b!important;border-bottom-color:#2d3748!important;box-shadow:0 5px 18px #0003!important}
+html[data-theme="dark"] #division-header .topbar{background:#171e2b!important;color:#f3f5fb!important}
+html[data-theme="dark"] #division-header .brand{color:#f3f5fb!important}
+html[data-theme="dark"] #division-header .header-search{background:#222b3a!important;border-color:#354155!important;color:#b7c3d5!important}
+html[data-theme="dark"] #division-header .header-search input{color:#f3f5fb!important}
+html[data-theme="dark"] #division-header .header-search input::placeholder{color:#9aa8bc!important}
+html[data-theme="dark"] #division-header .division-theme-toggle{background:#303b4d!important;color:#ffe48a!important}
+html[data-theme="dark"] #division-header .btn.ghost{background:#273144!important;color:#f3f5fb!important}
+html[data-theme="dark"] #division-header .account-pill{background:#303b4d!important;color:#f3f5fb!important}
+html[data-theme="dark"] .division-sidebar{background:#171e2b!important;border-color:#2d3748!important;color:#eaf0fa!important}
+html[data-theme="dark"] .division-side-link{color:#c2ccdc!important}
+html[data-theme="dark"] .division-side-link:hover,html[data-theme="dark"] .division-side-link.is-active{background:#2a3548!important;color:#74ead5!important}
+html[data-theme="dark"] .division-sidebar-divider{background:#303b4d!important}
+html[data-theme="dark"] .home-discovery .section-head h2,html[data-theme="dark"] .all-games-section .section-head h2,html[data-theme="dark"] .game-rail-section .section-head h2{color:#f3f5fb!important}
+html[data-theme="dark"] .game-name{color:#f3f5fb!important}
+html[data-theme="dark"] .game-card .game-thumb{background:#263044!important}
+html[data-theme="dark"] .game-card .game-thumb.image-missing{background:#263044!important}
+html[data-theme="dark"] .popular-games-section{background:#51471c!important;border-color:#655824!important;color:#fff4b8!important}
+html[data-theme="dark"] .popular-games-section .section-head h2{color:#fff4b8!important}
+html[data-theme="dark"] .new-games-section{background:#302544!important;border-color:#47345f!important}
+html[data-theme="dark"] .new-games-section .section-head h2{color:#eadbff!important}
+html[data-theme="dark"] .play-together-section{background:#3a2432!important;border-color:#563447!important;border-radius:22px;padding:14px 18px}
+html[data-theme="dark"] .play-together-section .section-head h2{color:#ffd0e5!important}
+html[data-theme="dark"] .category-band{border-radius:22px;padding:14px 18px;margin:12px 0 22px;background:#24364a!important;color:#edf5ff!important}
+html[data-theme="dark"] .category-band:nth-of-type(2n){background:#283b34!important}
+html[data-theme="dark"] .category-band:nth-of-type(3n){background:#3a2d48!important}
+html[data-theme="dark"] .category-band:nth-of-type(4n){background:#49302f!important}
+html[data-theme="dark"] .category-band .section-head h2,html[data-theme="dark"] .category-band h2{color:#f3f5fb!important}
+html[data-theme="dark"] #popular{background:#39351b!important;color:#f5f0cf!important}
+html[data-theme="dark"] #popular .game-card{background:transparent!important}
+html[data-theme="dark"] .all-games-section{color:#f3f5fb!important}
+html[data-theme="dark"] .panel,html[data-theme="dark"] .settings-layout>.panel,html[data-theme="dark"] .side-menu{background:#1b2230!important;color:#f3f5fb!important;border-color:#303b4d!important;box-shadow:none!important}
+html[data-theme="dark"] .page-title,html[data-theme="dark"] .panel h1,html[data-theme="dark"] .panel h2,html[data-theme="dark"] .panel h3{color:#f3f5fb!important}
+html[data-theme="dark"] .muted,html[data-theme="dark"] .page p.muted{color:#a8b3c5!important}
+html[data-theme="dark"] .field,html[data-theme="dark"] input,html[data-theme="dark"] textarea,html[data-theme="dark"] select{background:#222b3a!important;color:#f3f5fb!important;border-color:#3a465a!important}
+html[data-theme="dark"] .field::placeholder,html[data-theme="dark"] input::placeholder,html[data-theme="dark"] textarea::placeholder{color:#94a3b8!important}
+html[data-theme="dark"] .btn:not(.primary):not(.lime){background:#2b3548!important;color:#f3f5fb!important;border-color:#3b465a!important}
+html[data-theme="dark"] .side-menu a{color:#c2ccdc!important}
+html[data-theme="dark"] .side-menu a.active,html[data-theme="dark"] .side-menu a:hover{background:#34445b!important;color:#74ead5!important}
+html[data-theme="dark"] .setting-row{border-color:#303b4d!important}
+html[data-theme="dark"] .profile-head,html[data-theme="dark"] .profile-tabs,html[data-theme="dark"] .profile-tab-panel,html[data-theme="dark"] .profile-settings-card{background:#1b2230!important;color:#f3f5fb!important}
+html[data-theme="dark"] .profile-tab-panel h2,html[data-theme="dark"] .profile-settings-card h2{color:#f3f5fb!important}
+html[data-theme="dark"] .profile-setting-summary{color:#f3f5fb!important;border-color:#303b4d!important}
+html[data-theme="dark"] .profile-setting-summary span{background:#222b3a!important;color:#c2ccdc!important}
+html[data-theme="dark"] .stat{background:#263246!important;color:#f3f5fb!important}
+html[data-theme="dark"] .stat:nth-child(2){background:#302744!important}
+html[data-theme="dark"] .stat:nth-child(3){background:#24394a!important}
+html[data-theme="dark"] .stat strong,html[data-theme="dark"] .stat span{color:#f3f5fb!important}
+html[data-theme="dark"] .data-table th,html[data-theme="dark"] .data-table td{color:#dce5f2!important;border-color:#303b4d!important}
+html[data-theme="dark"] .table-wrap,html[data-theme="dark"] .metric{background:#1b2230!important;color:#f3f5fb!important}
+html[data-theme="dark"] .game-player-card,html[data-theme="dark"] .game-detail-bar,html[data-theme="dark"] .game-about,html[data-theme="dark"] .developer-card,html[data-theme="dark"] .comments-panel{background:#1b2230!important;color:#f3f5fb!important}
+html[data-theme="dark"] .game-title-block h1,html[data-theme="dark"] .game-about h2,html[data-theme="dark"] .game-about h3,html[data-theme="dark"] .developer-card h2,html[data-theme="dark"] .comments-panel h2{color:#f3f5fb!important}
+html[data-theme="dark"] .game-about p{color:#c2ccdc!important}
+html[data-theme="dark"] .comment-item{background:#263246!important;color:#f3f5fb!important}
+html[data-theme="dark"] .comment-reply{background:#1b2230!important}
+html[data-theme="dark"] .footer{border-color:#303b4d!important;color:#93a1b5!important}
+html[data-theme="dark"] .empty-state,html[data-theme="dark"] .game-grid .empty-state{background:#1b2230!important;color:#f3f5fb!important;border-color:#3a465a!important}
+html[data-theme="dark"] .header-search-results,html[data-theme="dark"] .division-notification-panel,html[data-theme="dark"] .panic-setup-card{background:#1b2230!important;color:#f3f5fb!important;border-color:#303b4d!important}
+html[data-theme="dark"] .division-featured-today{background:#1b2230!important;color:#f3f5fb!important}
+html[data-theme="dark"] .division-featured-heading h2{color:#f3f5fb!important}
+html[data-theme="dark"] .division-discovery-tile{background:#202b3a!important;color:#f3f5fb!important}
+html[data-theme="dark"] .division-discovery-tile strong,html[data-theme="dark"] .division-discovery-tile span{color:#f3f5fb!important}
+html[data-theme="dark"] .rail-arrow{background:#263246!important;color:#f3f5fb!important;border-color:#3a465a!important}
+html[data-theme="dark"] .game-rail::-webkit-scrollbar-track{background:#202b3a!important}
+html[data-theme="dark"] .game-rail::-webkit-scrollbar-thumb{background:#46556d!important}
+@media(max-width:600px){html[data-theme="dark"] .category-band{padding:12px 13px;border-radius:18px}}
