@@ -4043,3 +4043,21 @@ body[data-page="home"] .recently-played-grid>.recent-card{
 @media (max-width:760px),(hover:none){
   body[data-page="home"] .division-scroll-arrow-controls{display:none!important}
 }
+
+
+/* Keep the desktop navigation sidebar fixed while the page scrolls */
+@media (min-width:901px){
+  body[data-page="home"] .division-sidebar{
+    position:fixed!important;
+    top:96px!important;
+    left:max(18px,calc((100vw - 1600px)/2 + 18px))!important;
+    width:224px!important;
+    height:calc(100vh - 112px)!important;
+    max-height:calc(100vh - 112px)!important;
+    min-height:0!important;
+    z-index:100!important;
+  }
+  body[data-page="home"].division-sidebar-collapsed .division-sidebar{
+    width:72px!important;
+  }
+}
