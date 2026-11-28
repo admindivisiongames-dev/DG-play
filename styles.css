@@ -3442,3 +3442,62 @@ body[data-page="home"] .recently-played-grid>.recent-card .game-thumb{display:bl
 body[data-page="home"] .recently-played-grid>.recent-card .game-name{display:block!important;position:static!important;inset:auto!important;flex:none!important;width:100%!important;max-height:none!important;min-height:0!important;opacity:1!important;transform:none!important;padding:11px 12px 13px!important;background:#fff!important;color:#101b49!important;font:700 14px/1.35 'Space Grotesk',sans-serif!important;text-align:left!important;white-space:normal!important;overflow-wrap:anywhere!important}
 body[data-page="home"] .recently-played-grid>.recent-card:hover{transform:translateY(-3px)!important;border-color:#74ead5!important;box-shadow:0 7px 0 #101b4910!important}
 @media(max-width:600px){body[data-page="home"] .recently-played-grid>.recent-card .game-name{padding:9px 10px 11px!important;font-size:13px!important}}
+
+
+/* Card UX polish: remove the thin outlines from every game tile */
+.game-card,
+a.game-card,
+.game-card.explore-card,
+.game-card.for-you-card,
+.game-card.recent-card,
+.game-card.new-game-card,
+.game-card.play-together-card,
+.division-recent-grid>a.game-card,
+.recently-played-grid>a.game-card{
+  border:0!important;
+  outline:0;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+/* Use the artwork itself as the visual anchor, not a framed tile. */
+.game-card .game-thumb{
+  border:0!important;
+  box-shadow:none!important;
+  background:#f1f7f5;
+}
+.game-card .game-name{
+  border:0!important;
+  color:#101b49;
+}
+/* Smooth, restrained interaction: no border flash on hover. */
+.game-card:hover,
+.game-card:focus-visible{
+  border:0!important;
+  box-shadow:none!important;
+}
+.game-card:hover .game-thumb{
+  transform:scale(1.025);
+}
+.game-card .game-thumb{
+  transition:transform .18s ease;
+}
+/* Keep keyboard navigation clearly visible without a card border. */
+.game-card:focus-visible{
+  outline:3px solid #74ead5!important;
+  outline-offset:3px!important;
+  border-radius:12px;
+}
+/* Recent cards should follow the same borderless visual language. */
+body[data-page="home"] .recently-played-grid>.recent-card{
+  border:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+body[data-page="home"] .recently-played-grid>.recent-card:hover{
+  border:0!important;
+  box-shadow:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .game-card .game-thumb{transition:none!important}
+  .game-card:hover .game-thumb{transform:none!important}
+}
