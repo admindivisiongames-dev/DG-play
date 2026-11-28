@@ -2834,3 +2834,11 @@ body[data-page="home"] #division-recent .division-extra-rail>a .game-name{
  body[data-page="home"] #division-recent .division-extra-rail>a .game-thumb{height:clamp(105px,31vw,135px)!important;min-height:105px!important}
  body[data-page="home"] #division-recent .division-extra-rail>a .game-name{font-size:11px!important;padding:8px 7px!important;min-height:38px!important;flex-basis:38px!important}
 }
+
+
+/* Homepage audit improvements: semantic navigation and clear page introduction. */
+.division-primary-nav{display:flex;align-items:center;gap:inherit}
+.division-home-intro{margin:0 0 22px;padding:18px 20px;background:#fff;border:1px solid #e7eceb;border-radius:16px;color:#111}
+.division-home-intro h1{margin:0 0 8px;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.2;font-weight:800;color:#111}
+.division-home-intro p{margin:0;max-width:760px;font-size:1rem;line-height:1.55;color:#4b5563}
+@media(max-width:640px){.division-home-intro{padding:15px 16px;margin-bottom:18px;border-radius:13px}.division-home-intro p{font-size:.94rem}}
