@@ -2842,3 +2842,5 @@ body[data-page="home"] #division-recent .division-extra-rail>a .game-name{
 .division-home-intro h1{margin:0 0 8px;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.2;font-weight:800;color:#111}
 .division-home-intro p{margin:0;max-width:760px;font-size:1rem;line-height:1.55;color:#4b5563}
 @media(max-width:640px){.division-home-intro{padding:15px 16px;margin-bottom:18px;border-radius:13px}.division-home-intro p{font-size:.94rem}}
+
+.division-home-intro .division-home-community{margin-top:8px;font-size:.9rem;color:#087e69;font-weight:600}
