@@ -4014,3 +4014,32 @@ body[data-page="home"] .recently-played-grid>.recent-card{
     max-width:44vw!important;
   }
 }
+
+
+/* Desktop hover arrows for horizontally scrollable game rails */
+@media (min-width:761px) and (hover:hover){
+  body[data-page="home"] .division-scroll-arrow-host{position:relative!important}
+  body[data-page="home"] .division-scroll-arrow-controls{
+    position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:space-between;
+    padding:0 9px;z-index:60;pointer-events:none;opacity:0;visibility:hidden;
+    transition:opacity .16s ease,visibility .16s ease;
+  }
+  body[data-page="home"] .division-scroll-arrow-controls[hidden]{display:none!important}
+  body[data-page="home"] .division-scroll-arrow-host:hover>.division-scroll-arrow-controls,
+  body[data-page="home"] .division-scroll-arrow-host:focus-within>.division-scroll-arrow-controls{
+    opacity:1;visibility:visible;
+  }
+  body[data-page="home"] .division-scroll-arrow{
+    display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;
+    border:1px solid #d7e9e3;border-radius:50%;background:#fff;color:#101b49;
+    box-shadow:0 5px 18px #101b4928;font-size:15px;cursor:pointer;pointer-events:auto;
+    transition:background .15s ease,color .15s ease,transform .15s ease,opacity .15s ease;
+  }
+  body[data-page="home"] .division-scroll-arrow:hover:not(:disabled){
+    background:#101b49;color:#fff;transform:scale(1.06);
+  }
+  body[data-page="home"] .division-scroll-arrow:disabled{opacity:.38;cursor:default}
+}
+@media (max-width:760px),(hover:none){
+  body[data-page="home"] .division-scroll-arrow-controls{display:none!important}
+}
