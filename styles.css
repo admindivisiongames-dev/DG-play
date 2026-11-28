@@ -2803,3 +2803,34 @@ body[data-page="home"] #division-recent .division-extra-rail>a{
 @media(prefers-reduced-motion:reduce){
   .game-card,.popular-card,.game-card:hover,.popular-card:hover{transition:none!important;transform:none!important}
 }
+
+
+/* Recently Played: keep three cards across, with larger artwork and readable titles */
+body[data-page="home"] #division-recent .division-extra-rail{
+  display:flex!important;flex-flow:row nowrap!important;align-items:stretch!important;gap:10px!important;
+  overflow-x:auto!important;overflow-y:hidden!important;max-height:none!important;height:auto!important;
+  padding:4px 3px 14px!important;scroll-snap-type:x proximity!important;
+  -webkit-overflow-scrolling:touch!important;overscroll-behavior-x:contain!important;
+}
+body[data-page="home"] #division-recent .division-extra-rail>a{
+  flex:0 0 calc((100% - 20px)/3)!important;width:calc((100% - 20px)/3)!important;
+  min-width:calc((100% - 20px)/3)!important;max-width:calc((100% - 20px)/3)!important;
+  height:auto!important;min-height:0!important;aspect-ratio:auto!important;
+  display:flex!important;flex-direction:column!important;overflow:hidden!important;
+  border-radius:15px!important;scroll-snap-align:start!important;
+}
+body[data-page="home"] #division-recent .division-extra-rail>a .game-thumb{
+  position:relative!important;inset:auto!important;display:block!important;flex:0 0 auto!important;
+  width:100%!important;height:clamp(105px,30vw,155px)!important;min-height:105px!important;
+  object-fit:cover!important;border-radius:0!important;
+}
+body[data-page="home"] #division-recent .division-extra-rail>a .game-name{
+  position:static!important;display:block!important;flex:1 0 40px!important;width:100%!important;
+  min-height:40px!important;padding:9px 8px!important;background:#fff!important;color:#101b49!important;
+  font-size:clamp(11px,1.2vw,14px)!important;line-height:1.25!important;font-weight:700!important;
+  white-space:normal!important;overflow:hidden!important;text-overflow:ellipsis!important;
+}
+@media(max-width:600px){
+ body[data-page="home"] #division-recent .division-extra-rail>a .game-thumb{height:clamp(105px,31vw,135px)!important;min-height:105px!important}
+ body[data-page="home"] #division-recent .division-extra-rail>a .game-name{font-size:11px!important;padding:8px 7px!important;min-height:38px!important;flex-basis:38px!important}
+}
