@@ -59,7 +59,7 @@ const homeContent=markup
 .replace('<!-- PLAY_TOGETHER_SECTION -->',togetherMarkup)
 .replace('<!-- CATEGORY_SECTIONS -->',categoryMarkup)
 .replace('<!-- EXPLORE_CARDS -->',gameCards(games,'explore-card'));
-const discoveryHeader='<div class="division-banner-slot"><img src="assets/images/division-banner.webp" alt="Division Games — Play, Create, Explore" loading="eager" fetchpriority="high"></div>'+featuredMarkup;
+const discoveryHeader=featuredMarkup;
 return shell('<div class="division-home-layout">'+sidebarMarkup+'<div class="division-home-main">'+discoveryHeader+homeContent+'</div></div>');
 }
 function auth(which){
