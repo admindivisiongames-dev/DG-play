@@ -3371,3 +3371,20 @@ body[data-page="home"] .home-discovery>.all-games-section{padding:22px!important
 @media(prefers-reduced-motion:reduce){
  body[data-page="home"] .division-recent-grid>a.game-card{transition:none!important}
 }
+
+/* Let the grid flow naturally around the optional game-request panel. */
+@media(min-width:901px){
+ body[data-page="home"] .home-discovery>.division-quick-actions,
+ body[data-page="home"] .home-discovery>.division-request-panel,
+ body[data-page="home"] .home-discovery>.division-recent,
+ body[data-page="home"] .home-discovery>.for-you-section,
+ body[data-page="home"] .home-discovery>.popular-games-section,
+ body[data-page="home"] .home-discovery>.new-games-section,
+ body[data-page="home"] .home-discovery>.play-together-section,
+ body[data-page="home"] .home-discovery>.division-extra-wrap,
+ body[data-page="home"] .home-discovery>.category-game-section,
+ body[data-page="home"] .home-discovery>.all-games-section,
+ body[data-page="home"] .home-discovery>.division-about{grid-row:auto!important}
+ body[data-page="home"] .home-discovery>.for-you-section{grid-column:1!important}
+ body[data-page="home"] .home-discovery>.popular-games-section{grid-column:2!important}
+}
