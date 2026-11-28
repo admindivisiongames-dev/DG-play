@@ -3983,3 +3983,34 @@ body[data-page="home"]{
   background-position:center top!important;
   background-attachment:scroll!important;
 }
+
+/* Recently Played: horizontal swipe/scroll rail */
+body[data-page="home"] .recently-played-grid{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  grid-template-columns:none!important;
+  gap:12px!important;
+  width:100%!important;
+  min-width:0!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  padding:0 0 8px!important;
+}
+body[data-page="home"] .recently-played-grid>.recent-card{
+  flex:0 0 220px!important;
+  width:220px!important;
+  max-width:220px!important;
+  scroll-snap-align:start;
+}
+@media(max-width:600px){
+  body[data-page="home"] .recently-played-grid{gap:10px!important}
+  body[data-page="home"] .recently-played-grid>.recent-card{
+    flex:0 0 44vw!important;
+    width:44vw!important;
+    max-width:44vw!important;
+  }
+}
