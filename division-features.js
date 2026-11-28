@@ -107,7 +107,9 @@ function addHomeFeatures() {
       if (node && !error) node.textContent = Number(xpRow?.xp || 0).toLocaleString();
     });
   }).catch(error => console.warn('Division XP sync unavailable:', error));
-  home.insertBefore(quick, home.firstChild);
+  const featuredIntro = home.querySelector('.division-featured-today') || home.querySelector('.division-discovery-shortcuts');
+  if (featuredIntro) featuredIntro.insertAdjacentElement('afterend', quick);
+  else home.insertBefore(quick, home.firstChild);
 
   const modal = document.createElement('section');
   modal.className = 'division-request-panel';
