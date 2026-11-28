@@ -27,6 +27,10 @@ function openPanicSetup(showIntro=false){const panel=createPanicPanel(showIntro?
 function openPanicQuickPanel(){if(!localStorage.getItem(PANIC_URL_KEY)){openPanicSetup(!localStorage.getItem(PANIC_INTRO_KEY));return}const panel=createPanicPanel('Panic Key', 'Your game is still running behind this panel. Open your saved website in a new tab, or close this panel to continue playing.');const area=panel.querySelector('#panicSetupFormArea'),actions=panel.querySelector('#panicIntroActions');area.hidden=false;actions.hidden=true;area.innerHTML='<div class="panic-quick-actions"><a class="btn primary" id="panicOpenSavedSite" href="'+esc(panicSavedUrl())+'" target="_blank" rel="noopener noreferrer">Open saved website ↗</a><button class="btn ghost" id="panicReturnGame" type="button">Return to game</button><button class="btn ghost" id="panicChangeSite" type="button">Change website</button></div>';panel.querySelector('#panicReturnGame').onclick=()=>panel.remove();panel.querySelector('#panicChangeSite').onclick=()=>openPanicSetup(false);positionPanicPanel(panel)}
 function maybeShowPanicIntro(){try{if(!localStorage.getItem(PANIC_INTRO_KEY)&&!localStorage.getItem(PANIC_URL_KEY))openPanicSetup(true)}catch{openPanicSetup(true)}}
 function gameCards(list=games,variant=''){if(!list.length){if(gamesLoadState==='loading')return '<div class="empty-state"><strong>Loading games…</strong><p>Getting the published games from Division.</p></div>';if(gamesLoadState==='error')return '<div class="empty-state"><strong>Games could not load</strong><p>Check your connection and try again.</p><button class="btn primary" type="button" id="retryGames">Retry</button></div>';return '<div class="empty-state"><strong>No games here yet</strong><p>Games will appear here when they are published.</p></div>';}const ranked=[...list].sort((a,b)=>Number(b.play_count||0)-Number(a.play_count||0));const mostPlayed=ranked.length&&Number(ranked[0].play_count||0)>0?String(ranked[0].id):'';return list.map(g=>{const big=(variant==='explore-card'||variant==='for-you-card')&&mostPlayed&&String(g.id)===mostPlayed;return '<a class="game-card '+esc(variant)+(big?' explore-most-played'+(variant==='for-you-card'?' for-you-most-played':''):'')+'" data-explore-id="'+esc(g.id)+'" href="game.html?game='+encodeURIComponent(g.id)+'" aria-label="Play '+esc(g.name)+'"><img class="game-thumb" src="'+esc(normalizeImageUrl(g.image_url)||'')+'" alt="'+esc(g.name)+'" width="320" height="180" loading="lazy" decoding="async" fetchpriority="low" onerror="this.classList.add(\'image-missing\');this.removeAttribute(\'src\')"><span class="game-name">'+esc(g.name)+'</span></a>'}).join('')}function home(){
+const localRecent=(()=>{try{const value=JSON.parse(localStorage.getItem('division_recent_games')||'[]');return Array.isArray(value)?value:[]}catch{return []}})();
+const recentIds=[...new Set([...localRecent,...historyIds])].slice(0,12);
+const recent=recentIds.map(id=>games.find(g=>String(g.id)===String(id))).filter(Boolean).slice(0,8);
+const recentMarkup=recent.length?gameCards(recent,'recent-card'):'<div class="recent-empty"><p>Play a game and it’ll show up here.</p></div>';
 const ranked=[...games].sort((a,b)=>Number(b.play_count||0)-Number(a.play_count||0));
 const forYou=ranked.slice(0,12);
 const hot=games.filter(g=>g.popular===true||g.is_hot===true);
@@ -43,6 +47,7 @@ let markup=template.innerHTML;
 const togetherMarkup=together.length?'<section class="game-rail-section play-together-section" id="play-together"><div class="section-head"><h2>Play Together</h2></div><div class="game-rail" id="playTogetherRail">'+gameCards(together,'category-card')+'</div></section>':'';
 return shell(markup
 
+.replace('<!-- RECENT_CARDS -->',recentMarkup)
 .replace('<!-- FOR_YOU_CARDS -->',gameCards(forYou,'for-you-card'))
 .replace('<!-- POPULAR_CARDS -->',gameCards(popular,'popular-card'))
 .replace('<!-- NEW_CARDS -->',gameCards(newest,'new-release-card'))
@@ -212,8 +217,10 @@ if(isAdmin){const adminResult=await sb.from('games').select('*').order('created_
 if(run!==stateLoadId)return;render()
 }
 async function recordGamePlay(){
-if(!sb||!currentUser||page!=='game')return;
-const id=new URLSearchParams(location.search).get('game');if(!id||!games.some(g=>g.id===id))return;
+if(page!=='game')return;
+const id=new URLSearchParams(location.search).get('game');if(!id||!games.some(g=>String(g.id)===String(id)))return;
+try{const saved=JSON.parse(localStorage.getItem('division_recent_games')||'[]');const list=Array.isArray(saved)?saved:[];localStorage.setItem('division_recent_games',JSON.stringify([id,...list.filter(x=>String(x)!==String(id))].slice(0,12)))}catch{}
+if(!sb||!currentUser)return;
 const key=currentUser.id+':'+id;if(recordedPlayKey===key||recordingPlayKey===key)return;
 recordingPlayKey=key;
 try{
