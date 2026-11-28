@@ -75,7 +75,7 @@ function addHomeFeatures() {
   recentNode.innerHTML =
     '<div class="section-head"><h2>Recently Played</h2></div>' +
     (recent.length
-      ? '<div class="recently-played-grid">' + recent.map(link => link.outerHTML).join('') + '</div>'
+      ? '<div class="recently-played-grid">' + recent.map(link => { const card = link.cloneNode(true); card.className = 'game-card recent-card'; card.removeAttribute('data-explore-id'); return card.outerHTML; }).join('') + '</div>'
       : '<div class="recent-empty"><p>Play a game and it’ll show up here.</p></div>');
   const quickActions = home.querySelector('.division-quick-actions');
   const requestPanel = home.querySelector('.division-request-panel');
