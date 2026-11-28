@@ -4263,3 +4263,54 @@ html[data-theme="dark"] .game-rail::-webkit-scrollbar-thumb{background:#46556d!i
 @media(max-width:600px){html[data-theme="dark"] .category-band{padding:12px 13px;border-radius:18px}}
 
 @media(max-width:600px){.division-theme-toggle{width:32px!important;height:32px!important;flex-basis:32px!important}.division-theme-toggle svg{width:15px;height:15px}}
+
+
+/* Soft roaming color lights behind Division */
+body{
+  position:relative;
+  isolation:isolate;
+}
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-18%;
+  z-index:-1;
+  pointer-events:none;
+  border-radius:50%;
+  filter:blur(58px);
+  opacity:.34;
+  will-change:transform;
+}
+body::before{
+  background:
+    radial-gradient(ellipse at 18% 28%,rgba(116,234,213,.72) 0%,transparent 31%),
+    radial-gradient(ellipse at 78% 24%,rgba(220,186,255,.62) 0%,transparent 29%),
+    radial-gradient(ellipse at 55% 82%,rgba(255,185,215,.5) 0%,transparent 32%);
+  animation:division-color-drift 28s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(ellipse at 72% 68%,rgba(255,228,76,.38) 0%,transparent 27%),
+    radial-gradient(ellipse at 26% 78%,rgba(116,234,213,.45) 0%,transparent 30%);
+  opacity:.25;
+  filter:blur(72px);
+  animation:division-color-drift-two 34s ease-in-out infinite alternate;
+}
+@keyframes division-color-drift{
+  0%{transform:translate3d(-3%,1%,0) scale(1)}
+  50%{transform:translate3d(4%,-3%,0) scale(1.08)}
+  100%{transform:translate3d(-1%,4%,0) scale(.98)}
+}
+@keyframes division-color-drift-two{
+  0%{transform:translate3d(3%,-2%,0) scale(1.02)}
+  50%{transform:translate3d(-4%,3%,0) scale(.96)}
+  100%{transform:translate3d(2%,1%,0) scale(1.1)}
+}
+@media(max-width:700px){
+  body::before,body::after{filter:blur(42px);opacity:.26}
+  body::after{filter:blur(52px);opacity:.18}
+}
+@media(prefers-reduced-motion:reduce){
+  body::before,body::after{animation:none!important}
+}
